@@ -14,8 +14,14 @@ Design modelled on a personal "TLDL" podcast pipeline; code written fresh.
 ## Settings
 
 Secrets: `ANTHROPIC_API_KEY`. Variables: `BASE_URL` (the Pages URL, no trailing slash) and, optionally,
-`LISTENER_NAME`, `CLAUDE_MODEL` (default `claude-opus-5-5`), `TARGET_MINUTES` (10), `TLDR_TOPICS` (`ai,infosec`).
+`LISTENER_NAME`, `CLAUDE_MODEL` (default `claude-opus-5-5`), `TARGET_MINUTES` (11 real minutes; hard stop `MAX_MINUTES` 15 in generate.py), `TLDR_TOPICS` (`ai,infosec`).
 Feeds are the `FEEDS` list at the top of `generate.py`.
+
+## Listener feedback
+
+`feedback/` holds the loop: `SESSION.md` (the interview procedure, which queues the next session),
+`LOG.md` (settled decisions, read first), one `<date>-session.md` per interview. `python tests/selfcheck.py`
+checks that the settled decisions are still in `generate.py`.
 
 ## Run by hand
 
