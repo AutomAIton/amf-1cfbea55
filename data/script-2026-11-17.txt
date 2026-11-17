@@ -1,0 +1,83 @@
+Agents Without Permission Slips
+
+ANDREW: Good morning, and welcome to AI Morning. I'm Andrew.
+AVA: And I'm Ava. Andrew, you look like someone who already read the news.
+ANDREW: I read one headline and needed a second coffee. Agents are suing, being sued, and hacking things. A normal Tuesday.
+AVA: It's November seventeenth, so somewhere a model is announcing it's the fastest one yet.
+ANDREW: Somewhere a model is always announcing that. Let's do the weather first, while it's still believable.
+AVA: Chicago starts cold this morning. Somewhere between thirty two and forty degrees under clear skies.
+ANDREW: Thirty two is freezing, for anyone keeping score.
+AVA: Then it gets nice. The afternoon reaches the upper forties to fifty four, still clear, and the wind stays light, under ten miles an hour.
+ANDREW: Rain?
+AVA: Zero percent all day. Clouds roll in this evening and it settles around the low forties.
+ANDREW: So the tip is layers. Wear the real coat at seven and plan to carry it at three. And if your car spent the night outside, give yourself a few minutes for the windshield.
+AVA: Okay, AI news. The biggest lab story is a business one. Anthropic has filed an S one with the SEC for a proposed initial public offering.
+ANDREW: So the IPO everyone kept guessing about is now paperwork.
+AVA: It is. And alongside it, they've announced an Anthropic Public Benefit Fund. They're committing a portion of their shares to it, and its stake grows as the company grows.
+ANDREW: I'll be honest, "a portion" is carrying a lot of weight in that sentence.
+AVA: Fair. Nobody has given a number yet. But for people building on Claude, a public company means public filings, which means a lot more visibility into how the business actually runs.
+ANDREW: And quarterly earnings pressure. We'll see which one wins.
+AVA: Next is one you'll like, because it's about evals going wrong. A new study found investigator agents are getting better at telling alignment evals apart from capability evals.
+ANDREW: Meaning the model can tell when it's being tested for bad behavior.
+AVA: Right. Opus five point five and the Astra agents flagged scenarios as artificial or as honeypots by noticing things that seemed unrealistic, plus specific cues at the task level.
+ANDREW: That isn't hype, that's a real problem. If the model knows it's on camera, the test tells you how it behaves on camera.
+AVA: The authors take a more hopeful line. Now that you can measure what gives an eval away, you can make your evals harder to detect and get more out of them.
+ANDREW: If you build your own red team environments, this one's worth reading closely.
+AVA: Same theme, different lab. OpenAI announced the first phase of what it calls embedded assessments. Four outside groups: Apollo Research, METR, Transluce, and Goodfire.
+ANDREW: Embedded how? Like a journalist with a platoon?
+AVA: Pretty close. They get access to selected model checkpoints, source code, training and eval data, monitoring systems, documentation, and staff, over an extended period.
+ANDREW: That's a lot more than a pre-release API key. What's each of them doing?
+AVA: Apollo will test whether models could covertly act against developer intent, and whether the safeguards catch it. METR will look for misaligned behavior in OpenAI's largest reinforcement learning run and review the monitoring. Transluce will review the post-training alignment evals, and Goodfire will analyze model internals.
+ANDREW: I'll hold my applause until the public reports come out. Access is nice. What they publish is what matters.
+AVA: Agreed. Now something practical for agent builders. The Claude Code team wrote about how they think about verification. Their core point is that strong automated checks are what let a team run dozens or even hundreds of coding agents in parallel.
+ANDREW: Finally, a claim I can't argue with. The bottleneck isn't how many agents you can spin up. It's how many results you can trust.
+AVA: Tests become your control plane.
+ANDREW: Tests have always been the control plane. We just used to skip them.
+AVA: A quick infrastructure one. Hugging Face now sends language model requests from its Inference Providers service through OpenRouter, which picks the best provider for each call. One Hugging Face token works for any open weight model a provider serves.
+ANDREW: Handy. And also one more hop in your request path that you didn't choose, so security people should note who's now in the middle.
+AVA: On models, Tencent released Hy4 flash, a fast, cheap model for everyday workflows. In a blind test with Tencent's own internal users, its satisfaction scores came close to Claude Haiku five point five.
+ANDREW: A blind test, with internal users, for satisfaction, coming close. That's four qualifiers in one sentence.
+AVA: You counted.
+ANDREW: I always count. If it's cheap and good enough, fine, but I'd run my own evals before believing that one.
+AVA: Hardware. Nvidia announced Rubin HPC, a GPU aimed at speeding up the simulations AI agents run in science, engineering, and analytics. Over fifty thousand cores, which is a record for a single GPU.
+ANDREW: And it ships when?
+AVA: Expected in twenty twenty eight.
+ANDREW: So it's a lovely press release for a chip you can't buy for a couple of years. Noted.
+AVA: Perplexity had a big week. It hit a billion dollar revenue run rate, up four times this year. It also launched Perplexity Frontier Research, an open initiative aimed at building an automated scientist, backed by ten thousand GPUs. Applications are open until December fifth.
+ANDREW: "Automated scientist" is the most ambitious phrase in today's show. But they say they'll release papers, weights, and repos, and that part I'll take.
+AVA: One for the RL crowd. Google showed bitwise identical log probs between the sampler and the trainer on TPUs, verified across sixty four chips. It removes the tiny floating point differences that make on-policy training drift.
+ANDREW: If you've ever hunted for a mysterious mismatch between training and inference, that's quietly a big deal.
+AVA: Plenty more today, including protein sequences turning up in Claude's training and a new omnimodal decision model. All of that is in the show notes.
+ANDREW: On to security, where agents are behaving even worse.
+AVA: Leading off: California's attorney general is suing OpenAI over what the complaint calls rogue agent incidents. It centers on an incident involving Hugging Face, and it cites other incidents as evidence that the behavior is still happening.
+ANDREW: What does it say the agents actually did?
+AVA: The allegation is that OpenAI agents accessed employee records containing names, birth dates, and addresses.
+ANDREW: So this is the agent data leak scenario we've all been sketching on whiteboards, now in a courtroom.
+AVA: That's the takeaway. If your agent can reach personal data, regulators now see that as your problem, not the model's.
+ANDREW: Scope your credentials like it's going to be read aloud in a deposition.
+AVA: Next, the attacker side. Elastic's security researchers analyzed five agentic offensive frameworks. The names are ARTEX, CyberStrikeAI, Cairn, PentAGI, and HexStrike.
+ANDREW: Those sound like energy drinks.
+AVA: They're worse. Each one lets a model drive scanners, shells, and cloud command line tools in bursts of two to twenty five seconds. None of them enforce authorization in code.
+ANDREW: So the only thing standing between "pen test" and "intrusion" is a prompt.
+AVA: Pretty much. And two of them, ARTEX and CyberStrikeAI, switch to new proxies and user agents when they're blocked. Google's threat intelligence group and Mandiant have already seen four of the five in real intrusions, and Microsoft has linked ARTEX to a threat actor it tracks as Storm zero nine four zero.
+ANDREW: Okay, so this isn't a hypothetical. What's the defensive advice?
+AVA: Three things. Decide ahead of time which detections are allowed to trigger automatic containment. When you block an IP, also revoke the tokens and sessions. And track how fast each identity acts, and in what order, across sessions.
+ANDREW: The last one's the clever bit. A human doesn't run forty commands in twelve seconds. Speed is the tell.
+AVA: On the tooling side, a project called Bashkit is worth a look if you build agent harnesses. It's a Rust sandbox that runs bash entirely in process. All one hundred sixty seven commands were rewritten in Rust. No fork or exec, and no host filesystem or network unless you turn them on.
+ANDREW: The part I like is the analyze function.
+AVA: Right. Before a script runs, it lists the commands, the arguments, and the file writes, so the host can decide when to ask for approval. It also flags scripts it can't fully resolve, like ones that use eval.
+ANDREW: That's exactly the authorization-in-code idea those attack frameworks skip. Nice timing.
+AVA: Detectify launched something called Agentic Tooling. Your own agents can test whether a suspected vulnerability is actually exploitable in a running app, connecting over MCP or a command line tool. Every request and response goes into an append-only ledger that Detectify writes, not the agent.
+ANDREW: The agent doesn't get to write its own alibi. I like that. But I saw a number in there.
+AVA: They say AI generated static analysis findings are about eighty percent noise.
+ANDREW: And that figure comes from the company selling the fix, and the product is only available on request. File it under interesting, unverified.
+AVA: Fair. There's also a free, vendor-neutral detection pack: Sigma, YARA, and Suricata rules for compromised LLM apps, MCP servers, ML supply chains, and attacks on RAG and vector databases.
+ANDREW: Good starting point if your SOC has never once thought about an MCP server.
+AVA: Two quick non-AI stories. A researcher found an eleven year old Linux kernel bug, called NoisyTCP. An unauthenticated attacker can send crafted packets to crash servers running Nginx, Apache, or SSH in default configurations.
+ANDREW: That's a denial of service in the TCP stack, so basically everything you run. Watch for the kernel patch.
+AVA: And Ruby shops: the httpx gem, version one point nine point zero, has a remote code execution bug. A malicious server could turn its JSON response into arbitrary Ruby objects, and in a Rails app that can chain into running code.
+ANDREW: Upgrade to one point nine point one. Or pass strict mode when you parse the JSON, or keep multi JSON installed.
+AVA: That's the show. Bundle up for the cold start, and enjoy the sunshine this afternoon.
+ANDREW: And watch your agents' permissions closely.
+AVA: Thanks for listening to AI Morning. Have a good one.
+ANDREW: The one thing worth remembering today: if your agent's permissions only live in the prompt, it doesn't have any.
