@@ -1,60 +1,70 @@
-Clear Skies and Agents Getting Jobs
+Astra, Sol and a Browser Datasette
 
-AVA: Thirty three degrees and not a cloud in sight. That's what's waiting outside your door this morning in Chicago, and honestly, I'll take it.
-ANDREW: Good morning, and happy Tuesday! It's Andrew here, with Ava, and we're glad you're starting your day with us.
-AVA: So here's the shape of it. Clear and crisp early, somewhere between thirty three and forty this morning. Then it warms up nicely, into the high forties and topping out around fifty three this afternoon.
-ANDREW: Fifty three in the middle of November? That's a gift.
-AVA: It really is. Zero chance of rain all day, and the wind stays gentle, eight miles an hour at most. Evening settles back to around forty.
-ANDREW: So what's the move?
-AVA: Layers. Wear the real coat on the way in, because it's barely above freezing. But have something lighter underneath, because by lunch you'll want to ditch it. And if you can sneak a walk in this afternoon, do it.
-ANDREW: Noted. Coat for the commute, walk at lunch. Alright, let's get into the news. It's a lighter day, and one of the usual newsletters didn't put out a new issue, so we've got a tight set of stories. The rest is in the show notes.
-AVA: I'll kick off the first theme. Call it agents getting real jobs. OpenAI announced an update to ChatGPT for Healthcare, and the headline is computer-use agents. Along with improved clinical answers and new healthcare plugins that work across healthcare software.
-ANDREW: Computer use in healthcare is a big step. That's an agent clicking around in the same systems clinicians use, not just answering questions in a chat box.
-AVA: Exactly. They pitch it as getting real work done across healthcare software. They also put out a companion piece on advancing computer-use agents for healthcare teams, though we didn't get much detail from that one.
-ANDREW: And that connects straight to the Revolut story. OpenAI published a customer story saying Revolut uses OpenAI models and Codex to cut coding time by thirty to sixty percent. They're also using them to scale financial crime investigations.
-AVA: Thirty to sixty percent is a wide range, but even the low end is meaningful.
-ANDREW: It is. And the framing is interesting. The title is about raising ambition without lowering the bar, and they talk about innovating without compromising security. So for a bank, the story they want to tell is speed with guardrails.
-AVA: Which is the whole game for anyone shipping agents into regulated places. Healthcare and banking are where you find out if your controls actually hold.
-ANDREW: Right. If you build these systems, the interesting questions are the boring ones. What can the agent touch, what gets logged, and who signs off.
-AVA: Love that. Boring is where the bugs live. Now, one more in this bucket, and it's a fun one. Cloudflare is calling itself a neolab.
-ANDREW: Wait, Cloudflare? The CDN folks?
-AVA: The very same. The write-up says Cloudflare made its name speeding up the web, and now it's building what they call System One models. Models that make decisions and pull data in milliseconds.
-ANDREW: Oh, that's a neat framing. System One as in fast, instinctive thinking, versus the slow, deliberate reasoning everybody's been chasing.
-AVA: That's how I read it too. And it makes sense for them. When you sit in front of a huge chunk of internet traffic, you need decisions in milliseconds, not a model that thinks for thirty seconds.
-ANDREW: So the theme ties together. Agents are moving into real workflows, and now you've got infrastructure companies building models tuned for speed at the edge. That's a different layer of the stack getting into the model business.
-AVA: More labs, more places your agents might end up calling. Keep an eye on that one.
-ANDREW: Okay, my turn to introduce theme two. Call it bring your own model, bring your own data. Simon Willison shipped a cluster of releases for Datasette over the weekend, and they hang together really nicely.
-AVA: Give me the headline.
-ANDREW: The big one for me is datasette-llm. That's the plugin that configures language models for other Datasette plugins. The new release supports OpenAI-compatible endpoints. So you can point it at a model hosted anywhere that speaks that protocol.
-AVA: Which means local models.
-ANDREW: Exactly. LM Studio, Ollama, llama.cpp. And a fun side note in there: llama.cpp just hit version one point oh.
-AVA: Oh, that's a milestone. That project has been the backbone of local inference for ages.
-ANDREW: It really has. Then there's datasette-agent, his agent plugin that lets you ask questions about your data. The new version puts an agent prompt right on the Datasette homepage, and you can hash-mention tables and queries.
-AVA: So you just tag the table you mean, like you'd tag a coworker. That's a nice bit of interface design.
-ANDREW: And then datasette-apps. These are sandboxed HTML and JavaScript apps that live inside Datasette. He describes them as like Claude Artifacts, except they can run SQL against your data.
-AVA: And the new thing there is linking, right?
-ANDREW: Right. You can link to an app with fragments in the URL, and the app can read and use them. Plus the supported URL schemes get reported back to the agent, so it can help write apps that link to each other. His example is one app that searches records and links out to a separate app showing details for a specific record.
-AVA: Here's how I'd connect it. This is a small-scale picture of where agent platforms are going. A local model, an agent that knows your tables, and little sandboxed apps that the agent helps build and wire together.
-ANDREW: Kind of a mini operating system for your data.
-AVA: Totally. And from a security angle, I like that the apps are sandboxed from the start. But my own two cents: anything coming in through a URL fragment is input. If an agent is writing apps that read those fragments, treat them as untrusted, same as any other input.
-ANDREW: Fair. Linking is great until somebody crafts the link.
-AVA: Exactly. Oh, and he also revived a chart plugin, datasette-vega, whose last release was back in twenty eighteen. Respect for dusting that one off.
-ANDREW: Seven years! That's a long nap. Alright, which brings us to security.
-AVA: And it's a quiet one. Our usual security newsletter didn't have a new issue, and we didn't get any security blog posts in the feed today. So no breach of the week, no big headline exploit.
-ANDREW: I'll take a quiet morning. But there is one story that fits here, and it's about how AI systems get checked from the outside.
-AVA: The embedded assessments.
-ANDREW: Yes. OpenAI says it's starting its first phase of embedded assessments with Apollo Research, METR, Transluce, and Goodfire. The goal is to independently evaluate model alignment, safeguards, and monitoring systems.
-AVA: That's a solid lineup. And the word embedded is what catches my eye. It suggests the evaluators are working closer to the systems, not just poking at a finished model from outside.
-ANDREW: That's the implication, though the summary doesn't go into how deep the access goes. So I wouldn't read too much into it yet.
-AVA: Fair. But the fact that monitoring systems are explicitly in scope matters to you, listener. When you secure agents, the model is only part of it. The monitoring around the model is often where things actually get caught.
-ANDREW: And it ties back to our healthcare and banking stories. If agents are clicking around in clinical software and helping with financial crime work, independent checks on safeguards stop being a nice-to-have.
-AVA: Right. Speed is the pitch, but trust is the product.
-ANDREW: Ooh, put that on a mug.
-AVA: That's it for today. Quick recap of the vibe. Agents are moving into serious workflows, local models just keep getting easier to plug in, and outside evaluators are getting a closer look at the safeguards.
-ANDREW: And outside, it's a gorgeous, dry, fifty three degree day. Coat this morning, sunshine this afternoon.
-AVA: Before we go, Andrew, I asked my agent to plan a perfect Chicago walk for this afternoon.
-ANDREW: And?
-AVA: It came back with a forty step plan and asked for permission to access my shoes.
-ANDREW: Least privilege, Ava. Laces only.
-AVA: Ha! Have a wonderful Tuesday, everybody. Thanks for spending your morning with us.
-ANDREW: Take care, enjoy the sun, and we'll see you tomorrow on AI Morning.
+ANDREW: Good morning, and welcome to AI Morning. Pour yourself something warm and settle in. It's a fairly quiet Tuesday, but there's one big model launch worth talking through.
+AVA: Morning! Quiet suits me fine. Let's start with what it's like outside in Chicago.
+ANDREW: Today's high is 12 degrees Celsius and the low is 0, with clear skies this morning and partly cloudy conditions overall. There's no chance of rain or snow. Winds stay light, topping out around 12 kilometres per hour.
+AVA: Okay, the headline today is OpenAI. They've announced GPT six point two, and it comes in two flavours, Astra and Sol.
+ANDREW: Two names again. So what are they actually claiming?
+AVA: Better professional outputs, better coding, better computer use, and better efficiency at lower cost. It's rolling out across ChatGPT Work, Codex and the API.
+ANDREW: Computer use is the part that jumps out at me. For anyone building agents, that's the capability that decides whether your agent can actually click through a real workflow or just talk about it.
+AVA: Right. And "lower cost" matters just as much if you're running long agent loops. Those token bills add up fast when a model is taking dozens of steps.
+ANDREW: Do we know how much cheaper, or how big the jump in coding is?
+AVA: Not from what we have this morning. The summary gives the direction but no numbers. So I'd treat it as something to benchmark against your own workloads before you swap anything in production.
+ANDREW: That's always the honest answer with a launch. Your evals, your tasks, your failure modes.
+AVA: Exactly. And with two variants, the obvious engineering question is routing. Which one handles the heavy reasoning, and which one handles the high volume stuff? We'll find out once people start running them.
+ANDREW: Speaking of Astra, there's a companion announcement. It's called Astra for Law.
+AVA: Oh, a vertical model.
+ANDREW: Yep. OpenAI says it ranked first in a launch evaluation covering 24 areas of law. And every ChatGPT Enterprise customer can now request access.
+AVA: Twenty four areas is pretty broad. But it's their own launch evaluation, so I'd want to see how it holds up outside the lab's own testing.
+ANDREW: Fair. Still, the pattern is interesting. A general model, then specialised versions for high stakes domains. Law is about as high stakes as it gets for confidentiality.
+AVA: Which is where my security brain wakes up. Legal documents are full of privileged information. Anyone wiring that into agents has to think hard about what data flows where.
+ANDREW: Okay, my turn for something a bit nerdier. Simon Willison has released a complete rewrite of Datasette Lite.
+AVA: The version of Datasette that runs in the browser?
+ANDREW: That's the one. It runs the Python application directly in the browser using WebAssembly and Pyodide. The new version uses service workers, and he says it's now almost indistinguishable from the real server side app.
+AVA: That's a really neat trick. A full server app pretending to be a server, entirely inside your browser tab.
+ANDREW: And it's controlled through carefully crafted URLs. You can load it to browse any SQLite database, JSON file, CSV file or SQL script.
+AVA: Wait, any CSV too? That's handy for quick data poking without spinning anything up.
+ANDREW: It gets better. You can pick a released version of Datasette to load from PyPI, or even load a specific commit, tag or branch from the GitHub repository.
+AVA: I love that. Why should agent builders care, though? Play devil's advocate for me.
+ANDREW: I think it's about the pattern. Running real Python tools client side, inside the browser's sandbox, is a really attractive shape for giving agents or users a data tool without standing up infrastructure.
+AVA: And from a security angle, pushing execution into the browser sandbox changes your threat model. Not necessarily solves it, but changes it. Worth thinking about.
+ANDREW: Agreed. It's the kind of project that quietly shifts what you think is possible.
+AVA: Back to OpenAI for one more that's very agent shaped. There's a customer story about a travel company, Holiday Extras, using things called dots.
+ANDREW: Dots?
+AVA: That's what they call them. The pitch is that dots get to work before anyone asks. They deliver launch reports unprompted, flag issues people might miss, and even talk through upcoming meetings with people on their commute.
+ANDREW: Unprompted is the key word there. That's the shift from chatbot to proactive agent.
+AVA: Totally. It's what a lot of us have been building toward. An agent that watches, notices and acts on its own schedule.
+ANDREW: And also exactly the thing that makes security folks a little nervous. If it's acting without being asked, it needs standing access to a lot of context.
+AVA: Ha, you're stealing my lines. But yes. Proactive agents mean broad permissions, and broad permissions mean you really want to know what it can touch.
+ANDREW: There's one more OpenAI post I found genuinely fun. It's about physics.
+AVA: Go on.
+ANDREW: It's called a step toward defining the Standard Model on a lattice. It explores a candidate nonperturbative lattice definition of the Standard Model, and describes how GPT six Astra helped turn the idea into a detailed proof.
+AVA: Okay, that's a long way from launch reports on your commute.
+ANDREW: Right? I'm not going to pretend I can evaluate the physics. But the claim is the model helped get from an idea to a detailed proof, and that's an interesting signal for AI as a research collaborator.
+AVA: It's the kind of thing I'd want physicists to dig into before getting too excited. But it's a cool direction.
+ANDREW: And one last quick one. OpenAI and the King's Trust in the UK have launched a one million pound partnership.
+AVA: What's it for?
+ANDREW: Helping up to 25,000 young people across the UK build practical AI skills for work.
+AVA: Nice. Not an engineering story, but it's good to see training aimed at people starting their careers.
+ANDREW: Those are the highlights. A few smaller items and the full links are in the show notes.
+AVA: Which brings us to AI security, and I'll be upfront. It's a very quiet morning here.
+ANDREW: How quiet?
+AVA: Our usual security newsletter had no new issue since the last episode, and nothing else came in on the security side. So no fresh prompt injection research or supply chain incidents to walk through today.
+ANDREW: Honestly, a calm day in security is a nice change.
+AVA: It is. But I'd still frame today's news through a security lens, because a lot of it touches the attack surface.
+ANDREW: Like the computer use improvements.
+AVA: Exactly. Every time a model gets better at operating a computer, the stakes of prompt injection go up. A model that can click, type and navigate can do more damage if it reads a malicious instruction on a web page.
+ANDREW: So if you're upgrading an agent to the new models for the computer use gains, it's worth rerunning your injection tests too.
+AVA: I'd say that's just good hygiene. New model, new behaviour, retest your guardrails.
+ANDREW: And the proactive agent story ties in. Agents that act unprompted are acting on inputs nobody is reviewing in the moment.
+AVA: Right. If a dot reads an email or a document and decides to do something, that input is untrusted text driving an action. That's the classic injection setup.
+ANDREW: And Astra for Law adds the data leak angle. Sensitive documents, enterprise access, and lawyers who really don't want anything leaving the building.
+AVA: To be clear, none of the announcements describe any security problem. We're not saying anything went wrong. It's just where I'd point my attention if I were deploying these.
+ANDREW: Good distinction. And the browser Datasette work is a nice reminder that sandboxing choices matter. Where code runs shapes what an attacker can reach.
+AVA: Even loading a specific commit or branch straight from a repo by URL is something I'd think about. Convenient, but you're trusting whatever's at that reference.
+ANDREW: Ooh, little supply chain thought. I like it.
+AVA: Can't help myself. It's a quiet day, so I go looking for trouble.
+ANDREW: And that's the show for this Tuesday. One big model launch, a clever browser trick, proactive agents and a bit of physics.
+AVA: Plus a gentle reminder to retest your guardrails when you upgrade.
+ANDREW: Enjoy the clear skies out there, and have a great day building.
+AVA: Thanks for listening. See you tomorrow on AI Morning.

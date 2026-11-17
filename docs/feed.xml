@@ -3,7 +3,7 @@
   <channel>
     <title>AI Morning</title>
     <link>https://automaiton.github.io/amf-1cfbea55/</link>
-    <description>A private daily briefing on AI: models and labs, AI engineering and agents, and AI security, plus the Chicago weather. Two hosts, about ten minutes.</description>
+    <description>A private daily briefing on AI: models and labs, AI engineering and agents, and AI security, plus the Chicago weather. Two hosts, ten to twelve minutes.</description>
     <language>en-us</language>
     <atom:link href="https://automaiton.github.io/amf-1cfbea55/feed.xml" rel="self" type="application/rss+xml" />
     <itunes:author>AI Morning</itunes:author>
@@ -12,13 +12,13 @@
     <itunes:block>Yes</itunes:block>
     <itunes:category>Technology</itunes:category>
     <item>
-      <title>2026-11-17: Clear Skies and Agents Getting Jobs</title>
-      <description>Thirty three degrees and not a cloud in sight. That's what's waiting outside your door this morning in Chicago, and honestly, I'll take it. Good morning, and happy Tuesday! It's Andrew here, with Ava, and we're glad you're starting your day with us. So here's the shape of it. Clear and crisp early,...</description>
-      <content:encoded>&lt;p&gt;&lt;b&gt;Chicago:&lt;/b&gt; high 53F, low 33F, overcast.&lt;/p&gt;&lt;h3&gt;AI engineering&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/15/datasette-apps/"&gt;datasette-apps 0.4a0&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/15/datasette-agent/"&gt;datasette-agent 0.6a0&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/14/datasette-llm/"&gt;datasette-llm 0.1a11&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/14/datasette-vega/"&gt;datasette-vega 0.7&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/business/customer-stories/revolut"&gt;How Revolut raises ambition without lowering the bar&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/lvmh-media-division-partnership"&gt;LVMH’s Media Division announces strategic partnership with OpenAI&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/our-first-phase-of-embedded-assessments"&gt;Our first phase of embedded assessments&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare"&gt;More ways to move care forward with ChatGPT for Healthcare&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/advancing-computer-use-for-healthcare-teams"&gt;Advancing computer-use agents for healthcare teams&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://latent.space/p/cloudflare/"&gt;Cloudflare Joins the Jevolution and Labels Itself a Neolab&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content:encoded>
-      <pubDate>Tue, 17 Nov 2026 10:05:19 -0600</pubDate>
+      <title>2026-11-17: Astra, Sol and a Browser Datasette</title>
+      <description>Good morning, and welcome to AI Morning. Pour yourself something warm and settle in. It's a fairly quiet Tuesday, but there's one big model launch worth talking through. Morning! Quiet suits me fine. Let's start with what it's like outside in Chicago. Today's high is 12 degrees Celsius and the low...</description>
+      <content:encoded>&lt;p&gt;&lt;b&gt;Chicago:&lt;/b&gt; high 12°C, low 0°C, partly cloudy.&lt;/p&gt;&lt;h3&gt;AI engineering&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/17/datasette-lite/"&gt;Running the full server-side Datasette Python app in the browser with service workers and Pyodide&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/introducing-gpt-6-2-astra-sol"&gt;Introducing GPT-6.2 Astra and Sol&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/astra-law-6-2"&gt;Astra for Law leads in legal intelligence&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/the-kings-trust-and-openai"&gt;The King’s Trust and OpenAI launch £1m partnership&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/business/customer-stories/holiday-extras-dots"&gt;At Holiday Extras, dots get to work before anyone asks&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/step-toward-defining-the-standard-model"&gt;A step toward defining the Standard Model on a lattice&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content:encoded>
+      <pubDate>Tue, 17 Nov 2026 14:29:20 -0600</pubDate>
       <guid isPermaLink="false">ai-morning-2026-11-17</guid>
-      <enclosure url="https://automaiton.github.io/amf-1cfbea55/episodes/2026-11-17.mp3" length="3083424" type="audio/mpeg" />
-      <itunes:duration>505</itunes:duration>
+      <enclosure url="https://automaiton.github.io/amf-1cfbea55/episodes/2026-11-17.mp3" length="3129120" type="audio/mpeg" />
+      <itunes:duration>521</itunes:duration>
       <itunes:explicit>false</itunes:explicit>
     </item>
   </channel>
