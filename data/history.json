@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-18",
+   "title": "Cheaper Frontiers and Poisoned Model Files",
+   "summary": "Good morning, and welcome to AI Morning. Ava, I've been up since five and I'm told it's Wednesday. It's Wednesday. Midweek. The day the inbox stops pretending it's going to get smaller. Very motivational. And a warm hello to you, listening in Chicago. We've got model launches, agents everywhere,...",
+   "notes_html": "<p><b>Chicago:</b> high 15\u00b0C, low 3\u00b0C, overcast.</p><h3>TLDR ai (2026-11-18)</h3><ul><li><a href=\"https://openai.com/index/introducing-gpt-6-2-astra-sol/\">Introducing GPT-6.2 Astra and Sol</a></li><li><a href=\"https://microsoft.ai/news/microsoft-ignite-2026/\">Microsoft's Seven New Models</a></li><li><a href=\"https://replit.com/blog/introducing-replit-missions\">Introducing Replit Missions</a></li><li><a href=\"https://horizon-labs.ai/\">Horizon Labs</a></li><li><a href=\"https://notesbylex.com/weight-space-programming-1990s.html\">Weight-Space Programming builds neural networks like a 1990s researcher</a></li><li><a href=\"https://vercel.com/blog/eve-is-now-generally-available\">Vercel's eve 1.0</a></li><li><a href=\"https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/\">Co-Designing Sparse Attention for Efficient Long-Context Inference</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://runta.com/blog/introducing-frontierharness-eval-v1-1/\">FrontierHarness Eval v1.1</a></li><li><a href=\"https://www.cerebras.ai/blog/cerebras-launches-disaggregated-inference\">Cerebras launches disaggregated inference</a></li><li><a href=\"https://blog.redwoodresearch.org/p/how-should-we-define-capabilities\">How should we define \u201ccapabilities activities\u201d for the purpose of pacing?</a></li><li><a href=\"https://commandline.microsoft.com/microsoft-decision-model-ga/\">Microsoft-Decision-1.1 is now generally available for fast, low-cost decision making</a></li><li><a href=\"https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/\">Gemini Can Now Make Calls and Pay Bills</a></li><li><a href=\"https://www.perplexity.ai/hub/blog/introducing-computer-multiagent\">Introducing Computer's Multiagent effort level</a></li><li><a href=\"https://jacobstrauss.bearblog.dev/experiments-in-weight-space-programming/\">Experiments in Weight-Space Programming</a></li></ul><h3>TLDR infosec (2026-11-18)</h3><ul><li><a href=\"https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/\">Cyber Giant Infoblox Confirms Security Incident After Hackers Access \u2018company information'</a></li><li><a href=\"https://www.stepsecurity.io/blog/wppconnect-compromised-malicious-releases-steal-secrets-and-whatsapp-sessions\">WPPConnect Compromised: Malicious Releases Steal Secrets and WhatsApp Sessions Through the Project's Own Pipeline</a></li><li><a href=\"https://calif.io/java4shell/\">Java4Shell</a></li><li><a href=\"https://phrack.org/issues/73/backdoor-attacks-against-machine-learning-irl\">Backdoor Attacks Against Machine Learning IRL</a></li><li><a href=\"https://www.reversinglabs.com/blog/threat-researchers-notebook-bubbleloader\">Threat Researcher's Notebook: BubbleLoader</a></li><li><a href=\"https://amibeingpwned.com/blog/how-we-hacked-brazil\">Sign2Shell: How We Hacked Every Major Brazilian Signature Extension</a></li><li><a href=\"https://github.com/tkhq/tk\">tk</a></li><li><a href=\"https://pretxt.ai/\">PreTxt (Product Launch)</a></li><li><a href=\"https://github.com/Balanov/mcp-attest\">mcp-attest</a></li><li><a href=\"https://www.securityweek.com/access-dental-management-data-breach-impacts-over-340000/\">Access Dental Management Data Breach Impacts Over 340,000</a></li><li><a href=\"https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html\">New GitDoor and GraphDoor Backdoors Turn GitHub and SharePoint Into Covert C2 Channels</a></li><li><a href=\"https://www.attackiq.com/2026/11/17/weighing-cyber-power/\">Weighing Cyber Power: Investigating Iran's State-Sponsored Cyber Capability</a></li><li><a href=\"https://www.theregister.com/security/2026/11/17/japans-fugaku-supercomputer-has-decidedly-un-super-security/5310333\">Japan's Fugaku Supercomputer Has Decidedly Un-Super Security</a></li><li><a href=\"https://therecord.media/nsa-net-disruptions\">NSA Net Classified Network Disrupted</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/18/daniel-stenberg/\">Quoting Daniel Stenberg</a></li><li><a href=\"https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/\">The PSF end-of-year fundraiser</a></li><li><a href=\"https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/\">External sandboxes for coding agents</a></li><li><a href=\"https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/\">GPT\u20116.2 Astra and GPT\u20116.2 Sol</a></li><li><a href=\"https://openai.com/index/inside-the-codex-sandbox\">Inside the Codex sandbox</a></li><li><a href=\"https://openai.com/index/the-silent-consensus\">The Silent Consensus</a></li><li><a href=\"https://openai.com/index/advancing-chip-design-with-our-models\">Advancing chip design with OpenAI models</a></li><li><a href=\"https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership\">Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT</a></li><li><a href=\"https://openai.com/index/introducing-chatgpt-for-sales\">Introducing ChatGPT for Sales</a></li><li><a href=\"https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/\">[AINews] GPT-6.2 Astra, the #2 Frontier Model is better and 20%-600% cheaper, but has mixed reviews; 6.2 Sol likely main workhorse</a></li></ul>",
+   "file": "episodes/2026-11-18.mp3",
+   "bytes": 5083056,
+   "seconds": 841,
+   "published": "2026-11-18T12:51:44.586749-06:00",
+   "engine": "edge-tts (3 turns via gtts)",
+   "opening": "Good morning, and welcome to AI Morning. Ava, I've been up since five and I'm told it's Wednesday.",
+   "closing": "We'll be back tomorrow. Have a good Wednesday.",
+   "picks": {
+    "opening": "Open with a quick, friendly back-and-forth between the hosts before the weather.",
+    "tone": "dry and witty",
+    "dynamic": "Group the stories into two or three themes; one host introduces each theme, the other connects it.",
+    "signoff": "End with one practical thing to try or watch for this week."
+   }
+  },
+  {
    "date": "2026-11-17",
    "title": "Astra, Sol and a Browser Datasette",
    "summary": "Good morning, and welcome to AI Morning. Pour yourself something warm and settle in. It's a fairly quiet Tuesday, but there's one big model launch worth talking through. Morning! Quiet suits me fine. Let's start with what it's like outside in Chicago. Today's high is 12 degrees Celsius and the low...",
@@ -21,20 +40,25 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-17",
-  "infosec": "2026-11-17"
+  "ai": "2026-11-18",
+  "infosec": "2026-11-18"
  },
  "seen_urls": [
+  "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
   "https://openai.com/business/customer-stories/revolut",
+  "https://openai.com/index/advancing-chip-design-with-our-models",
   "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
   "https://openai.com/index/astra-law-6-2",
   "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+  "https://openai.com/index/inside-the-codex-sandbox",
+  "https://openai.com/index/introducing-chatgpt-for-sales",
   "https://openai.com/index/introducing-gpt-6-2-astra-sol",
   "https://openai.com/index/introducing-openai-for-chile",
+  "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
   "https://openai.com/index/lvmh-media-division-partnership",
   "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
   "https://openai.com/index/our-first-phase-of-embedded-assessments",
@@ -43,6 +67,7 @@
   "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
   "https://openai.com/index/strengthening-online-child-safety",
   "https://openai.com/index/the-kings-trust-and-openai",
+  "https://openai.com/index/the-silent-consensus",
   "https://simonwillison.net/2026/Nov/14/datasette-llm/",
   "https://simonwillison.net/2026/Nov/14/datasette-vega/",
   "https://simonwillison.net/2026/Nov/15/datasette-2/",
@@ -52,7 +77,11 @@
   "https://simonwillison.net/2026/Nov/15/datasette/",
   "https://simonwillison.net/2026/Nov/16/llm/",
   "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+  "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/",
   "https://simonwillison.net/2026/Nov/17/go-proverbs/",
+  "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
+  "https://simonwillison.net/2026/Nov/18/daniel-stenberg/",
+  "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",

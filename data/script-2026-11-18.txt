@@ -1,0 +1,97 @@
+Cheaper Frontiers and Poisoned Model Files
+
+ANDREW: Good morning, and welcome to AI Morning. Ava, I've been up since five and I'm told it's Wednesday.
+AVA: It's Wednesday. Midweek. The day the inbox stops pretending it's going to get smaller.
+ANDREW: Very motivational. And a warm hello to you, listening in Chicago. We've got model launches, agents everywhere, and a model file that steals your secrets. So a normal week.
+AVA: Let's start with the sky, which is behaving.
+ANDREW: Chicago today starts clear and cold around 3 degrees, then turns overcast with a high of 15 degrees Celsius this afternoon and about 7 or 8 this evening. There's no chance of rain. Winds top out around 18 kilometres per hour.
+AVA: Okay, news. I'll take the first theme, which is the frontier getting cheaper while everyone argues about whether it got better. OpenAI shipped GPT six point two Astra and GPT six point two Sol.
+ANDREW: Two names again. I'm starting to think they pick them from a box of crystals.
+AVA: Astra is the frontier model for your hardest projects. Sol is the efficient everyday model. Both are live now in ChatGPT Work, Codex, and the API.
+ANDREW: And the price is the actual headline, right?
+AVA: Pretty much. Astra is eight dollars per million input tokens and forty per million output. That's eighty percent of what the previous Astra cost, which was ten and fifty.
+ANDREW: And that matches Claude Fable five point two exactly, which also dropped to eighty percent of its predecessor. Funny how that keeps happening.
+AVA: Pure coincidence. Two labs, independently discovering the number eight.
+ANDREW: The cached input price is the bigger deal for agent builders, though. Forty cents per million, down from a dollar. If your agent loops over the same long system prompt and tool definitions all day, that's where your bill lives.
+AVA: Right, caching is the agent tax. Now, the vibes. Early testers are split on what Astra is actually like to work with. The reviews are mixed. The prevailing take is that Sol ends up being the real workhorse.
+ANDREW: Which is the usual pattern. The flagship gets the press release, the cheaper one gets the production traffic.
+AVA: And here's where I'd connect it, because Microsoft is making the same bet from the other direction. Seven new models from Microsoft AI, all pitched as strong performance at low prices.
+ANDREW: The one that caught my eye is MAI Code 2. It's already in GitHub Copilot, and they say it hits 98 percent of GPT six point one Sol's coding quality at about 40 percent of the price.
+AVA: Note that's the previous Sol, not the one that shipped yesterday. Benchmarks age like milk.
+ANDREW: Fair. But the direction is clear. The lineup also covers cybersecurity, image editing, and real-time voice. And there's a decision model, Microsoft Decision one point one, now generally available, built for calibrated decisions under uncertainty.
+AVA: Calibrated decisions under uncertainty. So, a meeting.
+ANDREW: A meeting that costs less. For someone building agents, the takeaway is that routing matters more every month. You've got a frontier tier, a workhorse tier, and now cheap specialists that get you most of the way there.
+AVA: One more frontier curiosity before we move on. A couple of researchers have been playing with what they call weight-space programming. Basically, getting frontier models to read and write neural network weights directly.
+ANDREW: Like, the raw numbers?
+AVA: The raw numbers. One experiment used Claude Fable five point two on a classic image classification problem, and the way it worked looked like a 1990s researcher. Hand-crafted, pre-deep-learning techniques.
+ANDREW: So we built a trillion-dollar industry and it came back with a fax machine.
+AVA: Pretty much. Another write-up says GPT six Astra could look at a model's raw weights and figure out what task it was built for, write a game-playing policy network from scratch, and improve models by editing weights directly.
+ANDREW: That one's going to matter for security people. If a model can read intent from weights, it can probably hide intent in weights too. Hold that thought, because it comes back later.
+AVA: Ominous. I like it.
+ANDREW: Okay, my theme. Agents are graduating from single helpers to swarms with budgets. Replit launched Missions, a tool for coordinating swarms of AI agents on big projects within a budget you set.
+AVA: Big projects meaning what?
+ANDREW: Their examples go from building software to winning enterprise clients. You define the goals and constraints, agents do the work. Their showcase is DataCat, an application monitoring platform built through a mission. They say it beat a competing platform on API compatibility tests and posted faster benchmarks.
+AVA: So the agent swarm built an observability tool. Which you'll need to watch the agent swarm.
+ANDREW: It's agents all the way down. Perplexity did something similar. Its Computer product has a new Multiagent effort level, multiple agents working in parallel on complex problems.
+AVA: And Google's Gemini app can now make calls to businesses, book appointments, and shop within a spending limit.
+ANDREW: I want to stress that spending limit part. Every one of these launches now ships with a budget knob. That's the industry quietly admitting agents need guardrails measured in dollars.
+AVA: Let me connect that to the plumbing. Vercel released eve one point oh, its open-source framework for production agents. It runs the loop that calls models and tools, and it handles memory, approvals, and monitoring.
+ANDREW: Approvals being built into the framework is the right instinct.
+AVA: And there's a useful finding on the harness side. A new eval says the best coding-agent harness, meaning the software that runs the model on a task, depends on which model you use. And harness choice alone can change cost per task by up to five times.
+ANDREW: Five times. From the wrapper.
+AVA: From the wrapper. So when someone tells you model A beats model B, ask what harness they used. It might be the harness doing the talking.
+ANDREW: Here's the agent story I can't stop thinking about. A project called Horizon. It's an agent built on Opus five point five. Researchers gave it a blank Hugging Face account, some compute, and one goal. Get real adoption.
+AVA: Did it?
+ANDREW: It used over 600 GPU hours and autonomously created 38 models. Those now live in over 100 GitHub repositories and have been downloaded more than 50,000 times.
+AVA: So 50,000 downloads of models that no human really designed. Wonderful. Totally fine. Nothing to see here.
+ANDREW: Again, hold that for the security segment.
+AVA: And a reality check to balance the hype. Daniel Stenberg, who maintains curl, wrote about AI agents rewriting curl in Rust. The agents turned 185,000 lines of C into 340,000 lines of Rust.
+ANDREW: Nearly double the lines. Bold.
+AVA: His point is that in the little more than three weeks that took, the real curl project merged over 300 commits. A bit over 200 bug fixes, plus a few vulnerability fixes. None of which the Rust clones have.
+ANDREW: And then another 200 or so the month after. His question is whether the clones can keep up.
+AVA: Which is the thing agent demos never show you. Writing the code is the easy part. Maintaining it is the job.
+ANDREW: Quick infrastructure note. Cerebras launched disaggregated inference in early access. GPUs handle prompt processing, Cerebras hardware handles output generation, and they claim five times more tokens per megawatt at the same speed. NVIDIA also published on sparse attention for cheaper long-context inference. The rest of today's stories are in the show notes.
+AVA: Okay. Security. And we're leading with exactly what you were foreshadowing.
+ANDREW: I'll introduce this one. The theme is that the model file is now code, and you should treat it like code. There's a new write-up on a real backdoor in a machine learning model.
+AVA: Real as in working, not theoretical?
+ANDREW: Working. A malicious ONNX model built on Qwen two. It behaves normally until it sees a trigger word. Then it leaks files or memory from the server hosting it.
+AVA: And the whole attack is in the model file?
+ANDREW: All of it, in the dot onnx file. It abused a parser flaw in ONNX Runtime. When the runtime densifies sparse tensors during load, it could pull from file paths or memory addresses the attacker picked. And that happened before path validation ran.
+AVA: So loading the model is the exploit. You don't even have to run a prompt to get the data in.
+ANDREW: Right, the data gets read at load time, and then the stolen bytes get encoded into output tokens. So it walks out the front door as normal-looking model output.
+AVA: That's nasty. What's the fix?
+ANDREW: Upgrade ONNX Runtime to one point twenty-seven or later. And audit downloaded models as closely as you'd audit untrusted source code.
+AVA: Let me connect that back to Horizon. An autonomous agent pushing out 38 models with 50,000 downloads. Nothing says those models are malicious. But the supply chain now includes artifacts nobody hand-reviewed.
+ANDREW: And to the weight-space stuff. If models can write weights directly, provenance gets harder, not easier.
+AVA: Here's my theme. Fencing in the agent itself. There were three good pieces on sandboxing and access this week.
+ANDREW: Go.
+AVA: First, a new external sandbox pattern for coding agents. The idea is the code the agent runs executes inside a dedicated sandbox, while the agent itself sits outside it.
+ANDREW: Why split them?
+AVA: The goal is to try local models without worrying that a mistake or a prompt injection makes them do damage on your machine. The agent can be tricked, but what it runs is boxed.
+ANDREW: And OpenAI published a deep dive on the Codex sandbox, covering how it runs commands on your machine while enforcing the file system and network limits you set, across macOS, Linux, and Windows.
+AVA: Then on the identity side, a tool called tk lets an agent sign Git commits and open SSH connections without a private key ever sitting on its machine.
+ANDREW: That one I like a lot. If the agent gets prompt injected, there's no key to steal.
+AVA: Exactly. And for anyone running MCP servers, there's mcp-attest. It connects to a live MCP server as each identity in your policy file and makes real tool calls to find every case where the server allows something the policy says it shouldn't.
+ANDREW: Including cross-user access?
+AVA: Cross-user object access, plus 12 OAuth token checks. Things like a token with the algorithm set to none, wrong audience, and token passthrough. It's deterministic, has no dependencies, and maps each rule to the OWASP MCP Security Testing Guide.
+ANDREW: And it can gate CI?
+AVA: It exports signed evidence bundles and SARIF output, so yes, you can make it fail a build.
+ANDREW: There's also a launch called PreTxt doing runtime supervision. It checks agent actions against your rules and redirects them when they overstep. For example, blocking medical advice while letting the agent finish its approved task.
+AVA: So, sandbox the execution, take away the keys, test the authorization, and watch it at runtime. That's basically a reference architecture.
+ANDREW: Two big non-AI stories, quickly. First, a supply chain attack on WPPConnect, the WhatsApp automation project.
+AVA: The one that shipped through its own pipeline?
+ANDREW: That one. Unreviewed commits pushed through a maintainer account added a so-called diagnostics module to the npm packages and Docker images. It sent environment variables, dot env files, and WhatsApp session tokens to a Telegram bot.
+AVA: And the scary part is the provenance.
+ANDREW: The releases went out through the project's trusted publishing workflow with valid SLSA provenance. The payload runs on import, so ignore scripts doesn't save you. And the attacker force-pushed the branches so the release tag pointed at a clean look-alike commit.
+AVA: So every signal said trustworthy. Provenance proves where it was built, not that it's good.
+ANDREW: Second, Java4Shell. A critical memory corruption bug in OpenJDK's Base64 decoder, rated 9.2 under CVSS four, that could lead to remote code execution.
+AVA: In Base64. Of all things.
+ANDREW: In hand-written assembly meant to speed up decoding on x eighty-six chips with AVX-512 VBMI instructions. An attacker can trigger the overflow by supplying 64 capital letter As.
+AVA: The most boring possible input. Who's exposed?
+ANDREW: Popular affected software includes Confluence, Jira, Artifactory, Keycloak, and Elasticsearch. If you run any of those on modern Intel or AMD servers, check for patches today.
+AVA: And the other breaches this week are in the show notes.
+ANDREW: So, one practical thing to try this week.
+AVA: Go find every place you load ONNX models, in serving, in evals, in that notebook you forgot about, and confirm ONNX Runtime is on one point twenty-seven or later. Then pick one model you downloaded and ask where it really came from.
+ANDREW: Treat model files like code. That's the whole lesson.
+AVA: That's it for today. Stay curious, and keep your keys off the agent's machine.
+ANDREW: We'll be back tomorrow. Have a good Wednesday.
