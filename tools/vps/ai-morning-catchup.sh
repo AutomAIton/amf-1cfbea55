@@ -35,7 +35,7 @@ report() {  # report <true|false> <summary>
   echo "$(date -u +%FT%TZ) ok=$1 $2"
   [ -n "$tok" ] || { echo "no heartbeat token readable"; return; }
   curl -sS -m 20 -X POST http://127.0.0.1:3002/heartbeat \
-    -H "content-type: application/json" -H "x-heartbeat-token: ${tok}" \
+    -H "content-type: application/json" -H @<(printf 'x-heartbeat-token: %s\n' "$tok") \
     -d "$(printf '{"name":"ai-morning-episode","ok":%s,"summary":%s}' "$1" \
           "$(printf '%s' "$2" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))')")" \
     >/dev/null || echo "heartbeat POST failed (non-fatal)"
@@ -61,7 +61,8 @@ fi
 [ "$hour" -lt "$FIRST_HOUR" ] && exit 0
 
 TOKEN=$(grep -oP '(?<=GITHUB_TOKEN=).*' "$CONF" 2>/dev/null) || TOKEN=""
-api() { curl -sS -m 30 -H "Authorization: Bearer ${TOKEN}" -H "Accept: application/vnd.github+json" "$@"; }
+# Secrets go in via a header file (process substitution), never in argv where `ps` shows them.
+api() { curl -sS -m 30 -H @<(printf 'Authorization: Bearer %s\n' "$TOKEN") -H "Accept: application/vnd.github+json" "$@"; }
 
 last="no run info"
 active=0
