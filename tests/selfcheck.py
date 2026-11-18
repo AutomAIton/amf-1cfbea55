@@ -40,7 +40,8 @@ assert len(hours) >= 10 and hours[-1] >= 22 and hours[0] <= 10, hours
 assert max(b - a for a, b in zip(hours, hours[1:])) <= 2, hours  # no gap over 2 h
 # Voice: a failing Multilingual voice falls back to plain Andrew before gTTS (2026-11-18)
 assert g.VOICE_A_BACKUP == "en-US-AndrewNeural"
-# Catch-up trigger exists and targets this repo's workflow (2026-11-18)
-cu = (Path(__file__).resolve().parent.parent / "tools" / "catchup.ps1").read_text(encoding="utf-8")
-assert "amf-1cfbea55" in cu and "gh workflow run daily.yml" in cu and "exit 1" in cu
+# VPS catch-up trigger exists, targets this repo's workflow, alerts after 09:00 and caps starts (2026-11-18)
+cu = (Path(__file__).resolve().parent.parent / "tools" / "vps" / "ai-morning-catchup.sh").read_text(encoding="utf-8")
+assert "amf-1cfbea55" in cu and "workflows/daily.yml/dispatches" in cu
+assert "ALERT_HOUR=9" in cu and "MAX_STARTS=3" in cu and '"name":"ai-morning-episode"' in cu
 print("OK")
