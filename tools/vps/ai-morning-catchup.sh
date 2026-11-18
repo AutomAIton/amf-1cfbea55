@@ -26,6 +26,7 @@ FIRST_HOUR=6
 MAX_STARTS=3
 
 today=$(TZ=America/Chicago date +%F)
+today=${AM_TEST_DATE:-$today}  # test hook: pretend this date has no episode
 hour=$((10#$(TZ=America/Chicago date +%H)))
 mkdir -p "$STATE"
 
