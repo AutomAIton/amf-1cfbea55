@@ -40,6 +40,16 @@ assert len(hours) >= 10 and hours[-1] >= 22 and hours[0] <= 10, hours
 assert max(b - a for a, b in zip(hours, hours[1:])) <= 2, hours  # no gap over 2 h
 # Voice: a failing Multilingual voice falls back to plain Andrew before gTTS (2026-11-18)
 assert g.VOICE_A_BACKUP == "en-US-AndrewNeural"
+# Script quality + ending (2026-11-18): natural language kept, plain wording, one Try this, key terms
+assert '"Try this"' in g.SYSTEM_PROMPT and "skip the segment" in g.SYSTEM_PROMPT
+assert "without stopping to decode" in g.SYSTEM_PROMPT and "playful is welcome" in g.SYSTEM_PROMPT
+assert "Do not stop to define terms" in g.SYSTEM_PROMPT
+assert not any("practical thing" in s for s in g.SIGNOFFS)
+# Private project context stays out of the repo and, when set, never narrows story choice
+assert g.LISTENER_CONTEXT == "" and "About the listener" not in g.SYSTEM_PROMPT
+assert "LISTENER_CONTEXT" in wf and "Never choose or drop stories" in open(Path(g.__file__), encoding="utf-8").read()
+# Voices: both hosts have a neural backup before gTTS (2026-11-18)
+assert g.BACKUP_VOICE == {g.VOICE_A: "en-US-AndrewNeural", g.VOICE_B: "en-US-AriaNeural"}
 # VPS catch-up trigger exists, targets this repo's workflow, alerts after 09:00 and caps starts (2026-11-18)
 cu = (Path(__file__).resolve().parent.parent / "tools" / "vps" / "ai-morning-catchup.sh").read_text(encoding="utf-8")
 assert "amf-1cfbea55" in cu and "workflows/daily.yml/dispatches" in cu

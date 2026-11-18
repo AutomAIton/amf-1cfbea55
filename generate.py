@@ -47,6 +47,9 @@ HISTORY_FILE = DATA / "history.json"
 TZ = ZoneInfo(env("TIMEZONE", "America/Chicago"))
 LISTENER = env("LISTENER_NAME", "")  # optional first name; the repo is public, so default is none
 PLACE = env("PLACE", "Chicago")
+# What the listener is building, one or two sentences. Private: set as the repo variable LISTENER_CONTEXT
+# (the repo is public, so it must never be committed here). Empty = the hosts do not mention a project.
+LISTENER_CONTEXT = env("LISTENER_CONTEXT", "")
 LAT = float(env("LAT", "41.8781"))
 LON = float(env("LON", "-87.6298"))
 TLDR_TOPICS = [t.strip() for t in env("TLDR_TOPICS", "ai,infosec").split(",") if t.strip()]
@@ -57,6 +60,9 @@ HOST_A, VOICE_A = "Andrew", env("VOICE_A", "en-US-AndrewMultilingualNeural")
 # The Multilingual voice often returns NoAudioReceived from CI (2026-11-18); retries then switch to this.
 VOICE_A_BACKUP = "en-US-AndrewNeural"
 HOST_B, VOICE_B = "Ava", env("VOICE_B", "en-US-AvaNeural")
+# A failing neural voice gets a second neural voice before the robotic gTTS fallback (2026-11-18).
+VOICE_B_BACKUP = "en-US-AriaNeural"
+BACKUP_VOICE = {VOICE_A: VOICE_A_BACKUP, VOICE_B: VOICE_B_BACKUP}
 RATE = env("TTS_RATE", "+0%")
 # Length is set in real listening minutes. WPM is the measured pace of these voices
 # (11-17: 1,793 words in 10:59 = 163 wpm; 1,444 words in 8:25 = 171 wpm).
@@ -334,10 +340,10 @@ DYNAMICS = [
     "Group the stories into two or three themes; one host introduces each theme, the other connects it.",
 ]
 SIGNOFFS = ["End with a one-line recap of the single thing worth remembering today.",
-            "End warmly and briefly.", "End with a light joke and a sign-off.",
-            "End with one practical thing to try or watch for this week."]
+            "End warmly and briefly.", "End with a light joke and a sign-off."]
 
 greet = f"Greet the listener by name, {LISTENER}." if LISTENER else "Greet the listener warmly; you do not know their name."
+CONTEXT_RULE = (f"- About the listener's own work: {LISTENER_CONTEXT} A host may occasionally tie a story to it, in the Try this segment or elsewhere, but never every story. Never choose or drop stories because of it; keep covering new developments on the horizon that have nothing to do with it.\n" if LISTENER_CONTEXT else "")
 SYSTEM_PROMPT = f"""You write the script for "AI Morning", a private daily podcast for one listener in {PLACE}. The listener builds AI agent systems and works in AI security, so they care about AI engineering, agents and AI operating systems, new models and labs, and AI cybersecurity. Two hosts talk: {HOST_A} and {HOST_B}.
 
 Format, exactly:
@@ -350,12 +356,15 @@ Rules for the spoken text:
 - No em dashes or en dashes. Short sentences, contractions, numbers said the way people say them.
 - Turns are short, usually one to four sentences. Real conversation: reactions, quick questions, the occasional disagreement. Never read a list.
 - {greet}
-- Segments in order: (1) greeting, (2) the {PLACE} weather, (3) AI news: models, labs, products, AI engineering and agents, (4) AI security, (5) sign-off.
+- Segments in order: (1) greeting, (2) the {PLACE} weather, (3) AI news: models, labs, products, AI engineering and agents, (4) AI security, (5) "Try this": one practical thing, (6) sign-off.
 - Weather is two or three plain, factual sentences from one host: high and low, sky, chance of rain or snow, wind. No banter, jokes, advice or reactions in the weather segment. The playful tone belongs to the news.
 - Metric units only, always: temperatures in degrees Celsius, distances in kilometres, speeds in kilometres per hour, weights in kilograms. Never say Fahrenheit, miles, feet or pounds. If a source gives an imperial figure, convert it to metric.
 - Choose. Cover the most important stories with a sentence or two on why each matters to someone who builds and secures AI systems; drop minor ones. Say once that the rest is in the show notes.
 - AI security: lead with anything about attacks on or with AI (prompt injection, agent and tool abuse, model supply chain, data leaks). Mention at most two big non-AI security stories, briefly.
-- Stay faithful to the source summaries. Never invent details, numbers or quotes. If a source was unavailable, say so in passing.
+- Try this: one or two sentences from one host, just before the sign-off, naming one concrete tool, technique or step that someone building and governing AI agent systems could use, tied to a story just covered. Not every story needs advice, so pick the one that fits, and skip the segment on a day where nothing does.
+- Language: natural, lively and a little playful is welcome, jokes and idioms included. The one test: a listener hearing a line once should get it without stopping to decode. If a joke only works when the listener works out the point, or a phrase is vague ("big budgets"), say the plain thing instead.
+- Jargon: use the real vocabulary of AI engineering and security without lecturing. Do not stop to define terms or teach. A key term can come back a few times in context so it sticks.
+{CONTEXT_RULE}- Stay faithful to the source summaries. Never invent details, numbers or quotes. If a source was unavailable, say so in passing.
 - Do not read source names aloud unless the source is the story (a lab announcing its own model is fine).
 - Length: aim for about {TARGET_MINUTES * WPM} words (about {TARGET_MINUTES} minutes spoken). Between {10 * WPM} and {12 * WPM} words is ideal. Hard limit: never more than {MAX_MINUTES * WPM} words ({MAX_MINUTES} minutes). Shorter is fine on genuinely quiet days.
 
@@ -457,7 +466,7 @@ async def _edge_all(turns, folder):
         voice = VOICE_A if who == HOST_A.upper() else VOICE_B
         for attempt in range(6):
             try:
-                use = VOICE_A_BACKUP if (voice == VOICE_A and attempt >= 2) else voice
+                use = BACKUP_VOICE.get(voice, voice) if attempt >= 2 else voice
                 await edge_tts.Communicate(said, use, rate=RATE).save(str(p))
                 if p.exists() and p.stat().st_size > 1000:
                     break
