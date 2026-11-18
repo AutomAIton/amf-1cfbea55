@@ -54,6 +54,8 @@ MODEL = env("CLAUDE_MODEL", "claude-opus-5-5")
 EFFORT = env("CLAUDE_EFFORT", "medium")
 # Andrew: the newer, more conversational model (listener feedback 2026-11-17: the old one sounded stiff).
 HOST_A, VOICE_A = "Andrew", env("VOICE_A", "en-US-AndrewMultilingualNeural")
+# The Multilingual voice often returns NoAudioReceived from CI (2026-11-18); retries then switch to this.
+VOICE_A_BACKUP = "en-US-AndrewNeural"
 HOST_B, VOICE_B = "Ava", env("VOICE_B", "en-US-AvaNeural")
 RATE = env("TTS_RATE", "+0%")
 # Length is set in real listening minutes. WPM is the measured pace of these voices
@@ -455,7 +457,8 @@ async def _edge_all(turns, folder):
         voice = VOICE_A if who == HOST_A.upper() else VOICE_B
         for attempt in range(6):
             try:
-                await edge_tts.Communicate(said, voice, rate=RATE).save(str(p))
+                use = VOICE_A_BACKUP if (voice == VOICE_A and attempt >= 2) else voice
+                await edge_tts.Communicate(said, use, rate=RATE).save(str(p))
                 if p.exists() and p.stat().st_size > 1000:
                     break
             except Exception as exc:  # noqa: BLE001

@@ -2,14 +2,23 @@ name: Daily episode
 
 on:
   schedule:
-    # GitHub can delay or drop scheduled runs, so there are several attempts each morning.
-    # generate.py exits at once if today's episode exists, or before 5 AM Central.
-    # CDT (UTC-5): 5:15, 5:45, 6:15, 6:45, 7:15.  CST (UTC-6): 4:15 and 4:45 skip, then 5:15, 5:45, 6:15.
+    # GitHub delays and sometimes DROPS scheduled runs (on 2026-11-18 every 5:15-7:15 AM run was
+    # dropped and the first one fired at 12:51 PM). So there is an attempt every hour from
+    # 5:15 AM CDT through the evening. generate.py exits at once if today's episode exists, or
+    # before 5 AM Central, so extra attempts cost ~30 s and a late episode beats a missing one.
+    # Times are UTC; tests/selfcheck.py enforces the spread.
     - cron: "15 10 * * *"
     - cron: "45 10 * * *"
     - cron: "15 11 * * *"
     - cron: "45 11 * * *"
     - cron: "15 12 * * *"
+    - cron: "15 13 * * *"
+    - cron: "15 14 * * *"
+    - cron: "15 15 * * *"
+    - cron: "15 16 * * *"
+    - cron: "15 18 * * *"
+    - cron: "15 20 * * *"
+    - cron: "15 22 * * *"
   workflow_dispatch:
     inputs:
       force:

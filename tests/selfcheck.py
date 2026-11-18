@@ -32,4 +32,12 @@ assert "12°C" in notes and "F," not in notes, notes
 assert g.show_notes(None, {}, empty) == ""
 hourly = {"temperature_2m": [1.2, 3.8], "weather_code": [0, 0], "precipitation_probability": [0, None]}
 assert g._window(hourly, 0, 2)["temp_c"] == "1 to 4"
+# Scheduling: GitHub drops scheduled runs, so attempts must span the whole day (2026-11-18)
+import glob, re  # noqa: E402
+wf = open(glob.glob(str(Path(__file__).resolve().parent.parent / ".github/workflows/*.yml"))[0], encoding="utf-8").read()
+hours = sorted(int(m.group(1)) for m in re.finditer(r'cron: "\d+ (\d+) \* \* \*"', wf))
+assert len(hours) >= 10 and hours[-1] >= 22 and hours[0] <= 10, hours
+assert max(b - a for a, b in zip(hours, hours[1:])) <= 2, hours  # no gap over 2 h
+# Voice: a failing Multilingual voice falls back to plain Andrew before gTTS (2026-11-18)
+assert g.VOICE_A_BACKUP == "en-US-AndrewNeural"
 print("OK")
