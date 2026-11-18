@@ -48,6 +48,12 @@ assert not any("practical thing" in s for s in g.SIGNOFFS)
 # Private project context stays out of the repo and, when set, never narrows story choice
 assert g.LISTENER_CONTEXT == "" and "About the listener" not in g.SYSTEM_PROMPT
 assert "LISTENER_CONTEXT" in wf and "Never choose or drop stories" in open(Path(g.__file__), encoding="utf-8").read()
+ctx = "I am building an agentic operating system that wraps around my business"
+leaky = [("ANDREW", "You said you are building an agentic operating system that wraps around everything."), ("AVA", "Nice and clean.")]
+assert g.drop_leaks(leaky, ctx) == [("AVA", "Nice and clean.")]
+assert g.drop_leaks(leaky, "") == leaky
+assert "never repeat this description" not in g.SYSTEM_PROMPT  # only present when LISTENER_CONTEXT is set
+assert "must never repeat this description" in open(Path(g.__file__), encoding="utf-8").read()
 # Voices: both hosts have a neural backup before gTTS (2026-11-18)
 assert g.BACKUP_VOICE == {g.VOICE_A: "en-US-AndrewNeural", g.VOICE_B: "en-US-AriaNeural"}
 # VPS catch-up trigger exists, targets this repo's workflow, alerts after 09:00 and caps starts (2026-11-18)

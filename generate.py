@@ -343,7 +343,7 @@ SIGNOFFS = ["End with a one-line recap of the single thing worth remembering tod
             "End warmly and briefly.", "End with a light joke and a sign-off."]
 
 greet = f"Greet the listener by name, {LISTENER}." if LISTENER else "Greet the listener warmly; you do not know their name."
-CONTEXT_RULE = (f"- About the listener's own work: {LISTENER_CONTEXT} A host may occasionally tie a story to it, in the Try this segment or elsewhere, but never every story. Never choose or drop stories because of it; keep covering new developments on the horizon that have nothing to do with it.\n" if LISTENER_CONTEXT else "")
+CONTEXT_RULE = (f"- About the listener's own work: {LISTENER_CONTEXT} This podcast is published on a public website, so a host may only allude to it generically (\"your build\", \"your agent system\") and must never repeat this description, or state the listener's career, employer, clients or personal details. A host may occasionally tie a story to it, in the Try this segment or elsewhere, but never every story. Never choose or drop stories because of it; keep covering new developments on the horizon that have nothing to do with it.\n" if LISTENER_CONTEXT else "")
 SYSTEM_PROMPT = f"""You write the script for "AI Morning", a private daily podcast for one listener in {PLACE}. The listener builds AI agent systems and works in AI security, so they care about AI engineering, agents and AI operating systems, new models and labs, and AI cybersecurity. Two hosts talk: {HOST_A} and {HOST_B}.
 
 Format, exactly:
@@ -430,6 +430,23 @@ def clean(text):
     text = re.sub(r"https?://\S+", "", text)
     text = re.sub(r"[*_#`>]+", "", text)
     return re.sub(r"\s+", " ", text).replace(" ,", ",").strip()
+
+
+def _shingles(text, n=4):
+    w = re.findall(r"[a-z0-9']+", text.lower())
+    return {" ".join(w[i:i + n]) for i in range(len(w) - n + 1)}
+
+
+def drop_leaks(turns, context=None):
+    """The site and repo are public. Drop any turn that repeats four or more words in a row of the private
+    LISTENER_CONTEXT, so the description can never be read out loud or published by accident."""
+    secret = _shingles(LISTENER_CONTEXT if context is None else context)
+    if not secret:
+        return turns
+    kept = [(w, s) for w, s in turns if not (_shingles(s) & secret)]
+    if len(kept) != len(turns):
+        log(f"Dropped {len(turns) - len(kept)} turn(s) that repeated the private listener context.")
+    return kept
 
 
 def parse_turns(body):
@@ -637,7 +654,7 @@ def main():
     if result is None:
         sys.exit("Script generation was declined twice; no episode today.")
     title, body = result
-    turns = parse_turns(body)
+    turns = drop_leaks(parse_turns(body))
     words = sum(len(t[1].split()) for t in turns)
     log(f"Script: {len(turns)} turns, {words} words. Title: {title}")
     if len(turns) < 6:
