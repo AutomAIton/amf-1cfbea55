@@ -57,7 +57,7 @@ MODEL = env("CLAUDE_MODEL", "claude-opus-5-5")
 EFFORT = env("CLAUDE_EFFORT", "medium")
 # Andrew: the newer, more conversational model (listener feedback 2026-11-17: the old one sounded stiff).
 HOST_A, VOICE_A = "Andrew", env("VOICE_A", "en-US-AndrewMultilingualNeural")
-# The Multilingual voice often returns NoAudioReceived from CI (2026-11-18); retries then switch to this.
+# The Multilingual voice often returns NoAudioReceived from CI (2026-11-18); three failed tries then switch to this (the listener prefers this voice, 2026-11-18).
 VOICE_A_BACKUP = "en-US-AndrewNeural"
 HOST_B, VOICE_B = "Ava", env("VOICE_B", "en-US-AvaNeural")
 # A failing neural voice gets a second neural voice before the robotic gTTS fallback (2026-11-18).
@@ -483,7 +483,7 @@ async def _edge_all(turns, folder):
         voice = VOICE_A if who == HOST_A.upper() else VOICE_B
         for attempt in range(6):
             try:
-                use = BACKUP_VOICE.get(voice, voice) if attempt >= 2 else voice
+                use = BACKUP_VOICE.get(voice, voice) if attempt >= 3 else voice
                 await edge_tts.Communicate(said, use, rate=RATE).save(str(p))
                 if p.exists() and p.stat().st_size > 1000:
                     break

@@ -29,9 +29,10 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-18 | Delivery: the daily build can be dropped by GitHub's scheduler; VPS cron starts it from 06:00 CT and alerts at 09:00 CT | tools/vps, VPS /etc/cron.d/ai-morning-catchup |
 
 ## Verify next session (trials)
-- Andrew is still stiff and robotic on AndrewMultilingualNeural (and it often fails in CI). Voice samples are in
-  `feedback/voice-samples/` (local only, not committed). Ask which male voice he prefers, then change VOICE_A.
-- PENDING operator nod: the 1-2 sentence project description for the LISTENER_CONTEXT repo variable (draft it with him).
+- Andrew voice DECIDED 2026-11-18: keep en-US-AndrewMultilingualNeural (his pick from the samples); plain Andrew is the backup after 3 failed tries.
+  Still stiff, so revisit. FUTURE IDEA (operator, 2026-11-18): if the voices stay stiff, consider a different TTS service for reading the script.
+- Project description approved and set as the LISTENER_CONTEXT repo variable (2026-11-18). Ask if the hosts' references to it feel right.
+- OPEN: operator asked to make the repo private so the hosts can speak more directly. Finding: private Pages needs GitHub Enterprise Cloud, so a private repo would NOT make the audio private. Options given, awaiting his choice.
 - Did the robotic fallback voice disappear after the backup voices? Check `engine` in data/history.json (no "via gtts").
 - Is the new "Try this" ending useful and short? Any strange wording left?
 - Did the VPS catch-up fire if the schedule dropped a run? Check `heartbeat.monitors` row `ai-morning-episode`.
