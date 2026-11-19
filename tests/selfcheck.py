@@ -60,4 +60,15 @@ assert g.BACKUP_VOICE == {g.VOICE_A: "en-US-AndrewNeural", g.VOICE_B: "en-US-Ari
 cu = (Path(__file__).resolve().parent.parent / "tools" / "vps" / "ai-morning-catchup.sh").read_text(encoding="utf-8")
 assert "amf-1cfbea55" in cu and "workflows/daily.yml/dispatches" in cu
 assert "ALERT_HOUR=9" in cu and "MAX_STARTS=3" in cu and '"name":"ai-morning-episode"' in cu
+# 2026-11-19 feedback: weather retries, stand-alone practical Try this, no short episodes, security fallback
+assert g.WEATHER_ROUNDS >= 3
+assert "stand alone" in g.SYSTEM_PROMPT and "start today" in g.SYSTEM_PROMPT and "three to five sentences" in g.SYSTEM_PROMPT
+assert "Never assume the listener remembers" in g.SYSTEM_PROMPT and "Never finish under" in g.SYSTEM_PROMPT
+assert g.security_is_thin({"infosec": {"status": "no new issue since the last episode"}}, {"security": []})
+assert not g.security_is_thin({"infosec": {"status": "ok"}}, {"security": []})
+assert not g.security_is_thin({}, {"security": [{"title": "x"}]})
+_p = {"opening": "o", "tone": "t", "dynamic": "d", "signoff": "s", "security_topic": g.SECURITY_EVERGREEN[0]}
+_now = __import__("datetime").datetime(2026, 11, 19, 7, 0)
+assert "SECURITY FALLBACK" in g.build_prompt(_now, None, {}, {"engineering": [], "security": []}, _p, {"episodes": []})
+assert "SECURITY FALLBACK" not in g.build_prompt(_now, None, {}, {"engineering": [], "security": []}, {k: v for k, v in _p.items() if k != "security_topic"}, {"episodes": []})
 print("OK")

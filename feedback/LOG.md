@@ -5,7 +5,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 
 ## State
 - **Cadence:** daily, through 2026-11-24. The 11-24 session asks: keep daily, or go weekly?
-- **Last reviewed episode:** 2026-11-18 ("Cheaper Frontiers and Poisoned Model Files", the scheduled build)
+- **Last reviewed episode:** 2026-11-19 ("Gemini Neon and Anthropic Goes Public", VPS-started 06:00 CT, 8 min 14 s)
 - **Next session queued:** 2026-11-20 07:00 (`C:\AI\handoffs\queue\2026-11-20-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
@@ -29,6 +29,10 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-18 | Repo stays public; hosts stay generic about the listener (private Pages needs Enterprise Cloud). Revisit: private repo plus VPS hosting if he wants more personal hosts | LISTENER_CONTEXT, drop_leaks |
 | 2026-11-18 | Voice: keep AndrewMultilingual (his pick); revisit a different TTS service if still stiff | VOICE_A (unchanged) |
 | 2026-11-18 | Delivery: the daily build can be dropped by GitHub's scheduler; VPS cron starts it from 06:00 CT and alerts at 09:00 CT | tools/vps, VPS /etc/cron.d/ai-morning-catchup |
+| 2026-11-19 | "Try this": 3-5 sentences, a concrete step startable today, stand-alone (name every item, never "the four layers" unexplained) | SYSTEM_PROMPT |
+| 2026-11-19 | Never finish under 10 min: on thin-news days go deeper on the best stories | SYSTEM_PROMPT |
+| 2026-11-19 | Weather API timeout: 3 rounds of retries before saying "unavailable" | WEATHER_ROUNDS |
+| 2026-11-19 | Empty security sources: short "no fresh news" line plus a 2-3 min evergreen refresher (rotating topics) | SECURITY_EVERGREEN, build_prompt |
 
 ## Verify next session (trials)
 - Andrew voice DECIDED 2026-11-18: keep en-US-AndrewMultilingualNeural (his pick from the samples); plain Andrew is the backup after 3 failed tries.
@@ -37,6 +41,9 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 - Did the robotic fallback voice disappear after the backup voices? Check `engine` in data/history.json (no "via gtts").
 - Is the new "Try this" ending useful and short? Any strange wording left?
 - Did the VPS catch-up fire if the schedule dropped a run? Check `heartbeat.monitors` row `ai-morning-episode`.
+
+- 2026-11-19 changes, check on the 11-20 episode: weather present? Try this stand-alone and practical? Length at least 10 min? If security was thin, was the evergreen refresher OK?
+- OPEN: TLDR issues seem to publish after 06:00 CT (11-19 issues were live later in the day; the 06:00 build fell back to the used 11-18 issue). Operator approved no start-time change; revisit if security/news stay thin.
 
 ## Open questions (not yet asked)
 - Story selection: which stories landed or bored (partly answered: decision models were relevant)
