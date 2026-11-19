@@ -6,7 +6,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 ## State
 - **Cadence:** daily, through 2026-11-24. The 11-24 session asks: keep daily, or go weekly?
 - **Last reviewed episode:** 2026-11-18 ("Cheaper Frontiers and Poisoned Model Files", the scheduled build)
-- **Next session queued:** 2026-11-19 07:00 (`C:\AI\handoffs\queue\2026-11-19-0700-ai-morning-feedback.md`)
+- **Next session queued:** 2026-11-20 07:00 (`C:\AI\handoffs\queue\2026-11-20-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
