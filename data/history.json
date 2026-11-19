@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-19",
+   "title": "Gemini Neon and Anthropic Goes Public",
+   "summary": "Good morning, good morning! You're up, we're up, and the coffee's doing its job. This is AI Morning. Welcome in! It's Thursday, it's early, and we've got a new Google model, a big IPO, and two things from OpenAI worth chewing on. Plus a pricing chart that might give you a headache. We'll get there....",
+   "notes_html": "<h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/18/llm-gemini/\">llm-gemini 0.38</a></li><li><a href=\"https://simonwillison.net/2026/Nov/18/datasette-arrows/\">datasette-arrows 0.1a0</a></li><li><a href=\"https://openai.com/index/research-acceleration-jagged-frontier\">Research acceleration: The jagged frontier</a></li><li><a href=\"https://openai.com/business/customer-stories/sumitomo-life\">How Sumitomo Life\u2019s leaders helped teams adopt ChatGPT Enterprise</a></li><li><a href=\"https://openai.com/index/managing-frontier-ai-risk\">Managing frontier AI risk: From training to deployment</a></li><li><a href=\"https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/\">[AINews] Gemini 4 Neon: GDM's Opus/Sol Contender</a></li><li><a href=\"https://www.anthropic.com/news/anthropic-prices-initial-public-offering\">Anthropic prices initial public offering</a></li></ul>",
+   "file": "episodes/2026-11-19.mp3",
+   "bytes": 2968272,
+   "seconds": 494,
+   "published": "2026-11-19T06:00:22.346722-06:00",
+   "engine": "edge-tts",
+   "opening": "Good morning, good morning! You're up, we're up, and the coffee's doing its job. This is AI Morning.",
+   "closing": "Don't give my manager ideas. Thanks for listening, everybody. Have a great Thursday, and we'll catch you tomorrow.",
+   "picks": {
+    "opening": "Open like a morning radio duo: warm and brisk.",
+    "tone": "conversational, with gentle friendly disagreement between the hosts",
+    "dynamic": "Ava leads the news and Andrew pushes back where something sounds like hype.",
+    "signoff": "End with a light joke and a sign-off."
+   }
+  },
+  {
    "date": "2026-11-18",
    "title": "Cheaper Frontiers and Poisoned Model Files",
    "summary": "Good morning, and welcome to AI Morning. Ava, I've been up since five and I'm told it's Wednesday. It's Wednesday. Midweek. The day the inbox stops pretending it's going to get smaller. Very motivational. And a warm hello to you, listening in Chicago. We've got model launches, agents everywhere,...",
@@ -44,12 +63,14 @@
   "infosec": "2026-11-18"
  },
  "seen_urls": [
+  "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
   "https://openai.com/business/customer-stories/revolut",
+  "https://openai.com/business/customer-stories/sumitomo-life",
   "https://openai.com/index/advancing-chip-design-with-our-models",
   "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
   "https://openai.com/index/astra-law-6-2",
@@ -60,8 +81,10 @@
   "https://openai.com/index/introducing-openai-for-chile",
   "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
   "https://openai.com/index/lvmh-media-division-partnership",
+  "https://openai.com/index/managing-frontier-ai-risk",
   "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
   "https://openai.com/index/our-first-phase-of-embedded-assessments",
+  "https://openai.com/index/research-acceleration-jagged-frontier",
   "https://openai.com/index/science-at-the-frontier",
   "https://openai.com/index/step-toward-defining-the-standard-model",
   "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
@@ -81,6 +104,8 @@
   "https://simonwillison.net/2026/Nov/17/go-proverbs/",
   "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/",
   "https://simonwillison.net/2026/Nov/18/daniel-stenberg/",
+  "https://simonwillison.net/2026/Nov/18/datasette-arrows/",
+  "https://simonwillison.net/2026/Nov/18/llm-gemini/",
   "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
@@ -88,6 +113,7 @@
   "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
   "https://www.anthropic.com/news/an-update-on-independent-evaluators",
   "https://www.anthropic.com/news/anthropic-cyber-mission",
+  "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
   "https://www.anthropic.com/news/barclays-scales-claude",
   "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust",
   "https://www.anthropic.com/news/claude-frontier-academy",

@@ -1,0 +1,77 @@
+Gemini Neon and Anthropic Goes Public
+
+ANDREW: Good morning, good morning! You're up, we're up, and the coffee's doing its job. This is AI Morning.
+AVA: Welcome in! It's Thursday, it's early, and we've got a new Google model, a big IPO, and two things from OpenAI worth chewing on.
+ANDREW: Plus a pricing chart that might give you a headache. We'll get there.
+AVA: Our weather data is unavailable this morning, so we don't have a Chicago forecast for you today.
+ANDREW: Alright, Ava, you've got the news. Lead the way.
+AVA: Let's start with Google. They introduced Gemini 4 Neon yesterday, and it's being pitched as their middle tier.
+ANDREW: Middle tier. So not the flagship.
+AVA: Not the flagship, but it's getting compared to the top models from Anthropic and OpenAI. It scored sixty-one on one of the widely watched intelligence indexes.
+ANDREW: Okay, but a single benchmark score always makes me squint a little. What does sixty-one actually get me when I'm running agents all day?
+AVA: Fair. The headline is that a mid-priced model is landing in contender territory. If it holds up on your own tasks, that changes the math for anything that makes a lot of calls.
+ANDREW: If it holds up. Big if. Which brings us to the math itself.
+AVA: Yeah, this is where it gets messy. One developer who maintains a popular Gemini plugin wrote that the Gemini 4 pricing was already confusing, and Neon somehow made it worse.
+ANDREW: That's an achievement. Walk me through it slowly.
+AVA: So the lineup before Neon was Hydrogen, Argon and Carbon. Argon and Carbon cost the same.
+ANDREW: Two names, one price. Sure.
+AVA: Hydrogen is three quarters of that price right now. But on December first, the early discount on Argon and Carbon expires and their prices double.
+ANDREW: So Hydrogen suddenly becomes a quarter of their price without changing at all.
+AVA: Exactly. And then the Neon announcement shows the lineup with Argon just missing, like it never existed.
+ANDREW: That's not a product lineup, that's a logic puzzle. I'm sorry, but if your pricing page needs a diagram and still confuses people, that's a problem.
+AVA: I'll half defend them. Launch discounts are normal, and they're clearly trying to push people toward specific tiers.
+ANDREW: Sure, but for anyone building on this, the practical point is that your costs could jump on December first if you're on Argon or Carbon.
+AVA: That part we agree on. If you've got agents hitting those models in a loop, December first is a date to circle.
+ANDREW: Okay. What's next?
+AVA: The big business story. Anthropic priced its initial public offering yesterday. Class A common stock, priced at eighty-three dollars a share.
+ANDREW: So one of the frontier labs is now a public company. That's a real shift.
+AVA: It is. And worth remembering, Anthropic is a public benefit corporation, so it's going public under that structure.
+ANDREW: Here's my pushback, though. Does an IPO change anything for someone actually building with Claude this week?
+AVA: Not this week, no. But over time, public companies answer to quarterly results and public disclosure. That can shape pricing, release pace and how much they share about safety.
+ANDREW: More disclosure would be nice. Less nice if it means chasing revenue with surprise price hikes.
+AVA: We'll see. Both labs and investors will be watching how that plays out.
+ANDREW: Fine. What's OpenAI up to?
+AVA: Two posts. The first one is called "Research acceleration: The jagged frontier." OpenAI measured how coding agents are speeding up AI research itself.
+ANDREW: And here comes the hype. Let me guess. The agents are about to build the next model on their own.
+AVA: Actually, the key word is jagged. They're looking at where the agents help a lot and where their performance is still uneven.
+ANDREW: Okay, that's more honest than I expected.
+AVA: They do tie it to what it signals about recursive self-improvement, which is the AI improving AI idea.
+ANDREW: That's the phrase that makes headlines. But "uneven" is the part I'd actually believe. Every team using coding agents knows the feeling. Brilliant on one task, baffling on the next.
+AVA: And that's useful for builders. Jagged means you can't assume an agent that nails one step will nail the step next to it.
+ANDREW: Which is basically an argument for checkpoints and human review between steps.
+AVA: Right. Treat agent capability as task by task, not as one smooth level.
+ANDREW: I can live with that framing. What's the second post?
+AVA: I'm going to hold that one for the security segment, because it fits there better.
+ANDREW: Ooh, a cliffhanger. Anything else before we switch?
+AVA: One small engineering story I liked. Datasette, the open source data tool, added a way for plugins to do streaming export formats.
+ANDREW: Streaming meaning you don't load the whole table into memory first.
+AVA: Exactly. It already streamed CSV and TSV, so you could export millions of rows in chunks. Now the plugin hook for output formats can do the same for other formats.
+ANDREW: And there's a new plugin for it?
+AVA: Yes, it's called datasette-arrows, an early alpha. It streams Apache Arrow. And the fun detail is that the Arrow idea was suggested by Claude Fable 5.2.
+ANDREW: So the model picked the format, the developer shipped the plugin. That's a nice small example of how people really work with these tools.
+AVA: Way more grounded than the recursive self-improvement talk.
+ANDREW: See, now you're coming round to my side.
+AVA: Don't get used to it. There's also a customer story about an insurer adopting ChatGPT Enterprise. That one and the rest are in the show notes.
+ANDREW: Alright, AI security. What have we got?
+AVA: Honestly, a quiet morning. Our usual security news source had no new issue, and we didn't get any fresh reports on prompt injection or supply chain attacks.
+ANDREW: A quiet day in security. I'll take it, even if I don't fully trust it.
+AVA: But that second OpenAI post fits right here. It's called "Managing frontier AI risk: From training to deployment."
+ANDREW: So their approach to keeping models safe once they're out in the world.
+AVA: Right. They lay out four layers. Model alignment, sandboxing, blocking safeguards and monitoring.
+ANDREW: Okay, I want to push back a bit. Every lab publishes a post like this. What's new?
+AVA: The headline isn't any single layer. It's that a frontier lab is describing safety as a stack running from training all the way to deployment, not one magic fix.
+ANDREW: That I agree with. Alignment alone doesn't save you. If the model does get talked into something, sandboxing limits what it can actually touch.
+AVA: And blocking safeguards stop specific bad actions as they happen, while monitoring tells you after the fact what went on.
+ANDREW: That's the same layered thinking you'd want in any agent system. Assume one layer fails and make sure the next one catches it.
+AVA: Especially with prompt injection. You can't fully trust the model to refuse a poisoned instruction, so the sandbox and the monitoring have to carry real weight.
+ANDREW: I'll give them this. It's sensible. I'd just love more detail on what the monitoring actually catches.
+AVA: That's fair. The summary we have doesn't go into specifics, so we can't either.
+ANDREW: Good. No inventing details. And no big non-AI security stories came through today either?
+AVA: Nothing came through on our end. So that's the security segment. Short and calm.
+ANDREW: Like my ideal Thursday.
+AVA: Here's your try this. Take the four layers from that OpenAI post and check your agent system against them. For each tool your agents can call, ask whether it runs in a sandbox and whether every call gets logged somewhere you actually review.
+ANDREW: And if a tool fails both questions, that's where you start. Good one.
+AVA: Alright, that's the show. A new Gemini, a newly public Anthropic, and agents that are brilliant on Tuesday and baffling on Wednesday.
+ANDREW: Which, to be fair, also describes me before coffee.
+AVA: At least your pricing doesn't double on December first.
+ANDREW: Don't give my manager ideas. Thanks for listening, everybody. Have a great Thursday, and we'll catch you tomorrow.
