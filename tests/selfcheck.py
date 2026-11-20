@@ -75,4 +75,7 @@ assert "SECURITY FALLBACK" not in g.build_prompt(_now, None, {}, {"engineering":
 _src = open(Path(g.__file__), encoding="utf-8").read()
 assert g.LISTENER_STACK == "" and "Listener's stack" not in g.SYSTEM_PROMPT
 assert "LISTENER_STACK" in wf and "the Try this must be about it" in _src and "never list it" in _src
+_ls = g.LISTENER_STACK; g.LISTENER_STACK = "PostgreSQL, Python packages, Node.js and npm, Docker containers"
+assert g.drop_leaks([("A", "I run PostgreSQL, Python packages, Node.js and npm, Docker containers."), ("B", "PostgreSQL 19 shipped today.")]) == [("B", "PostgreSQL 19 shipped today.")]
+g.LISTENER_STACK = _ls
 print("OK")

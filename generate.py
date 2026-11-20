@@ -465,6 +465,8 @@ def drop_leaks(turns, context=None):
     """The site and repo are public. Drop any turn that repeats four or more words in a row of the private
     LISTENER_CONTEXT, so the description can never be read out loud or published by accident."""
     secret = _shingles(LISTENER_CONTEXT if context is None else context)
+    if context is None:
+        secret |= _shingles(LISTENER_STACK)  # same rule for the private stack list (4+ words verbatim)
     if not secret:
         return turns
     kept = [(w, s) for w, s in turns if not (_shingles(s) & secret)]
