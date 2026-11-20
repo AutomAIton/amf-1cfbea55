@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-20",
+   "title": "Poisoned Packages and Backdoored Models",
+   "summary": "Microsoft's own agent framework shipped a credential stealer on PyPI this week, from the official account. That's a rough way to start a Friday. Good morning, and welcome to AI Morning. It's Friday, November twentieth. I'm Ava. And I'm Andrew. Good morning to you. We've got a big IPO, a new Gemini...",
+   "notes_html": "<p><b>Chicago:</b> high 19\u00b0C, low 4\u00b0C, overcast.</p><h3>TLDR ai (2026-11-19)</h3><ul><li><a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/\">Gemini 4 Neon</a></li><li><a href=\"https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/\">Genie 4</a></li><li><a href=\"https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/\">Why is Gemini 4 Carbon taking so long?</a></li><li><a href=\"https://asubedi.com.np/blog/why-antigravity-eats-weekly-quota-fast/\">Why Antigravity Eats Weekly Quota Fast - and What I Measured</a></li><li><a href=\"https://www.edgee.ai/blog/posts/switching-llms-mid-conversation-is-a-ski-rental-problem\">Switching LLMs mid-conversation is a ski-rental problem</a></li><li><a href=\"https://openai.com/index/advancing-chip-design-with-our-models/\">Advancing chip design with OpenAI models</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://openai.com/index/research-acceleration-jagged-frontier/\">An update on the state of research acceleration at OpenAI</a></li><li><a href=\"https://www.perplexity.ai/hub/blog/context-api-extracts-full-context-from-any-web-page\">Context API extracts full context from any web page</a></li><li><a href=\"https://www.primeintellect.ai/blog/introducing-model-factory\">Introducing Model Factory</a></li><li><a href=\"https://thezvi.substack.com/p/quickly-theres-no-time\">Quickly, There's No Time</a></li><li><a href=\"https://www.hyperdimensional.co/p/the-silent-consensus\">The Silent Consensus</a></li><li><a href=\"https://openai.com/index/inside-the-codex-sandbox/\">Inside the Codex sandbox</a></li><li><a href=\"https://engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models/\">How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models</a></li><li><a href=\"https://resolve.ai/news/introduces-SRE-1-model-and-primary-on-call\">ResolveAI Introduces SRE-1, the Most Accurate Model for Production at Every Budget</a></li><li><a href=\"https://epoch.ai/data-insights/anthropic-openai-compute-spend-growth\">Anthropic's compute spending is increasing by 4x per year, outpacing OpenAI's 3x</a></li><li><a href=\"https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/\">Introducing Stitch Loop: A new way to build and evolve products</a></li></ul><h3>TLDR infosec (2026-11-19)</h3><ul><li><a href=\"https://opensourcemalware.com/blog/agent-framework-pypi-compromised\">Official Microsoft agent-framework PyPI Package Compromised</a></li><li><a href=\"https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities\">Unauthenticated Remote Code Execution in NGINX</a></li><li><a href=\"https://arstechnica.com/security/2026/11/malicious-code-delivered-through-optimizely-hits-visitors-to-hundreds-of-sites/\">Hundreds of Websites Deliver Potent Malware Cocktail to Unsuspecting Visitors</a></li><li><a href=\"https://pgaleone.eu/ai/2026/11/14/backdooring-llms-and-trust/\">Backdooring LLMs - Do You Trust Your AI Provider?</a></li><li><a href=\"https://phrack.org/issues/73/abusing-the-windows-smart-card-minidriver-architecture_md\">Abusing the Windows Smart Card Minidriver Architecture</a></li><li><a href=\"https://github.com/Arcanum-Sec/SpikeStrip\">SpikeStrip</a></li><li><a href=\"https://github.com/crypt0p3g/pass-the-device\">Pass-the-Device</a></li><li><a href=\"https://daylight.ai/\">Daylight (Product Launch)</a></li><li><a href=\"https://www.chainguard.dev/unchained/chainguard-is-now-self-serve-and-free-to-start\">Chainguard Is Now Self-Serve and Free to Start</a></li><li><a href=\"https://escape.tech/blog/escape-research-found-a-scope-bypass-that-made-gitea-s-restricted-tokens-full-admins-it-s-now-cve-2026-117635/\">Escape Research Found a Scope Bypass that Made Gitea's Restricted Tokens Full Admins</a></li><li><a href=\"https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html\">Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers</a></li><li><a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/security-hub-gcp/\">AWS Security Hub Extends Unified Security Management to Google Cloud Platform</a></li><li><a href=\"https://owasp.org/news/owasp-top-10-neocloud\">OWASP Top 10 Neocloud &amp; AI Data Center Security Risks: Securing the Layer AI Runs On</a></li><li><a href=\"https://cyberscoop.com/cisa-100-critical-infrastructure-companies-fed-talks/\">How CISA is Prioritizing Companies for Talks About Security Improvements</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/\">Token fraud is here and it\u2019s BAD (YouTube)</a></li><li><a href=\"https://simonwillison.net/2026/Nov/19/postgresql-19/\">PostgreSQL 19 Released</a></li><li><a href=\"https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast\">How OpenAI\u2019s Performance Factory keeps ChatGPT fast</a></li><li><a href=\"https://openai.com/business/learn/deploying-daybreak-red\">Deploying Daybreak Red</a></li><li><a href=\"https://openai.com/business/learn/pr-scans-demo\">See PR scans in action</a></li><li><a href=\"https://openai.com/business/learn/codex-security-plugin-demo\">Explore the Codex Security Plugin</a></li><li><a href=\"https://openai.com/business/learn/daybreak-blue-onboarding-demo\">Get started with Daybreak Blue</a></li><li><a href=\"https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/\">[AINews] Anthropic successfully completes largest IPO in history, valued at $1.5T</a></li><li><a href=\"https://latent.space/p/linear-scaling/\">Scaling Linear\u2019s GTM to $100M ARR \u2014 Cristina Cordova, COO</a></li></ul>",
+   "file": "episodes/2026-11-20.mp3",
+   "bytes": 4592160,
+   "seconds": 765,
+   "published": "2026-11-20T06:00:19.582360-06:00",
+   "engine": "edge-tts",
+   "opening": "Microsoft's own agent framework shipped a credential stealer on PyPI this week, from the official account.",
+   "closing": "Enjoy the sunshine this afternoon. See you Monday.",
+   "picks": {
+    "opening": "Open by teasing the most interesting story in one line, then say good morning properly.",
+    "tone": "calm and focused",
+    "dynamic": "Andrew leads the news and Ava asks the questions a smart listener would ask.",
+    "signoff": "End with a one-line recap of the single thing worth remembering today."
+   }
+  },
+  {
    "date": "2026-11-19",
    "title": "Gemini Neon and Anthropic Goes Public",
    "summary": "Good morning, good morning! You're up, we're up, and the coffee's doing its job. This is AI Morning. Welcome in! It's Thursday, it's early, and we've got a new Google model, a big IPO, and two things from OpenAI worth chewing on. Plus a pricing chart that might give you a headache. We'll get there....",
@@ -59,22 +78,29 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-18",
-  "infosec": "2026-11-18"
+  "ai": "2026-11-19",
+  "infosec": "2026-11-19"
  },
  "seen_urls": [
+  "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
   "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
+  "https://latent.space/p/linear-scaling/",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
   "https://openai.com/business/customer-stories/revolut",
   "https://openai.com/business/customer-stories/sumitomo-life",
+  "https://openai.com/business/learn/codex-security-plugin-demo",
+  "https://openai.com/business/learn/daybreak-blue-onboarding-demo",
+  "https://openai.com/business/learn/deploying-daybreak-red",
+  "https://openai.com/business/learn/pr-scans-demo",
   "https://openai.com/index/advancing-chip-design-with-our-models",
   "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
   "https://openai.com/index/astra-law-6-2",
   "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+  "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
   "https://openai.com/index/inside-the-codex-sandbox",
   "https://openai.com/index/introducing-chatgpt-for-sales",
   "https://openai.com/index/introducing-gpt-6-2-astra-sol",
@@ -107,6 +133,8 @@
   "https://simonwillison.net/2026/Nov/18/datasette-arrows/",
   "https://simonwillison.net/2026/Nov/18/llm-gemini/",
   "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
+  "https://simonwillison.net/2026/Nov/19/postgresql-19/",
+  "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",

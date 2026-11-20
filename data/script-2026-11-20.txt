@@ -1,0 +1,72 @@
+Poisoned Packages and Backdoored Models
+
+ANDREW: Microsoft's own agent framework shipped a credential stealer on PyPI this week, from the official account.
+AVA: That's a rough way to start a Friday. Good morning, and welcome to AI Morning. It's Friday, November twentieth. I'm Ava.
+ANDREW: And I'm Andrew. Good morning to you. We've got a big IPO, a new Gemini model, and two security stories that matter a lot to anyone running agents. First, the weather.
+AVA: Chicago starts overcast this morning at around 4 degrees Celsius, clearing in the afternoon to a high of 19. Skies stay clear into the evening, with temperatures falling to 11 to 13 degrees. There's no chance of rain, and winds reach up to 16 kilometres per hour.
+ANDREW: Let's start with the money story. Anthropic completed what's being called the largest IPO in history, at a valuation of one point five trillion dollars.
+AVA: How did the first day actually go?
+ANDREW: The shares priced at eighty-three dollars, opened at a hundred eleven fifty, and closed at ninety-seven seventeen. So a big pop at the open, then most of it came back down, and they still finished well above the offering price.
+AVA: Does that change anything for people building on Claude, or is it just a finance story?
+ANDREW: Mostly finance today. But it fits another data point we saw this week. Anthropic spent nearly ten billion dollars on compute and infrastructure in the third quarter, and one estimate has its compute spending growing about four times a year. OpenAI's is growing about three times. Public money means that spending can keep growing, and compute is ultimately what decides rate limits and model releases.
+AVA: Okay. Google had a launch too.
+ANDREW: Google introduced Gemini 4 Neon. They're pitching it as fast and frontier level for complex coding, knowledge work and science. It scored 61 on the Artificial Analysis Intelligence Index. Pricing is three dollars per million input tokens and fifteen dollars per million output tokens.
+AVA: So who is that for?
+ANDREW: It's for the same jobs people send to their mid-tier frontier model, the workhorse for agent loops. If it really is fast at that level, it's worth putting in your routing table and running against your own evals.
+AVA: Speaking of fast, wasn't there a post about another Gemini model being slow?
+ANDREW: Yes, Gemini 4 Carbon. In a private benchmark, Carbon spent close to an hour on bug fixes that Claude Opus 5.5 and GPT-6 Astra finished in minutes. Carbon took about seven times as many steps as Astra, and about half of those steps were unnecessary.
+AVA: Half. So it's not that it's dumb, it's that it wanders.
+ANDREW: Right, and for agents that's its own failure mode. Every extra step costs tokens and time, and each one is another chance to touch something it shouldn't. Step count belongs in your evals next to pass rate.
+AVA: There was also a token cost story about Google's Antigravity coding tool.
+ANDREW: Someone measured why it burns through weekly quota so fast. If you pause for five minutes, the prompt cache gets wiped. You can refresh the cache just before it expires, but that only works for three pings. And even a five word prompt starts with somewhere between thirteen thousand eight hundred and over sixteen thousand eight hundred tokens of system instructions, MCP schemas and skills.
+AVA: Before you've said anything useful.
+ANDREW: Before you've said anything at all. The fix they found was boring and effective: turn off MCP servers and plugins you aren't using. That shrinks the cold turns and cuts cache misses.
+AVA: That's a good reminder for anyone with an agent system that loads every tool it might ever need. Every MCP schema you attach costs you on every turn.
+ANDREW: There was a related routing idea I liked. Most model routing decides once per request. A classifier scores the request, and easy ones go to a cheap model and hard ones go to a frontier model. This post argues that for coding agents, the harder question is when a session that's already running should switch models. They frame it as the classic ski rental problem.
+AVA: As in, you keep renting skis until the rental fees add up to the price of buying a pair?
+ANDREW: Exactly. You stay on the cheap model until what you've spent struggling equals what switching would cost, and then you switch. That gives you a clean rule instead of a gut feeling.
+AVA: Okay, what's OpenAI been up to?
+ANDREW: A few things. They published an update on research acceleration. Their agents now complete nearly half of two to four hour research tasks on their own. Agent use internally is surging, and the heaviest users are pulling further ahead of everyone else.
+AVA: Does that mean humans are being phased out of the research?
+ANDREW: They say no. Humans are still central, and researchers are putting more human effort into safety and alignment. But that gap between heavy users and everyone else is the interesting part. Being good with agents is turning into a career skill.
+AVA: And the chip design story?
+ANDREW: Design changes proposed by OpenAI's models cut the circuit area of key parts of their Jalapeño AI chip by an estimated ten to thirteen percent. Working with AMD, the same approach delivered up to fourteen percent improvements on AMD's flagship GPU designs.
+AVA: So the models are helping design the hardware the models run on.
+ANDREW: Yes, that loop is getting very literal. They also wrote up something called the Performance Factory, a set of Codex powered workflows that find and fix performance problems to keep ChatGPT fast. And a post on the Codex sandbox, which lets the coding agent run commands on your own machine within file and network limits you control.
+AVA: That sandbox piece is going to come back in the security segment, I think.
+ANDREW: It will. One more on the engineering side. Google opened Genie 4, its model for generating interactive worlds, to eligible AI Ultra subscribers. You can edit a world by typing prompts while you're walking around in it. Not directly agent tooling, but it's a real step for world models.
+AVA: And PostgreSQL 19 came out?
+ANDREW: It did, two months late. Postgres usually ships in September, and this year's delay came mainly from the flood of issues the team had to deal with in what's being called the ongoing AI reported vulnerability apocalypse.
+AVA: So AI bug hunting is now moving release schedules for major open source projects.
+ANDREW: That's the real story there. The release itself has some nice features, like read your writes consistency on standbys. The rest of today's news is in the show notes.
+AVA: Alright, security. You teased it at the top.
+ANDREW: Versions one point two six point one and one point two six point two of Microsoft's agent framework package on PyPI were compromised. They were pushed from the official publisher account, and they contain a credential stealer.
+AVA: How does it run? Do you have to actually import the package?
+ANDREW: No, and that's the nasty part. It ships a file called af runtime diag dot pth. Python runs pth files on every startup, so the stealer runs every time Python starts, even if nothing imports the package.
+AVA: What does it take?
+ANDREW: Environment variables, credential files, and the environment of other running processes. It also asks for fresh GitHub Actions OIDC tokens, Azure DevOps OIDC tokens and Azure managed identity tokens. Then it sends everything to a webhook site URL.
+AVA: So if this got into a CI runner, it isn't just stealing static secrets. It's minting new cloud identity tokens.
+ANDREW: Right. And the attacker is believed to still have publishing access. So the guidance is to treat any install of either version as a full credential compromise. Rotate every secret, CI token and cloud identity that environment could reach.
+AVA: Is there an obvious lesson, other than everything is terrible?
+ANDREW: Pin your versions and add a cooldown before you take new releases. That's relevant to another story, actually. Chainguard went self serve with a free starter tier. It includes malware screened packages with a seven day version cooldown, plus hardened CI runners and agent sandboxes. A seven day wait on new versions is exactly what would have helped here.
+AVA: Okay. Second AI story.
+ANDREW: A researcher showed how cheap it is to backdoor a model. He fine-tuned Qwen3 8B with a QLoRA adapter on a single RTX 3090, using about one euro of electricity. A harmless question about May twenty-third, 1992 made the model silently emit a bash tool call. The agent harness ran it, and the user saw an empty reply.
+AVA: An empty reply. So from the outside nothing even looks wrong.
+ANDREW: Nothing at all. And it gets sharper. He trained on that harness's actual system prompt, so the backdoor only fires in that one harness. In Claude Code or Codex it just sits there dormant.
+AVA: So if you test the model in a different harness than you deploy it in, you'd never see it.
+ANDREW: Exactly. There's one detection trick for open weights. If you diff a merged adapter against the official base, it shows up, because the layernorm weights stay unchanged. But you can't do that with hosted API models.
+AVA: So what do you do?
+ANDREW: Sandbox your agents. Require approval for shell and network tool calls. And test any new model with your real harness prompt, not a generic one.
+AVA: Which is why that Codex sandbox post matters. File and network limits are the layer that catches this when the model itself can't be trusted.
+ANDREW: Yes. Next, token fraud. The founder of ChatPRD, a tool that turns product ideas into specs, described a flood of abuse of her free trial. Some of it is people getting free AI usage, but often it's groups reselling tokens or running whole commercial operations on top of her agent.
+AVA: So your free tier turns into somebody else's backend.
+ANDREW: Pretty much. If you expose an agent publicly, trial abuse is now a security and cost problem, not just a growth metric.
+AVA: Any tools worth knowing about?
+ANDREW: Two quick ones. SpikeStrip adds reversible prompt decoys to HTML and JavaScript files, so you can plant bait for agents that scrape your site. And a security operations platform called Daylight launched. It runs agents for daily security work and says it protects against prompt injection, risky MCPs and rogue AI activity. OWASP also published an incubator Top 10 for risks in neoclouds, GPU clouds and AI data centers.
+AVA: And the non-AI headlines?
+ANDREW: Two. Researchers found two unauthenticated remote code execution bugs in NGINX's HTTP/2 handling, one a use after free and one an integer overflow. Patch, or turn off HTTP/2. And attackers modified JavaScript served through Optimizely's legitimate infrastructure, hitting 178 sites, including CNN, Zoom, the BBC and Salesforce. It swapped crypto wallet addresses, captured card numbers, and served iOS exploit kits. Funds were stolen from some visitors.
+AVA: Another supply chain story. That's the theme today.
+ANDREW: It really is.
+AVA: Here's something to try this morning. Microsoft's agent framework package on PyPI had two compromised versions, one point two six point one and one point two six point two, and they carry a credential stealer that runs on every Python startup. Open a terminal in each Python environment you use, including virtual environments, containers and CI images, run pip show agent framework, and note the version. Then search your site packages folders for a file named af runtime diag dot pth, because that's what launches the stealer even when nothing imports the package. If you find either version or that file, treat it as a full compromise and rotate every secret, CI token and cloud identity that machine could reach. Then pin the package to a known good version in your build.
+ANDREW: That's the show. If you remember one thing today, it's this: check what your agents install before you trust what they run.
+AVA: Enjoy the sunshine this afternoon. See you Monday.
