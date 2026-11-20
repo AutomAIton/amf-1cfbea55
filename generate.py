@@ -50,6 +50,9 @@ PLACE = env("PLACE", "Chicago")
 # What the listener is building, one or two sentences. Private: set as the repo variable LISTENER_CONTEXT
 # (the repo is public, so it must never be committed here). Empty = the hosts do not mention a project.
 LISTENER_CONTEXT = env("LISTENER_CONTEXT", "")
+# Tools, databases and platforms the listener builds on, comma separated. Private: repo variable LISTENER_STACK,
+# never committed (public repo). Empty = no stack-aware Try this.
+LISTENER_STACK = env("LISTENER_STACK", "")
 LAT = float(env("LAT", "41.8781"))
 LON = float(env("LON", "-87.6298"))
 TLDR_TOPICS = [t.strip() for t in env("TLDR_TOPICS", "ai,infosec").split(",") if t.strip()]
@@ -355,6 +358,7 @@ SIGNOFFS = ["End with a one-line recap of the single thing worth remembering tod
 
 greet = f"Greet the listener by name, {LISTENER}." if LISTENER else "Greet the listener warmly; you do not know their name."
 CONTEXT_RULE = (f"- About the listener's own work: {LISTENER_CONTEXT} This podcast is published on a public website, so a host may only allude to it generically (\"your build\", \"your agent system\") and must never repeat this description, or state the listener's career, employer, clients or personal details. A host may occasionally tie a story to it, in the Try this segment or elsewhere, but never every story. Never choose or drop stories because of it; keep covering new developments on the horizon that have nothing to do with it.\n" if LISTENER_CONTEXT else "")
+STACK_RULE = (f"- Listener's stack (private, never list it or say how the listener uses it): {LISTENER_STACK}. When a story is a release, vulnerability, deprecation or upgrade for something on this list, the Try this must be about it: what version to check, what to scan, or how to plan the upgrade, phrased as \"if you run it\" (name the tool, not the listener's setup). Stack news takes priority for Try this over other stories. This never limits story choice: keep covering everything else.\n" if LISTENER_STACK else "")
 SYSTEM_PROMPT = f"""You write the script for "AI Morning", a private daily podcast for one listener in {PLACE}. The listener builds AI agent systems and works in AI security, so they care about AI engineering, agents and AI operating systems, new models and labs, and AI cybersecurity. Two hosts talk: {HOST_A} and {HOST_B}.
 
 Format, exactly:
@@ -375,7 +379,7 @@ Rules for the spoken text:
 - Try this: a short segment of three to five sentences from one host, just before the sign-off. Give one concrete step the listener can start today, practical enough to do in the next hour: what to open or run, what to look for, what to change. It must stand alone: if it builds on something from earlier in the episode, restate that in full (name every item, for example list all the layers or steps instead of saying "the four layers"). Never assume the listener remembers earlier talk. Tie it to a story just covered, pick the one that fits best, and skip the segment on a day where nothing does.
 - Language: natural, lively and a little playful is welcome, jokes and idioms included. The one test: a listener hearing a line once should get it without stopping to decode. If a joke only works when the listener works out the point, or a phrase is vague ("big budgets"), say the plain thing instead.
 - Jargon: use the real vocabulary of AI engineering and security without lecturing. Do not stop to define terms or teach. A key term can come back a few times in context so it sticks.
-{CONTEXT_RULE}- Stay faithful to the source summaries. Never invent details, numbers or quotes. If a source was unavailable, say so in passing.
+{CONTEXT_RULE}{STACK_RULE}- Stay faithful to the source summaries. Never invent details, numbers or quotes. If a source was unavailable, say so in passing.
 - Do not read source names aloud unless the source is the story (a lab announcing its own model is fine).
 - Length: aim for about {TARGET_MINUTES * WPM} words (about {TARGET_MINUTES} minutes spoken). Between {10 * WPM} and {12 * WPM} words is ideal. Hard limit: never more than {MAX_MINUTES * WPM} words ({MAX_MINUTES} minutes). Never finish under {10 * WPM} words: on a thin-news day, go deeper on the best stories (what it means, a tradeoff, a counterpoint, a concrete example) instead of wrapping up early.
 

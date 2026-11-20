@@ -71,4 +71,8 @@ _p = {"opening": "o", "tone": "t", "dynamic": "d", "signoff": "s", "security_top
 _now = __import__("datetime").datetime(2026, 11, 19, 7, 0)
 assert "SECURITY FALLBACK" in g.build_prompt(_now, None, {}, {"engineering": [], "security": []}, _p, {"episodes": []})
 assert "SECURITY FALLBACK" not in g.build_prompt(_now, None, {}, {"engineering": [], "security": []}, {k: v for k, v in _p.items() if k != "security_topic"}, {"episodes": []})
+# 2026-11-20 feedback: Try this follows the listener's private stack (repo variable, never committed)
+_src = open(Path(g.__file__), encoding="utf-8").read()
+assert g.LISTENER_STACK == "" and "Listener's stack" not in g.SYSTEM_PROMPT
+assert "LISTENER_STACK" in wf and "the Try this must be about it" in _src and "never list it" in _src
 print("OK")

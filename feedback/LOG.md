@@ -5,8 +5,8 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 
 ## State
 - **Cadence:** daily, through 2026-11-24. The 11-24 session asks: keep daily, or go weekly?
-- **Last reviewed episode:** 2026-11-19 ("Gemini Neon and Anthropic Goes Public", VPS-started 06:00 CT, 8 min 14 s)
-- **Next session queued:** 2026-11-20 07:00 (`C:\AI\handoffs\queue\2026-11-20-0700-ai-morning-feedback.md`)
+- **Last reviewed episode:** 2026-11-20 ("Poisoned Packages and Backdoored Models", VPS-started 06:00 CT, 12 min 45 s)
+- **Next session queued:** 2026-11-21 07:00 (`C:\AI\handoffs\queue\2026-11-21-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
@@ -33,6 +33,8 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-19 | Never finish under 10 min: on thin-news days go deeper on the best stories | SYSTEM_PROMPT |
 | 2026-11-19 | Weather API timeout: 3 rounds of retries before saying "unavailable" | WEATHER_ROUNDS |
 | 2026-11-19 | Empty security sources: short "no fresh news" line plus a 2-3 min evergreen refresher (rotating topics) | SECURITY_EVERGREEN, build_prompt |
+| 2026-11-20 | 11-19 changes verified good: weather short, Try this stand-alone and practical, length 12:45, no voice glitches | SYSTEM_PROMPT (unchanged) |
+| 2026-11-20 | Try this follows the listener's whole stack (PostgreSQL, Python/PyPI, Node/npm, Docker, Linux VPS, Claude/Anthropic API): stack release, vulnerability or upgrade news wins the Try this; private repo variable, "if you run it" | LISTENER_STACK, STACK_RULE |
 
 ## Verify next session (trials)
 - Andrew voice DECIDED 2026-11-18: keep en-US-AndrewMultilingualNeural (his pick from the samples); plain Andrew is the backup after 3 failed tries.
@@ -44,6 +46,9 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 
 - 2026-11-19 changes, check on the 11-20 episode: weather present? Try this stand-alone and practical? Length at least 10 min? If security was thin, was the evergreen refresher OK?
 - OPEN: TLDR issues seem to publish after 06:00 CT (11-19 issues were live later in the day; the 06:00 build fell back to the used 11-18 issue). Operator approved no start-time change; revisit if security/news stay thin.
+
+- 2026-11-20 change, check on the 11-21 episode: when a story touches the stack, did Try this follow it (and stay generic, no private details)?
+- OPEN (operator idea, 2026-11-20): a full roster of dependencies and tools per project, checked against the news. Needs a private roster file built from his project manifests; propose it next session.
 
 ## Open questions (not yet asked)
 - Story selection: which stories landed or bored (partly answered: decision models were relevant)

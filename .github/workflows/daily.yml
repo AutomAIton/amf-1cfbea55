@@ -59,6 +59,7 @@ jobs:
           BASE_URL: ${{ vars.BASE_URL }}
           LISTENER_NAME: ${{ vars.LISTENER_NAME }}
           LISTENER_CONTEXT: ${{ vars.LISTENER_CONTEXT }}
+          LISTENER_STACK: ${{ vars.LISTENER_STACK }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
           TARGET_MINUTES: ${{ vars.TARGET_MINUTES }}
           TLDR_TOPICS: ${{ vars.TLDR_TOPICS }}
