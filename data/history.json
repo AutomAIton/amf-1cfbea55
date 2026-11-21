@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-21",
+   "title": "Riemann Claims, Agent Swarms, Leaky Sandboxes",
+   "summary": "Good morning, and happy Saturday. The one day of the week where the alarm is optional and somehow you're up anyway. Welcome to AI Morning. Morning! And honestly, if you're listening at seven on a Saturday, you're our kind of people. Let's start with the sky. Chicago today runs from a low of 7...",
+   "notes_html": "<p><b>Chicago:</b> high 20\u00b0C, low 7\u00b0C, partly cloudy.</p><h3>TLDR ai (2026-11-20)</h3><ul><li><a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/\">Introducing Tool Retrieval in the Gemini API</a></li><li><a href=\"https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/\">Let Gemini tackle repetitive chores on your Mac</a></li><li><a href=\"https://frontier.replit.com/throwing-headcount-at-the-problem/\">When Agent Swarms Outperform Solo Coders</a></li><li><a href=\"https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being\">Sandboxed Models Can Communicate via Inference Servers</a></li><li><a href=\"https://linch.substack.com/p/ai-is-already-massively-speeding\">AI is already massively speeding up AI research</a></li><li><a href=\"https://blog.google/security/mirror-dimension-for-agents/\">Mirror Dimension for Agents: Evaluating Browser-Use Agents Without the Web</a></li><li><a href=\"https://apple-aiml-research.github.io/ml-fastframes/\">FastFrames: Video Generation at Interactive Latency</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://www.perplexity.ai/hub/blog/self-improving-skills\">Perplexity's Self-Improving Skills</a></li><li><a href=\"https://stripe.dev/blog/stripe-integration-evals-methodology\">Stripe evals: Measuring real-world coding agent performance</a></li><li><a href=\"https://community.tldr.tech/t/weekly-what-s-your-unpopular-opinion-about-ai\">What's your unpopular opinion about AI? (TLDR Community)</a></li><li><a href=\"https://institute.deepmind.com/essays/what-comes-after-agi/\">What comes after AGI?</a></li><li><a href=\"https://vercel.com/blog/introducing-vercel-board\">Vercel Board</a></li><li><a href=\"https://blog.cloudflare.com/open-clairic/\">Cloudflare's Clairic and Clairic-flash</a></li><li><a href=\"https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/\">How OpenAI's Performance Factory keeps ChatGPT fast</a></li><li><a href=\"https://today.ucsd.edu/story/computer-scientists-facilitating-an-independent-review-of-a-high-profile-open-ai-and-anthropic-resul\">Computer Scientists Facilitating Independent Review of a High-profile OpenAI and Anthropic Result</a></li></ul><h3>TLDR infosec (2026-11-20)</h3><ul><li><a href=\"https://verialabs.com/ruby2shell/\">Ruby2\u00dfhell</a></li><li><a href=\"https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html\">Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required</a></li><li><a href=\"https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html\">PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution</a></li><li><a href=\"https://blog.marcolancini.it/2026/blog-security-logging-cloud-environments-kubernetes/\">Security Logging in Cloud Environments - Kubernetes</a></li><li><a href=\"https://businessinsights.bitdefender.com/eggstreme-malware-revises-architecture-infrastructure\">EggStreme Malware: Rebuilt Under Scrutiny</a></li><li><a href=\"https://github.com/openai/codex-security/blob/main/plugins/codex-security/skills/threat-model/SKILL.md\">Security Threat Model</a></li><li><a href=\"https://www.vero.security/\">Vero Security (Product Launch)</a></li><li><a href=\"https://github.com/aws/aws-emulator\">AWS Emulator</a></li><li><a href=\"https://www3.nhk.or.jp/nhkworld/news/20261117de77429/\">Rakuten Securities Warns of Data Leak for 4.47M Accounts</a></li><li><a href=\"https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/\">Muse Privacy Invasions Are Freaking Out Meta Staffers, Internal Chats Show</a></li><li><a href=\"https://techcrunch.com/2026/11/18/british-hackers-face-prison-for-gta-6-data-breach-and-crypto-thefts/\">British Hackers Face Prison for GTA 6 Data Breach and Crypto Thefts</a></li><li><a href=\"https://www.theregister.com/security/2026/11/19/tfl-takes-oyster-photocard-website-offline-after-attackers-compromise-customer-accounts/5310985\">TfL Takes Oyster Photocard Website Offline After Attackers Compromise Customer Accounts</a></li><li><a href=\"https://www.bbc.com/news/articles/c6eq49zyx7p4o\">Tens of Thousands of UK Fridges Secured From Hackers in Secret Nationwide Operation</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/20/ravi-vakil/\">Quoting Ravi Vakil</a></li><li><a href=\"https://simonwillison.net/2026/Nov/20/levent-alpoge/\">Quoting Levent Alp\u00f6ge</a></li><li><a href=\"https://openai.com/index/combatting-adversarial-distillation\">Combatting adversarial distillation</a></li><li><a href=\"https://openai.com/business/customer-stories/hebbia\">Hebbia sees improvements in financial research with GPT-6 Astra</a></li><li><a href=\"https://openai.com/index/introducing-medchembench\">Can AI help scientists identify promising drug candidates?</a></li><li><a href=\"https://latent.space/p/ainews-riemann-hypothesis-proved-twice-independently/\">[AINews] Riemann Hypothesis proved...twice independently</a></li><li><a href=\"https://latent.space/p/formal-verification/\">The War Against Slop and an Emerging Weapon to Fight it: Formal Verification</a></li><li><a href=\"https://www.anthropic.com/news/ipo-close\">Anthropic announces closing of initial public offering, including full exercise of underwriters\u2019 option to purchase additional shares, and closing of concurrent private placement</a></li></ul>",
+   "file": "episodes/2026-11-21.mp3",
+   "bytes": 4463280,
+   "seconds": 743,
+   "published": "2026-11-21T06:00:23.501393-06:00",
+   "engine": "edge-tts",
+   "opening": "Good morning, and happy Saturday. The one day of the week where the alarm is optional and somehow you're up anyway. Welcome to AI Morning.",
+   "closing": "One thing to remember today: a claim isn't a proof, and a sandbox isn't a wall, so verify both.",
+   "picks": {
+    "opening": "Open with a light, wry remark about the day of the week.",
+    "tone": "upbeat and warm",
+    "dynamic": "Group the stories into two or three themes; one host introduces each theme, the other connects it.",
+    "signoff": "End with a one-line recap of the single thing worth remembering today."
+   }
+  },
+  {
    "date": "2026-11-20",
    "title": "Poisoned Packages and Backdoored Models",
    "summary": "Microsoft's own agent framework shipped a credential stealer on PyPI this week, from the official account. That's a rough way to start a Friday. Good morning, and welcome to AI Morning. It's Friday, November twentieth. I'm Ava. And I'm Andrew. Good morning to you. We've got a big IPO, a new Gemini...",
@@ -78,17 +97,20 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-19",
-  "infosec": "2026-11-19"
+  "ai": "2026-11-20",
+  "infosec": "2026-11-20"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
   "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
+  "https://latent.space/p/ainews-riemann-hypothesis-proved-twice-independently/",
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
+  "https://latent.space/p/formal-verification/",
   "https://latent.space/p/linear-scaling/",
+  "https://openai.com/business/customer-stories/hebbia",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
   "https://openai.com/business/customer-stories/revolut",
   "https://openai.com/business/customer-stories/sumitomo-life",
@@ -99,11 +121,13 @@
   "https://openai.com/index/advancing-chip-design-with-our-models",
   "https://openai.com/index/advancing-computer-use-for-healthcare-teams",
   "https://openai.com/index/astra-law-6-2",
+  "https://openai.com/index/combatting-adversarial-distillation",
   "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
   "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
   "https://openai.com/index/inside-the-codex-sandbox",
   "https://openai.com/index/introducing-chatgpt-for-sales",
   "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+  "https://openai.com/index/introducing-medchembench",
   "https://openai.com/index/introducing-openai-for-chile",
   "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
   "https://openai.com/index/lvmh-media-division-partnership",
@@ -134,6 +158,8 @@
   "https://simonwillison.net/2026/Nov/18/llm-gemini/",
   "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
   "https://simonwillison.net/2026/Nov/19/postgresql-19/",
+  "https://simonwillison.net/2026/Nov/20/levent-alpoge/",
+  "https://simonwillison.net/2026/Nov/20/ravi-vakil/",
   "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
@@ -150,6 +176,7 @@
   "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
   "https://www.anthropic.com/news/expanding-partnership-gsa",
   "https://www.anthropic.com/news/genesis-mission-commitment",
+  "https://www.anthropic.com/news/ipo-close",
   "https://www.anthropic.com/news/open-call-guest-investigators-life-sciences",
   "https://www.anthropic.com/news/partnerships",
   "https://www.anthropic.com/news/public-benefit-fund",
