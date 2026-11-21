@@ -62,7 +62,7 @@ assert "amf-1cfbea55" in cu and "workflows/daily.yml/dispatches" in cu
 assert "ALERT_HOUR=9" in cu and "MAX_STARTS=3" in cu and '"name":"ai-morning-episode"' in cu
 # 2026-11-19 feedback: weather retries, stand-alone practical Try this, no short episodes, security fallback
 assert g.WEATHER_ROUNDS >= 3
-assert "stand alone" in g.SYSTEM_PROMPT and "start today" in g.SYSTEM_PROMPT and "three to five sentences" in g.SYSTEM_PROMPT
+assert "stand alone" in g.SYSTEM_PROMPT and "start today" in g.SYSTEM_PROMPT and "two or three sentences" in g.SYSTEM_PROMPT
 assert "Never assume the listener remembers" in g.SYSTEM_PROMPT and "Never finish under" in g.SYSTEM_PROMPT
 assert g.security_is_thin({"infosec": {"status": "no new issue since the last episode"}}, {"security": []})
 assert not g.security_is_thin({"infosec": {"status": "ok"}}, {"security": []})
@@ -74,8 +74,11 @@ assert "SECURITY FALLBACK" not in g.build_prompt(_now, None, {}, {"engineering":
 # 2026-11-20 feedback: Try this follows the listener's private stack (repo variable, never committed)
 _src = open(Path(g.__file__), encoding="utf-8").read()
 assert g.LISTENER_STACK == "" and "Listener's stack" not in g.SYSTEM_PROMPT
-assert "LISTENER_STACK" in wf and "the Try this must be about it" in _src and "never list it" in _src
+assert "LISTENER_STACK" in wf and "one Try this item must be about it" in _src and "never list it" in _src
 _ls = g.LISTENER_STACK; g.LISTENER_STACK = "PostgreSQL, Python packages, Node.js and npm, Docker containers"
 assert g.drop_leaks([("A", "I run PostgreSQL, Python packages, Node.js and npm, Docker containers."), ("B", "PostgreSQL 19 shipped today.")]) == [("B", "PostgreSQL 19 shipped today.")]
 g.LISTENER_STACK = _ls
+# 2026-11-21 feedback: Try this is a block of two or three short items, with more room
+assert "two or three short items" in g.SYSTEM_PROMPT and "two or three practical things" in g.SYSTEM_PROMPT
+assert f"{13 * g.WPM} words is ideal" in g.SYSTEM_PROMPT and g.MAX_MINUTES == 15
 print("OK")
