@@ -503,6 +503,9 @@ def _gtts_one(who, said, path):
     gTTS(said, lang="en", tld="com" if who == HOST_A.upper() else "co.uk").save(str(path))
 
 
+GOOGLE_CHARS = 0  # characters Google actually voiced this run (billing unit)
+
+
 def _google_one(who, said, path, attempts=3):
     """One turn from Google Cloud TTS (REST + API key, no SDK). Raises if every attempt fails."""
     import base64
@@ -519,6 +522,8 @@ def _google_one(who, said, path, attempts=3):
                 data = base64.b64decode(r.json()["audioContent"])
                 if len(data) > 1000:
                     Path(path).write_bytes(data)
+                    global GOOGLE_CHARS
+                    GOOGLE_CHARS += len(said)
                     return
             last = f"HTTP {r.status_code}"
         except Exception as exc:  # noqa: BLE001
@@ -570,6 +575,28 @@ async def _edge_all(turns, folder):
         paths.append(p)
         await asyncio.sleep(0.3)
     return paths, n_google, n_edge, n_gtts
+
+
+TTS_FREE_MONTHLY_CHARS = 1_000_000  # Google Chirp 3 HD free tier per month (checked 2026-11-22)
+
+
+def log_tts_usage(day, engine):
+    """Append this run's Google characters to data/tts-usage.csv (reruns included, as they are billed) and
+    log month-to-date against the free tier, so a charge can be seen coming."""
+    f = DATA / "tts-usage.csv"
+    new = not f.exists()
+    with open(f, "a", encoding="utf-8", newline="") as fh:
+        if new:
+            fh.write("date,chars,engine
+")
+        fh.write(f"{day},{GOOGLE_CHARS},{engine}
+")
+    month = day[:7]
+    total = sum(int(r.split(",")[1]) for r in f.read_text(encoding="utf-8").splitlines()[1:] if r.startswith(month))
+    log(f"Google TTS characters: {GOOGLE_CHARS} this run, {total} in {month} "
+        f"({100 * total / TTS_FREE_MONTHLY_CHARS:.0f}% of the {TTS_FREE_MONTHLY_CHARS:,} free)")
+    if total > 0.8 * TTS_FREE_MONTHLY_CHARS:
+        log("WARNING: over 80% of the free Google TTS allowance this month.")
 
 
 def synthesize(turns, out_path):
@@ -754,6 +781,7 @@ def main():
     mp3 = EPISODES / f"{today}.mp3"
     engine, seconds = synthesize(turns, mp3)
     log(f"Audio via {engine}: {mp3.stat().st_size / 1e6:.1f} MB, {seconds // 60} min {seconds % 60} s")
+    log_tts_usage(today, engine)
     if seconds > MAX_MINUTES * 60:
         # Publish anyway (a long episode beats none), but make it visible in the run log.
         log(f"WARNING: episode is over the {MAX_MINUTES}-minute hard stop; tighten the prompt.")
