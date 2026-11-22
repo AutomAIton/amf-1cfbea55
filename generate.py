@@ -587,10 +587,8 @@ def log_tts_usage(day, engine):
     new = not f.exists()
     with open(f, "a", encoding="utf-8", newline="") as fh:
         if new:
-            fh.write("date,chars,engine
-")
-        fh.write(f"{day},{GOOGLE_CHARS},{engine}
-")
+            fh.write("date,chars,engine\n")
+        fh.write(f"{day},{GOOGLE_CHARS},{engine}\n")
     month = day[:7]
     total = sum(int(r.split(",")[1]) for r in f.read_text(encoding="utf-8").splitlines()[1:] if r.startswith(month))
     log(f"Google TTS characters: {GOOGLE_CHARS} this run, {total} in {month} "
