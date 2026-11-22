@@ -62,7 +62,7 @@ EFFORT = env("CLAUDE_EFFORT", "medium")
 # after Microsoft's edge-tts voices dropped turns to the robotic gTTS voice). Used only when GOOGLE_TTS_API_KEY is set.
 HOST_A, HOST_B = "Andrew", "Ava"
 GOOGLE_TTS_KEY = env("GOOGLE_TTS_API_KEY", "")
-GOOGLE_VOICE_A = env("GOOGLE_VOICE_A", "en-US-Chirp3-HD-Orus")
+GOOGLE_VOICE_A = env("GOOGLE_VOICE_A", "en-US-Chirp3-HD-Charon")
 GOOGLE_VOICE_B = env("GOOGLE_VOICE_B", "en-US-Chirp3-HD-Aoede")
 # Fallback: Microsoft neural voices via edge-tts. Andrew's voices (both) refuse some text, e.g. the word "Muru"
 # (NoAudioReceived on 2026-11-22), so Andrew is replaced by Brian; each host has a chain of neural voices before gTTS.

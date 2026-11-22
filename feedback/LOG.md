@@ -39,7 +39,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-21 | Try this is a block of 2-3 short items (~2 min), stack item first when there is stack news; ideal length 10-13 min | SYSTEM_PROMPT |
 | 2026-11-22 | 11-21 Try this change verified: 2-3 items, useful and short enough. Decision-log story (Muru) landed as pertinent | SYSTEM_PROMPT (unchanged) |
 | 2026-11-22 | Andrew voices (both) refuse some text ("Muru"), causing 4 robotic gTTS turns; Andrew replaced by Brian in the edge-tts fallback chain (neural chain per host before gTTS) | VOICE_A, EDGE_CHAIN |
-| 2026-11-22 | Leave Microsoft for the primary voices: Google Cloud TTS Chirp 3 HD (free 1M chars/month, ~90 episodes), edge-tts becomes the fallback; free or near-free only | GOOGLE_TTS_API_KEY, GOOGLE_VOICE_A/B, _google_one |
+| 2026-11-22 | Leave Microsoft for the primary voices: Google Cloud TTS Chirp 3 HD (free 1M chars/month, ~90 episodes), edge-tts becomes the fallback; free or near-free only | GOOGLE_TTS_API_KEY, GOOGLE_VOICE_A/B, _google_one; voices picked: Charon (Andrew) and Aoede (Ava), key stored as GitHub secret, project ai-morning-tts-32015, $1 budget alert |
 | 2026-11-22 | No "my turn" handovers; alternate who introduces stories, no long one-host runs | SYSTEM_PROMPT |
 
 ## Verify next session (trials)

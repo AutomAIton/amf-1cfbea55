@@ -57,6 +57,7 @@ assert all(len(c) >= 3 for c in g.EDGE_CHAIN.values()) and "en-US-AriaNeural" in
 assert not any("Andrew" in v for c in g.EDGE_CHAIN.values() for v in c)
 # 2026-11-22: Google Chirp 3 HD is the primary voice when a key is set; two distinct Chirp voices
 assert g.GOOGLE_VOICE_A.startswith("en-US-Chirp3-HD-") and g.GOOGLE_VOICE_B.startswith("en-US-Chirp3-HD-") and g.GOOGLE_VOICE_A != g.GOOGLE_VOICE_B
+assert (g.GOOGLE_VOICE_A, g.GOOGLE_VOICE_B) == ("en-US-Chirp3-HD-Charon", "en-US-Chirp3-HD-Aoede")  # listener pick 2026-11-22
 assert "GOOGLE_TTS_API_KEY" in wf, "workflow must pass the Google key"
 # 2026-11-22: no "my turn" handovers
 assert 'Never say "my turn"' in g.SYSTEM_PROMPT
