@@ -1,0 +1,75 @@
+Rust Servers, Reasoning Dials, Agent Logs
+
+ANDREW: Good morning. It's Sunday, it's early, and the house is probably still quiet. Grab your coffee and ease in with us. This is AI Morning.
+AVA: Morning. A slow news day today, which honestly suits a Sunday. We've got two good stories, then a security refresher worth your time.
+ANDREW: First, the weather.
+AVA: Chicago is overcast today with a high of 13 degrees and a low of 0. Rain is likely this afternoon, with a 73 percent chance, and winds up to 22 kilometres per hour. Skies clear this evening as the temperature drops to between 2 and 6 degrees.
+ANDREW: Okay, the news. Quick heads up first. One of the big daily AI newsletters didn't put out a new issue since our last episode, so today's pickings come from developer blogs. That's actually where some of the most interesting stuff shows up.
+AVA: Agreed. You want to start?
+ANDREW: Sure. Graham Dumpleton is building a new Python web server called Muru. If that name doesn't ring a bell, he started modwsgi twenty years ago. That's the Apache module a lot of people used to run Python web apps in production for a very long time.
+AVA: So this is somebody who has spent twenty years thinking about one problem.
+ANDREW: Exactly. And he says so himself. He's been thinking about the ideal way to serve Python web apps ever since. Muru is his answer. It's written in Rust, it's built with AI assistance, and it aims to run both ASGI and WSGI apps, in development and in production.
+AVA: Both. That's ambitious. ASGI is the async side, so things like FastAPI and Starlette. WSGI covers the older synchronous world, like Flask and classic Django.
+ANDREW: Right. And here's the part I love. He's publishing an extraordinarily detailed account of the project as he goes. Not a polished launch post at the end. It's part of his development process. He's put out a stack of posts in just the last three weeks.
+AVA: That's the bit that matters for anyone doing AI-assisted engineering. We hear constantly that you can build serious software with a model in the loop. Here's a domain expert doing it on hard infrastructure code and showing his working.
+ANDREW: Rust, too. That's not a toy project language.
+AVA: No, and that's my favourite angle. An expert plus a coding model plus a language with a strict compiler is a pretty strong combo. The compiler catches a whole class of mistakes the model might make. The expert catches the design mistakes the compiler can't see.
+ANDREW: Two safety nets. I like it.
+AVA: And this isn't the first time. He did the same kind of public build log with an earlier project called wrapture. So this is becoming his method, not a one-off.
+ANDREW: What I'd take from it, if you build agent systems, is the habit itself. Writing down your reasoning as you go. When a model is helping you write code, the decisions can disappear into chat history. A running log keeps them.
+AVA: Fair point. And a counterpoint for balance. A brand new server is a brand new server. Muru is early. If you're running production Python today, this is something to watch, not something to swap in on a Monday.
+ANDREW: Totally. Read the build log, enjoy it, don't migrate your payments service on a hunch.
+AVA: My turn. Simon Willison pushed a small release of his llm-gemini plugin, version 0.38.1. That's the plugin that lets his llm command line tool talk to Google's Gemini models.
+ANDREW: A dot release. Why does that earn a slot on the show?
+AVA: Because of what it reveals. Gemini 4 comes in a few flavours. There's Carbon, Hydrogen, and Neon. Carbon only supports three reasoning levels: low, medium, and high. But Hydrogen and Neon have an extra level called xhigh.
+ANDREW: Extra high. Very scientific naming.
+AVA: Very. He'd missed that extra level when he first added the models, so this release fixes it. And then he tested what it actually does. Big difference.
+ANDREW: Go on, give me the numbers.
+AVA: On his comparison test, Hydrogen at high used about five thousand three hundred output tokens and cost just under 4 cents. The same model at xhigh used about thirty one thousand five hundred output tokens and cost about 23 and a half cents.
+ANDREW: So roughly six times the tokens and roughly six times the cost.
+AVA: Pretty much. And the payoff was real. His test is drawing a pelican, and at xhigh Hydrogen's pelican was competitive with Neon's.
+ANDREW: The pelican benchmark strikes again. I love that this is a genuine way people compare frontier models now.
+AVA: It's silly and it works. But the serious lesson is about the reasoning dial. Same model, same prompt, a single setting changed, and you get a six times jump in cost and a visibly better result.
+ANDREW: That's a big deal for agents. In an agent loop, you might call the model dozens of times for one task. If every one of those calls quietly runs at the top reasoning level, your bill gets ugly fast.
+AVA: And the flip side. If a hard step runs at low, you might get a worse answer and not realise why.
+ANDREW: So the reasoning level becomes a real engineering decision, not a default you set once and forget.
+AVA: Exactly. I'd treat it like any other resource you budget. Easy steps get low. The genuinely hard planning step might deserve the top setting.
+ANDREW: There's also a sneaky lesson in why the release happened at all. Different models in the same family support different settings. If your code assumes every model has the same options, you can miss a capability, or send an option a model doesn't accept.
+AVA: Good catch. Model families aren't uniform. Check what each one supports before you wire it in.
+ANDREW: And one more thought. That comparison was a single test. Six times the cost bought a better pelican there. It won't always buy six times the value on your task.
+AVA: Right. Measure it on your own workload. That's the only number that counts.
+ANDREW: That's the main news for today. There's a bit more in the show notes, including the full list of Muru build posts.
+AVA: Now, security. No fresh security news came through today. The security newsletter didn't put out a new issue either.
+ANDREW: So we're doing a refresher. To be clear, this is not news. It's an evergreen topic: monitoring and audit trails for agents. What to log, what to alert on, and how to review it.
+AVA: I'm glad we're doing this one. Logging is the unglamorous thing everyone means to get to.
+ANDREW: Let's start with what to log. For me, the core is every tool call. Which tool, what arguments, what came back, and how long it took.
+AVA: Plus who or what started it. Was it a person, a schedule, or another agent? If you can't trace an action back to the request that triggered it, you can't explain it later.
+ANDREW: So a correlation ID that follows the whole task, from the first request through every model call and every tool call.
+AVA: Yes. And log which model and which version answered, and the settings. Like the reasoning level we just talked about.
+ANDREW: Nice tie-in. What about the content itself? Prompts and outputs can be huge, and they can contain sensitive data.
+AVA: That's the tradeoff. I'd log a reference or a hash of the full prompt and anything retrieved, and keep the full text somewhere with tighter access. The retrieved content matters a lot, because that's where prompt injection usually rides in.
+ANDREW: Right. If an agent suddenly does something odd, you want to see which web page or document or email it read just before.
+AVA: Also log approvals and denials. When a human approves a risky action, record who and when. When your policy layer blocks something, record that too.
+ANDREW: Denials are underrated. A blocked action is often the most interesting line in the whole log.
+AVA: And log credential use. Which secret or token was used, for which tool. Not the secret itself, obviously.
+ANDREW: Please don't log the secret itself. Okay, what to alert on?
+AVA: First, anything new. A tool the agent has never called before. A domain it's never contacted. A file path it's never written to. New isn't always bad, but it's always worth a look.
+ANDREW: Second, repeated policy denials in one task. One denial might be a fluke. Five in a row looks like an agent being steered somewhere it shouldn't go.
+AVA: Third, writes or deletes in sensitive places. Production databases, config files, anything touching permissions.
+ANDREW: Fourth, spikes. A sudden jump in tool calls, tokens, or spend. That catches runaway loops and it also catches abuse.
+AVA: And fifth, anything that looks like a secret or personal data showing up in an output headed outside your system. That's your data leak tripwire.
+ANDREW: The trick is keeping alerts few enough that you actually read them. If everything pages you, nothing does.
+AVA: Totally. Now, review. The logs only help if a human looks at them.
+ANDREW: I'd do a regular sample. Pick a handful of agent tasks and replay them end to end using the correlation ID. Read what the agent saw, what it decided, what it did.
+AVA: You learn so much doing that. You find tools it uses that you forgot it had, and permissions that are wider than you thought.
+ANDREW: And protect the logs themselves. Append-only storage, and the agent should never have write or delete access to its own audit trail.
+AVA: That's the big one. An agent that can edit its own logs doesn't really have an audit trail.
+ANDREW: Okay, let's get practical. Try this.
+AVA: First one. If you use the llm-gemini plugin for Python, check that you're on version 0.38.1 or later. Run pip show llm-gemini to see your version, and upgrade if you're behind. That release adds the xhigh reasoning level for Gemini 4 Hydrogen and Gemini 4 Neon, which the earlier version was missing.
+ANDREW: Second one. Pick one step in an agent or pipeline that calls a model with a reasoning level setting, and run the same input at two levels, say high and the top level. Write down the output tokens, the cost, and whether the answer was actually better. In one public test, the top level cost roughly six times as much, so find out whether that's worth it for your step before you leave it on.
+AVA: Third one. Open the logs for your agent system and pick one recent task. Check whether you can trace it from start to finish: what triggered it, every tool call with its arguments and results, which model and settings answered, any approvals or denials, and which credentials were used. Wherever the trail breaks, that's the first gap to fix this week.
+ANDREW: And while you're in there, check that the agent can't write to or delete its own logs.
+AVA: Good addition.
+ANDREW: That's the show. Short and steady for a Sunday.
+AVA: Stay dry this afternoon, and enjoy the clear skies tonight.
+ANDREW: Take it easy today. We'll see you tomorrow.

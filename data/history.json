@@ -1,6 +1,26 @@
 {
  "episodes": [
   {
+   "date": "2026-11-22",
+   "title": "Rust Servers, Reasoning Dials, Agent Logs",
+   "summary": "Good morning. It's Sunday, it's early, and the house is probably still quiet. Grab your coffee and ease in with us. This is AI Morning. Morning. A slow news day today, which honestly suits a Sunday. We've got two good stories, then a security refresher worth your time. First, the weather. Chicago...",
+   "notes_html": "<p><b>Chicago:</b> high 13\u00b0C, low 0\u00b0C, rain.</p><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/21/muru/\">Muru</a></li><li><a href=\"https://simonwillison.net/2026/Nov/20/llm-gemini/\">llm-gemini 0.38.1</a></li></ul>",
+   "file": "episodes/2026-11-22.mp3",
+   "bytes": 4169904,
+   "seconds": 678,
+   "published": "2026-11-22T06:00:26.003845-06:00",
+   "engine": "edge-tts (4 turns via gtts)",
+   "opening": "Good morning. It's Sunday, it's early, and the house is probably still quiet. Grab your coffee and ease in with us. This is AI Morning.",
+   "closing": "Take it easy today. We'll see you tomorrow.",
+   "picks": {
+    "opening": "Open calm and understated, like a quiet briefing over coffee.",
+    "tone": "curious and enthusiastic",
+    "dynamic": "The hosts trade stories, each one reacting briefly to the other's.",
+    "signoff": "End warmly and briefly.",
+    "security_topic": "monitoring and audit trails for agents: what to log, what to alert on, and how to review it"
+   }
+  },
+  {
    "date": "2026-11-21",
    "title": "Riemann Claims, Agent Swarms, Leaky Sandboxes",
    "summary": "Good morning, and happy Saturday. The one day of the week where the alarm is optional and somehow you're up anyway. Welcome to AI Morning. Morning! And honestly, if you're listening at seven on a Saturday, you're our kind of people. Let's start with the sky. Chicago today runs from a low of 7...",
@@ -159,8 +179,10 @@
   "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/",
   "https://simonwillison.net/2026/Nov/19/postgresql-19/",
   "https://simonwillison.net/2026/Nov/20/levent-alpoge/",
+  "https://simonwillison.net/2026/Nov/20/llm-gemini/",
   "https://simonwillison.net/2026/Nov/20/ravi-vakil/",
   "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
+  "https://simonwillison.net/2026/Nov/21/muru/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",
