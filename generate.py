@@ -58,14 +58,18 @@ LON = float(env("LON", "-87.6298"))
 TLDR_TOPICS = [t.strip() for t in env("TLDR_TOPICS", "ai,infosec").split(",") if t.strip()]
 MODEL = env("CLAUDE_MODEL", "claude-opus-5-5")
 EFFORT = env("CLAUDE_EFFORT", "medium")
-# Andrew: the newer, more conversational model (listener feedback 2026-11-17: the old one sounded stiff).
-HOST_A, VOICE_A = "Andrew", env("VOICE_A", "en-US-AndrewMultilingualNeural")
-# The Multilingual voice often returns NoAudioReceived from CI (2026-11-18); three failed tries then switch to this (the listener prefers this voice, 2026-11-18).
-VOICE_A_BACKUP = "en-US-AndrewNeural"
-HOST_B, VOICE_B = "Ava", env("VOICE_B", "en-US-AvaNeural")
-# A failing neural voice gets a second neural voice before the robotic gTTS fallback (2026-11-18).
-VOICE_B_BACKUP = "en-US-AriaNeural"
-BACKUP_VOICE = {VOICE_A: VOICE_A_BACKUP, VOICE_B: VOICE_B_BACKUP}
+# Voices. Primary: Google Cloud Chirp 3 HD (free tier 1M characters a month; listener chose Google on 2026-11-22
+# after Microsoft's edge-tts voices dropped turns to the robotic gTTS voice). Used only when GOOGLE_TTS_API_KEY is set.
+HOST_A, HOST_B = "Andrew", "Ava"
+GOOGLE_TTS_KEY = env("GOOGLE_TTS_API_KEY", "")
+GOOGLE_VOICE_A = env("GOOGLE_VOICE_A", "en-US-Chirp3-HD-Orus")
+GOOGLE_VOICE_B = env("GOOGLE_VOICE_B", "en-US-Chirp3-HD-Aoede")
+# Fallback: Microsoft neural voices via edge-tts. Andrew's voices (both) refuse some text, e.g. the word "Muru"
+# (NoAudioReceived on 2026-11-22), so Andrew is replaced by Brian; each host has a chain of neural voices before gTTS.
+VOICE_A = env("VOICE_A", "en-US-BrianMultilingualNeural")
+VOICE_B = env("VOICE_B", "en-US-AvaNeural")
+EDGE_CHAIN = {VOICE_A: [VOICE_A, "en-US-BrianNeural", "en-US-ChristopherNeural"],
+              VOICE_B: [VOICE_B, "en-US-AriaNeural", "en-US-JennyNeural"]}
 RATE = env("TTS_RATE", "+0%")
 # Length is set in real listening minutes. WPM is the measured pace of these voices
 # (11-17: 1,793 words in 10:59 = 163 wpm; 1,444 words in 8:25 = 171 wpm).
@@ -369,6 +373,7 @@ then the dialogue, one turn per line, every line starting with "{HOST_A.upper()}
 Rules for the spoken text:
 - Plain spoken prose. No headings, bullets, markdown, stage directions, sound effects, emojis or URLs.
 - No em dashes or en dashes. Short sentences, contractions, numbers said the way people say them.
+- Hand over between hosts naturally. Never say "my turn", "let me take one" or "I'll go next" to start a story, especially right after that host has been talking; just start the story. Alternate who introduces stories, and keep one host from talking for a long stretch while the other only chimes in.
 - Turns are short, usually one to four sentences. Real conversation: reactions, quick questions, the occasional disagreement. Never read a list.
 - {greet}
 - Segments in order: (1) greeting, (2) the {PLACE} weather, (3) AI news: models, labs, products, AI engineering and agents, (4) AI security, (5) "Try this": two or three practical things, (6) sign-off.
@@ -498,33 +503,73 @@ def _gtts_one(who, said, path):
     gTTS(said, lang="en", tld="com" if who == HOST_A.upper() else "co.uk").save(str(path))
 
 
-async def _edge_all(turns, folder):
-    """Voice every turn. edge-tts drops random requests ("No audio was received"), so each
-    turn gets several spaced retries; a turn that still fails is voiced by gTTS alone.
-    Returns (paths, number of gTTS turns). Raises if edge-tts is failing wholesale."""
+def _google_one(who, said, path, attempts=3):
+    """One turn from Google Cloud TTS (REST + API key, no SDK). Raises if every attempt fails."""
+    import base64
+    import requests
+    voice = GOOGLE_VOICE_A if who == HOST_A.upper() else GOOGLE_VOICE_B
+    body = {"input": {"text": said}, "voice": {"languageCode": "en-US", "name": voice},
+            "audioConfig": {"audioEncoding": "MP3"}}
+    last = None
+    for attempt in range(attempts):
+        try:
+            r = requests.post("https://texttospeech.googleapis.com/v1/text:synthesize",
+                              params={"key": GOOGLE_TTS_KEY}, json=body, timeout=60)
+            if r.status_code == 200:
+                data = base64.b64decode(r.json()["audioContent"])
+                if len(data) > 1000:
+                    Path(path).write_bytes(data)
+                    return
+            last = f"HTTP {r.status_code}"
+        except Exception as exc:  # noqa: BLE001
+            last = type(exc).__name__
+        time.sleep(2 * (attempt + 1))
+    raise RuntimeError(f"google tts: {last}")
+
+
+async def _edge_one(who, said, path, i):
+    """One turn from the host's chain of edge-tts voices (2 tries each). True if a voice produced audio."""
     import edge_tts
-    paths, fallbacks = [], 0
+    voice = VOICE_A if who == HOST_A.upper() else VOICE_B
+    for use in EDGE_CHAIN.get(voice, [voice]):
+        for attempt in range(2):
+            try:
+                await edge_tts.Communicate(said, use, rate=RATE).save(str(path))
+                if path.exists() and path.stat().st_size > 1000:
+                    return True
+            except Exception as exc:  # noqa: BLE001
+                log(f"edge-tts turn {i} {use} attempt {attempt + 1}: {type(exc).__name__}")
+            await asyncio.sleep(1 + attempt)
+    return False
+
+
+async def _edge_all(turns, folder):
+    """Voice every turn: Google Chirp when a key is set, else (or on failure) the edge-tts voice chain,
+    and gTTS only for a turn that still fails. Returns (paths, google turns, edge turns, gTTS turns).
+    Raises if the voices are failing wholesale."""
+    paths, n_google, n_edge, n_gtts = [], 0, 0, 0
     for i, (who, said) in enumerate(turns):
         p = folder / f"{i:04d}.mp3"
-        voice = VOICE_A if who == HOST_A.upper() else VOICE_B
-        for attempt in range(6):
+        done = False
+        if GOOGLE_TTS_KEY:
             try:
-                use = BACKUP_VOICE.get(voice, voice) if attempt >= 3 else voice
-                await edge_tts.Communicate(said, use, rate=RATE).save(str(p))
-                if p.exists() and p.stat().st_size > 1000:
-                    break
+                _google_one(who, said, p)
+                n_google += 1
+                done = True
             except Exception as exc:  # noqa: BLE001
-                log(f"edge-tts turn {i} attempt {attempt + 1}: {type(exc).__name__}")
-            await asyncio.sleep(min(2 ** attempt, 10))
-        else:
-            fallbacks += 1
-            log(f"gTTS fallback: turn {i} ({who.title()})")
-            if fallbacks > max(3, len(turns) // 5):
-                raise RuntimeError("edge-tts is failing on most turns")
-            _gtts_one(who, said, p)
+                log(f"google tts turn {i} ({who.title()}): {exc}")
+        if not done:
+            if await _edge_one(who, said, p, i):
+                n_edge += 1
+            else:
+                n_gtts += 1
+                log(f"gTTS fallback: turn {i} ({who.title()})")
+                if n_gtts > max(3, len(turns) // 5):
+                    raise RuntimeError("voices are failing on most turns")
+                _gtts_one(who, said, p)
         paths.append(p)
         await asyncio.sleep(0.3)
-    return paths, fallbacks
+    return paths, n_google, n_edge, n_gtts
 
 
 def synthesize(turns, out_path):
@@ -532,8 +577,12 @@ def synthesize(turns, out_path):
     with tempfile.TemporaryDirectory() as tmp:
         folder = Path(tmp)
         try:
-            parts, fallbacks = asyncio.run(_edge_all(turns, folder))
-            engine = "edge-tts" + (f" ({fallbacks} turns via gtts)" if fallbacks else "")
+            parts, n_google, n_edge, n_gtts = asyncio.run(_edge_all(turns, folder))
+            engine = "google-chirp" if n_google else "edge-tts"
+            if n_google and n_edge:
+                engine += f" ({n_edge} turns via edge-tts)"
+            if n_gtts:
+                engine += f" ({n_gtts} turns via gtts)"
         except Exception as exc:  # noqa: BLE001
             log(f"edge-tts unavailable ({exc}); voicing the whole episode with gTTS")
             parts = []

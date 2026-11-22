@@ -20,8 +20,8 @@ assert "Never say Fahrenheit" in g.SYSTEM_PROMPT
 assert "one practical tip" not in g.SYSTEM_PROMPT
 assert "two or three plain, factual sentences" in g.SYSTEM_PROMPT
 assert not any("weather as the hook" in o for o in g.OPENINGS)
-# Voice: Andrew on the newer conversational model (2026-11-17)
-assert g.VOICE_A == "en-US-AndrewMultilingualNeural", g.VOICE_A
+# Voice: Andrew's voices refuse some text ("Muru"), so Brian replaces him in the edge-tts fallback (2026-11-22)
+assert g.VOICE_A == "en-US-BrianMultilingualNeural", g.VOICE_A
 # Length: 11 real minutes at the measured pace, 15-minute hard stop (2026-11-17)
 assert (g.WPM, g.TARGET_MINUTES, g.MAX_MINUTES) == (165, 11, 15), (g.WPM, g.TARGET_MINUTES, g.MAX_MINUTES)
 assert f"never more than {15 * 165} words" in g.SYSTEM_PROMPT
@@ -38,8 +38,6 @@ wf = open(glob.glob(str(Path(__file__).resolve().parent.parent / ".github/workfl
 hours = sorted(int(m.group(1)) for m in re.finditer(r'cron: "\d+ (\d+) \* \* \*"', wf))
 assert len(hours) >= 10 and hours[-1] >= 22 and hours[0] <= 10, hours
 assert max(b - a for a, b in zip(hours, hours[1:])) <= 2, hours  # no gap over 2 h
-# Voice: a failing Multilingual voice falls back to plain Andrew before gTTS (2026-11-18)
-assert g.VOICE_A_BACKUP == "en-US-AndrewNeural"
 # Script quality + ending (2026-11-18): natural language kept, plain wording, one Try this, key terms
 assert '"Try this"' in g.SYSTEM_PROMPT and "skip the segment" in g.SYSTEM_PROMPT
 assert "without stopping to decode" in g.SYSTEM_PROMPT and "playful is welcome" in g.SYSTEM_PROMPT
@@ -55,7 +53,13 @@ assert g.drop_leaks(leaky, "") == leaky
 assert "never repeat this description" not in g.SYSTEM_PROMPT  # only present when LISTENER_CONTEXT is set
 assert "must never repeat this description" in open(Path(g.__file__), encoding="utf-8").read()
 # Voices: both hosts have a neural backup before gTTS (2026-11-18)
-assert g.BACKUP_VOICE == {g.VOICE_A: "en-US-AndrewNeural", g.VOICE_B: "en-US-AriaNeural"}
+assert all(len(c) >= 3 for c in g.EDGE_CHAIN.values()) and "en-US-AriaNeural" in g.EDGE_CHAIN[g.VOICE_B]
+assert not any("Andrew" in v for c in g.EDGE_CHAIN.values() for v in c)
+# 2026-11-22: Google Chirp 3 HD is the primary voice when a key is set; two distinct Chirp voices
+assert g.GOOGLE_VOICE_A.startswith("en-US-Chirp3-HD-") and g.GOOGLE_VOICE_B.startswith("en-US-Chirp3-HD-") and g.GOOGLE_VOICE_A != g.GOOGLE_VOICE_B
+assert "GOOGLE_TTS_API_KEY" in wf, "workflow must pass the Google key"
+# 2026-11-22: no "my turn" handovers
+assert 'Never say "my turn"' in g.SYSTEM_PROMPT
 # VPS catch-up trigger exists, targets this repo's workflow, alerts after 09:00 and caps starts (2026-11-18)
 cu = (Path(__file__).resolve().parent.parent / "tools" / "vps" / "ai-morning-catchup.sh").read_text(encoding="utf-8")
 assert "amf-1cfbea55" in cu and "workflows/daily.yml/dispatches" in cu

@@ -56,6 +56,7 @@ jobs:
       - name: Build episode
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
           BASE_URL: ${{ vars.BASE_URL }}
           LISTENER_NAME: ${{ vars.LISTENER_NAME }}
           LISTENER_CONTEXT: ${{ vars.LISTENER_CONTEXT }}

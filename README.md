@@ -6,7 +6,7 @@ A private daily two-host podcast on AI. Every morning GitHub Actions:
    blogs (Simon Willison, OpenAI, Anthropic, Latent Space) and AI security blogs (Embrace The Red,
    Simon Willison's prompt-injection tag);
 2. makes one Claude API call that writes a ~10-minute script for two hosts, Andrew and Ava;
-3. voices each line with free Microsoft neural voices (edge-tts; gTTS covers any line that fails);
+3. voices each line with Google Cloud Chirp 3 HD when GOOGLE_TTS_API_KEY is set, else Microsoft neural voices (edge-tts); a chain of neural voices then gTTS covers any line that fails;
 4. commits the MP3 and `docs/feed.xml`, which GitHub Pages serves to Apple Podcasts.
 
 Design modelled on a personal "TLDL" podcast pipeline; code written fresh.
