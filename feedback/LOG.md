@@ -42,6 +42,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-22 | Leave Microsoft for the primary voices: Google Cloud TTS Chirp 3 HD (free 1M chars/month, ~90 episodes), edge-tts becomes the fallback; free or near-free only | GOOGLE_TTS_API_KEY, GOOGLE_VOICE_A/B, _google_one; voices picked: Charon (Andrew) and Aoede (Ava), key stored as GitHub secret, project ai-morning-tts-32015, $1 budget alert |
 | 2026-11-23 | Google Chirp voices verified: distinct, good, not robotic; no "my turn" handovers, flow natural | VOICE (unchanged) |
 | 2026-11-23 | 10:27 was the right length on a quiet-news day; banter right; all three pieces (select boxes, OpenAI Perplexity, prompt-injection refresher) pertinent | SYSTEM_PROMPT (unchanged) |
+| 2026-11-23 | Name the exact model, tools, skills and versions in AI-build stories (his main interest: improving his own builds); never invent names | SYSTEM_PROMPT "Specifics" |
 | 2026-11-22 | No "my turn" handovers; alternate who introduces stories, no long one-host runs | SYSTEM_PROMPT |
 
 ## Verify next session (trials)

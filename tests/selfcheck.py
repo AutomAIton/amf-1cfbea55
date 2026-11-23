@@ -22,6 +22,8 @@ assert "two or three plain, factual sentences" in g.SYSTEM_PROMPT
 assert not any("weather as the hook" in o for o in g.OPENINGS)
 # Voice: Andrew's voices refuse some text ("Muru"), so Brian replaces him in the edge-tts fallback (2026-11-22)
 assert g.VOICE_A == "en-US-BrianMultilingualNeural", g.VOICE_A
+# Specifics: name exact model, tools, skills in AI-build stories (2026-11-23)
+assert "name the exact model, tools, skills and versions" in g.SYSTEM_PROMPT
 # Length: 11 real minutes at the measured pace, 15-minute hard stop (2026-11-17)
 assert (g.WPM, g.TARGET_MINUTES, g.MAX_MINUTES) == (165, 11, 15), (g.WPM, g.TARGET_MINUTES, g.MAX_MINUTES)
 assert f"never more than {15 * 165} words" in g.SYSTEM_PROMPT
