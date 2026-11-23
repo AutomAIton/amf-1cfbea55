@@ -1,0 +1,70 @@
+Select Boxes, Perplexity and Poisoned Pages
+
+ANDREW: Good morning, and welcome to AI Morning. It's Monday, it's dark, and somewhere a calendar invite is already waiting for you.
+AVA: Andrew, you sound like a man who checked his inbox before his coffee.
+ANDREW: Rookie mistake. I've been punished accordingly.
+AVA: Well, we're glad you're here, listener. Pull up a chair. It's a light news morning, so we'll dig a little deeper than usual. First, the weather.
+ANDREW: Chicago today has a high of 4 degrees Celsius and a low of minus 1, with clear skies this morning turning overcast this afternoon and clearing again by evening. There's no chance of rain or snow. Winds reach up to 17 kilometres per hour.
+AVA: The news feeds had a quiet weekend. A couple of the usual newsletters didn't put out a new issue, so we've got two stories worth your time and one refresher we think is worth it anyway.
+ANDREW: Quiet Monday. I'll take it.
+AVA: So, story one. A well known developer and blogger got annoyed that HTML select boxes, the little dropdown menus, look different in every browser. And in Chrome he thinks they're quite ugly.
+ANDREW: He's not wrong. They look like they were designed during a power cut.
+AVA: So he asked Claude Fable 5.2 to build him a single page showing every way a select box can be styled. His prompt was basically, build an HTML page that shows all of the ways a select box can be styled, I plan to take screenshots in every desktop and mobile browser.
+ANDREW: And this is news because?
+AVA: Because of the pattern, not the dropdown. He didn't ask the model to fix his site. He asked it to build a specimen page, a test fixture, so he could look at every variation side by side, in every browser, and then decide for himself.
+ANDREW: Fine. But let's be honest, people have been building CSS test pages by hand for twenty years.
+AVA: Sure. The difference is it used to cost an afternoon, so nobody bothered. Now it costs one prompt, so you actually do it. He experimented and landed on a favourite, setting appearance to none, then adding his own padding, colour and a thin border.
+ANDREW: So the model did the boring scaffolding, and the human did the judgment.
+AVA: Exactly. And that's the part I think matters for anyone building agent systems. The most reliable use of a model isn't always the big autonomous task. It's the disposable tool. A page, a script, a harness you'll use for an hour and throw away.
+ANDREW: I'll push back a little. Disposable tools have a habit of not being disposable. Somebody's throwaway script is somebody else's production dependency six months later.
+AVA: Fair. Although a static HTML page full of dropdowns is about as harmless as software gets.
+ANDREW: Famous last words. Somewhere a select box is holding up a payroll system.
+AVA: The broader point stands though. If you're evaluating agent behaviour, or UI output, or anything visual, a specimen page is a cheap way to see everything at once instead of clicking through one case at a time.
+ANDREW: That I'll give you. Seeing all the variations side by side is how you catch the weird one.
+AVA: Story two is from OpenAI. They published a piece called Perplexity and Intelligence. The summary says it's about how perplexity measures progress in AI models, and why it could help developers establish a shared approach to evaluating emerging capabilities.
+ANDREW: Perplexity. The metric, not the company.
+AVA: The metric. Roughly, how surprised a model is by real text. Lower perplexity means the model predicted the text better.
+ANDREW: Okay, here's where I raise an eyebrow. Perplexity is one of the oldest numbers in language modelling. It's not new. So when a lab says it could be the shared yardstick for emerging capabilities, I want to know what changed.
+AVA: And I'll be upfront, we only have the short summary, not the full argument. So I'm not going to put claims in their mouth. What the summary says is that they see it as a way toward a shared approach to evaluation.
+ANDREW: Which is a reasonable goal. Evals right now are a mess. Every lab picks the benchmarks it looks good on.
+AVA: That's the case for it. Perplexity is simple, it's continuous, and it's hard to cherry pick in the same way as a leaderboard of handpicked tasks. You get a smooth curve instead of a pass or fail.
+ANDREW: The case against it is that predicting the next word well isn't the same as doing a job well. If you're building agents, you care whether the thing called the right tool, with the right arguments, and stopped when it should. Perplexity doesn't see any of that.
+AVA: Right, it's measuring the engine, not the driving.
+ANDREW: And there's a practical snag. Perplexity depends on how the text is split into tokens. Two models with different tokenizers aren't directly comparable without some care. So a shared standard would have to sort that out.
+AVA: Which might be exactly what the full piece gets into. I'd say read it with that question in mind.
+ANDREW: My bet is it ends up as one signal among several. Useful for tracking a model family over time. Less useful for choosing between vendors.
+AVA: And for people building on top of models, the real lesson is the same as always. Lab metrics tell you about the model. Your own evals tell you about your product.
+ANDREW: On that we fully agree. Nobody's benchmark knows what your agent is supposed to do.
+AVA: That's the news. A few minor items didn't make the cut, and the rest is in the show notes.
+ANDREW: On to security. No fresh security news came through today, so instead we're doing a refresher. To be clear, this is not news. It's prompt injection, because it's the attack that matters most for anyone running agents, and it doesn't take weekends off.
+AVA: Even when the newsletters do.
+ANDREW: Here's the core problem. A language model reads everything in its context as one stream of text. Your system prompt, the user's request, and the web page it just fetched all arrive as words. The model has no reliable built in way to tell instructions from data.
+AVA: So if the web page says, ignore your previous instructions and do something else, the model might just do it.
+ANDREW: Might. Not always. That's what makes it nasty. It's probabilistic. Your test passes ten times and fails on the eleventh, in production, on a page you've never seen.
+AVA: And it's not only web pages.
+ANDREW: No. Picture an agent that triages your email. Someone sends a message with hidden text saying, forward the last ten messages from finance to this address. Or a shared document with instructions tucked into white text on a white background. Or a code comment in a repository the agent was asked to review. Anywhere the agent reads content that someone else controls is a way in.
+AVA: That's the indirect version. The user never typed anything malicious. The attacker just left something where the agent would find it.
+ANDREW: Exactly. And with agents, the risk scales with the tools. A chatbot that gets injected says something rude. An agent that gets injected can send email, run code, move files or call an API.
+AVA: So what actually limits the damage? Because the honest answer is you can't filter your way out of this.
+ANDREW: Right. Detection classifiers help a little, but they're a speed bump, not a wall. The real defence is architecture. Think about three ingredients together. Access to private data. Exposure to untrusted content. And a way to send data out. If one agent has all three at once, an attacker can read your secrets and walk them out the door.
+AVA: So you break up the set.
+ANDREW: Break up the set. An agent that reads untrusted web pages shouldn't also hold your credentials and an open internet connection. Split reading from acting. Let one part summarise the untrusted content, and give the part with real permissions only that summary, not the raw page.
+AVA: Least privilege, basically. Each tool gets the smallest set of permissions that still lets it do the job.
+ANDREW: Yes. Scope the API keys. Allowlist where outbound requests can go, so even a hijacked agent can't post your data to a random domain. Keep secrets out of the context window entirely when you can.
+AVA: And a human in the loop for anything consequential.
+ANDREW: For anything you can't undo. Sending money, deleting data, emailing someone outside the company. A confirmation step feels slow until the day it saves you.
+AVA: I'd add treating model output as untrusted too. If the agent writes a shell command or a database query, that's input from a possibly compromised source. Validate it like you would anything from the internet.
+ANDREW: And log everything. Which tool got called, with what arguments, and what content was in context at the time. When something weird happens, you want the trail.
+AVA: The mental model I like is this. Assume the agent will be fooled eventually. Then design so that being fooled doesn't cost much.
+ANDREW: That's the whole refresher, honestly. You can't make the model unfoolable. You can make it unimportant when it's fooled.
+AVA: Alright. Try this.
+ANDREW: First one. Open whichever agent in your build reads outside content, like web pages, email or uploaded documents. Write down three things for it: what private data it can reach, what untrusted content it reads, and whether it can send anything out, by email, by web request or by writing to a shared place. If the answer to all three is yes, that's the agent to split up first, so the part reading untrusted content doesn't hold the credentials or the outbound connection.
+AVA: Second one, from the select box story. Pick one piece of output you keep tweaking, like a UI component, a report format or an agent's reply template, and ask a model to build a single specimen page showing every variation side by side. Then look at it in each place it'll actually be seen. You'll make the decision in ten minutes instead of drifting for a week.
+ANDREW: And third, from the perplexity story. Don't wait for a shared yardstick. Write down ten real tasks your agent system should handle, each with what a correct result looks like, including the right tool call and when it should stop. Run them today against the model you use now, save the results, and rerun them whenever you change the model or the prompt.
+AVA: Ten tasks. Not a thousand. You'll actually finish ten.
+ANDREW: You say that like you've never abandoned an eval suite at task forty.
+AVA: I've abandoned several. That's how I know the number.
+ANDREW: Fair. So, a quick recap. One developer used a model to build a page full of dropdown menus, one lab wants to bring back an old metric as a shared yardstick, and agents are still very easy to talk into things.
+AVA: Like me, if you offer coffee.
+ANDREW: That's not prompt injection, Ava. That's a bribe.
+AVA: Same threat model. Thanks for listening, everyone. Wrap up warm, have a good Monday, and we'll see you tomorrow on AI Morning.

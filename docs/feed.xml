@@ -12,6 +12,16 @@
     <itunes:block>Yes</itunes:block>
     <itunes:category>Technology</itunes:category>
     <item>
+      <title>2026-11-23: Select Boxes, Perplexity and Poisoned Pages</title>
+      <description>Good morning, and welcome to AI Morning. It's Monday, it's dark, and somewhere a calendar invite is already waiting for you. Andrew, you sound like a man who checked his inbox before his coffee. Rookie mistake. I've been punished accordingly. Well, we're glad you're here, listener. Pull up a chair....</description>
+      <content:encoded>&lt;p&gt;&lt;b&gt;Chicago:&lt;/b&gt; high 4°C, low -1°C, overcast.&lt;/p&gt;&lt;h3&gt;AI engineering&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/22/select-styling/"&gt;Select Styling Specimens&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://openai.com/index/perplexity-and-intelligence"&gt;Perplexity and Intelligence&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content:encoded>
+      <pubDate>Mon, 23 Nov 2026 06:00:35 -0600</pubDate>
+      <guid isPermaLink="false">ai-morning-2026-11-23</guid>
+      <enclosure url="https://automaiton.github.io/amf-1cfbea55/episodes/2026-11-23.mp3" length="2510880" type="audio/mpeg" />
+      <itunes:duration>627</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+    <item>
       <title>2026-11-22: Rust Servers, Reasoning Dials, Agent Logs</title>
       <description>Good morning. It's Sunday, it's early, and the house is probably still quiet. Grab your coffee and ease in with us. This is AI Morning. Morning. A slow news day today, which honestly suits a Sunday. We've got two good stories, then a security refresher worth your time. First, the weather. Chicago...</description>
       <content:encoded>&lt;p&gt;&lt;b&gt;Chicago:&lt;/b&gt; high 13°C, low 0°C, rain.&lt;/p&gt;&lt;h3&gt;AI engineering&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/21/muru/"&gt;Muru&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://simonwillison.net/2026/Nov/20/llm-gemini/"&gt;llm-gemini 0.38.1&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</content:encoded>

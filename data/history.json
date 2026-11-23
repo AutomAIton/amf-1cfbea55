@@ -1,6 +1,26 @@
 {
  "episodes": [
   {
+   "date": "2026-11-23",
+   "title": "Select Boxes, Perplexity and Poisoned Pages",
+   "summary": "Good morning, and welcome to AI Morning. It's Monday, it's dark, and somewhere a calendar invite is already waiting for you. Andrew, you sound like a man who checked his inbox before his coffee. Rookie mistake. I've been punished accordingly. Well, we're glad you're here, listener. Pull up a chair....",
+   "notes_html": "<p><b>Chicago:</b> high 4\u00b0C, low -1\u00b0C, overcast.</p><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/22/select-styling/\">Select Styling Specimens</a></li><li><a href=\"https://openai.com/index/perplexity-and-intelligence\">Perplexity and Intelligence</a></li></ul>",
+   "file": "episodes/2026-11-23.mp3",
+   "bytes": 2510880,
+   "seconds": 627,
+   "published": "2026-11-23T06:00:35.475369-06:00",
+   "engine": "google-chirp",
+   "opening": "Good morning, and welcome to AI Morning. It's Monday, it's dark, and somewhere a calendar invite is already waiting for you.",
+   "closing": "Same threat model. Thanks for listening, everyone. Wrap up warm, have a good Monday, and we'll see you tomorrow on AI Morning.",
+   "picks": {
+    "opening": "Open with a quick, friendly back-and-forth between the hosts before the weather.",
+    "tone": "dry and witty",
+    "dynamic": "Ava leads the news and Andrew pushes back where something sounds like hype.",
+    "signoff": "End with a light joke and a sign-off.",
+    "security_topic": "prompt injection: how a poisoned web page, email or document can steer an agent, and what limits the damage"
+   }
+  },
+  {
    "date": "2026-11-22",
    "title": "Rust Servers, Reasoning Dials, Agent Logs",
    "summary": "Good morning. It's Sunday, it's early, and the house is probably still quiet. Grab your coffee and ease in with us. This is AI Morning. Morning. A slow news day today, which honestly suits a Sunday. We've got two good stories, then a security refresher worth your time. First, the weather. Chicago...",
@@ -154,6 +174,7 @@
   "https://openai.com/index/managing-frontier-ai-risk",
   "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare",
   "https://openai.com/index/our-first-phase-of-embedded-assessments",
+  "https://openai.com/index/perplexity-and-intelligence",
   "https://openai.com/index/research-acceleration-jagged-frontier",
   "https://openai.com/index/science-at-the-frontier",
   "https://openai.com/index/step-toward-defining-the-standard-model",
@@ -183,6 +204,7 @@
   "https://simonwillison.net/2026/Nov/20/ravi-vakil/",
   "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
   "https://simonwillison.net/2026/Nov/21/muru/",
+  "https://simonwillison.net/2026/Nov/22/select-styling/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",
