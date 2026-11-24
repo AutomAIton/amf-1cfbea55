@@ -4,9 +4,9 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 "Verify next session" are asked once as a quick yes/no check, then moved to Settled.
 
 ## State
-- **Cadence:** daily, through 2026-11-24. The 11-24 session asks: keep daily, or go weekly?
-- **Last reviewed episode:** 2026-11-23 ("Select Boxes, Perplexity and Poisoned Pages", VPS-started 06:00 CT, 10 min 27 s)
-- **Next session queued:** 2026-11-25 07:00 (`C:\AI\handoffs\queue\2026-11-25-0700-ai-morning-feedback.md`; provisional until the 11-24 cadence answer)
+- **Cadence:** daily, indefinitely (operator chose to keep daily on 2026-11-24). Stop the chain only when he says so.
+- **Last reviewed episode:** 2026-11-24 ("Canaries in the AI Supply Chain", VPS-started 06:00 CT, 13 min 52 s)
+- **Next session queued:** 2026-11-25 07:00 (`C:\AI\handoffs\queue\2026-11-25-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
@@ -43,10 +43,13 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-23 | Google Chirp voices verified: distinct, good, not robotic; no "my turn" handovers, flow natural | VOICE (unchanged) |
 | 2026-11-23 | 10:27 was the right length on a quiet-news day; banter right; all three pieces (select boxes, OpenAI Perplexity, prompt-injection refresher) pertinent | SYSTEM_PROMPT (unchanged) |
 | 2026-11-23 | Name the exact model, tools, skills and versions in AI-build stories (his main interest: improving his own builds); never invent names | SYSTEM_PROMPT "Specifics" |
+| 2026-11-24 | 13:52 is just right; banter good; no robotic voice; all stories good, the AI-agent attack story was the standout for a security-minded listener; accuracy check found no invented items | SYSTEM_PROMPT (unchanged) |
+| 2026-11-24 | Keep the podcast daily (no move to weekly); no sources to drop | Cadence above, FEEDS/TLDR_TOPICS (unchanged) |
+| 2026-11-24 | TLDR sources not thin: 11-23 was a one-off weekend gap | FEEDS (unchanged) |
 | 2026-11-22 | No "my turn" handovers; alternate who introduces stories, no long one-host runs | SYSTEM_PROMPT |
 
 ## Verify next session (trials)
-- 2026-11-23: were TLDR/news sources thin again (newsletters skipping issues)? Persistent problem or a one-off weekend gap? Then decide on sources to add or drop. Also the 11-24 session asks: keep daily or go weekly?
+- 2026-11-24 follow-ups (his side, not the podcast): VPS patch task queued for 11-25 09:00; gitleaks pre-commit hook now in this repo's .git/hooks (untracked; reinstall on a fresh clone).
 - Andrew voice DECIDED 2026-11-18: keep en-US-AndrewMultilingualNeural (his pick from the samples); plain Andrew is the backup after 3 failed tries.
   Still stiff, so revisit. FUTURE IDEA (operator, 2026-11-18): if the voices stay stiff, consider a different TTS service for reading the script.
 - Project description approved and set as the LISTENER_CONTEXT repo variable (2026-11-18). Ask if the hosts' references to it feel right.
