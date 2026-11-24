@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-24",
+   "title": "Canaries in the AI Supply Chain",
+   "summary": "Good morning, and welcome to AI Morning! It's Tuesday, it's Thanksgiving week, and the news did not take the week off. Not even a little. Morning, everyone. Grab something hot, because today's security segment is a big one. It really is. But first, here's the sky. Chicago today has a high of 3...",
+   "notes_html": "<p><b>Chicago:</b> high 3\u00b0C, low -2\u00b0C, snow.</p><h3>TLDR ai (2026-11-23)</h3><ul><li><a href=\"https://openai.com/index/perplexity-and-intelligence/\">Perplexity and Intelligence</a></li><li><a href=\"https://thinkingmachines.ai/news/inkling-2-mini/\">Inkling 2 Mini</a></li><li><a href=\"https://metr.org/blog/2026-11-20-q4-2026-capability-update/\">AI R&amp;D-Relevant Model Capabilities Are Improving Rapidly</a></li><li><a href=\"https://www.rameznaam.com/p/the-most-important-charts-in-ai-are\">The Most Important Charts in AI are Wrong</a></li><li><a href=\"https://www.lesswrong.com/posts/CoRJ9saddvsXti4m2/post-training-is-fundamentally-dangerous\">Why Post-Training Could Teach Models to Evade Monitoring</a></li><li><a href=\"https://huggingface.co/tencent/Hy4\">Tencent Releases Hy4 With Multimodal Input and Million-Token Context</a></li><li><a href=\"https://research.nvidia.com/labs/genair/sigma/\">NVIDIA Releases Nemotron-Labs-Sigma Continuous Diffusion Language Models</a></li><li><a href=\"https://huggingface.co/blog/harness-adapters-at-scale\">Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://community.tldr.tech/t/what-s-your-ai-prediction-for-2027\">What's your AI prediction for 2027? (TLDR Community)</a></li><li><a href=\"https://www.wsj.com/tech/ai/anthropic-dario-daniela-amodei-siblings-ipo-be84ad11\">The Brother-Sister Duo Who Want to Keep Anthropic Weird</a></li><li><a href=\"https://leanprover-community.github.io/blog/posts/riemann-hypothesis/\">Lean verification of the Riemann Hypothesis</a></li><li><a href=\"https://x.com/geminiapp/status/2123813017855103449\">Say hello to GIFs in Gemini</a></li><li><a href=\"https://www.theinformation.com/briefings/amazon-nearing-7-5-billion-purchase-decart\">Amazon Nearing $7.5 Billion Purchase of Decart</a></li><li><a href=\"https://www.baseten.co/blog/meet-bison-1-and-groundhog-1/\">Meet bison-1 and groundhog-1, frontier American decision models</a></li><li><a href=\"https://openai.com/index/combatting-adversarial-distillation\">Combatting adversarial distillation</a></li></ul><h3>TLDR infosec (2026-11-23)</h3><ul><li><a href=\"https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/\">Researchers plant 2m canaries into the AI supply chain. A privacy disaster surfaced.</a></li><li><a href=\"https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/\">Microsoft Entra Connect Health flaw exploited to steal tenant data</a></li><li><a href=\"https://cybernews.com/security/jpmorgan-chase-data-leak-non-ransomware-gang/\">Hacker leaks details of JPMorgan's ultra-wealthy cardholders</a></li><li><a href=\"https://kattraxler.cloud/a-security-constitution-at-work/\">A Security Constitution at Work</a></li><li><a href=\"https://eaton-works.com/2026/11/18/credit-nirvana-hack/\">The AI Repo Man: Exploiting Agentic AI Debt Collection Platforms</a></li><li><a href=\"https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/\">Chinese-nexus actor's Cairn AI agents found a zero-day on their own</a></li><li><a href=\"https://github.com/crackinglandia/idasignwriter\">IDA SigWriter</a></li><li><a href=\"https://github.com/SpiralRise/binary-audit-pipeline\">binary-audit-pipeline</a></li><li><a href=\"https://venturebeat.com/security/openais-pre-release-gpt-6-2-astra-was-easier-to-jailbreak-than-its-predecessor-uk-government-testers-found\">OpenAI's pre-release GPT-6.2 Astra was easier to jailbreak than its predecessor, UK government testers found</a></li><li><a href=\"https://techcrunch.com/2026/11/20/a-transcription-firm-used-by-police-prosecutors-and-tech-giants-exposed-customer-data-online/\">A transcription firm used by police, prosecutors, and tech giants exposed customer data online</a></li><li><a href=\"https://signal.org/blog/protecting-your-privacy/\">Signal is Serious About Protecting Your Privacy</a></li><li><a href=\"https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html\">OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms</a></li><li><a href=\"https://thehackernews.com/2026/11/phpaftershell-explained-how-hackers.html\">phpAfterShell Explained: How Hackers Could Turn a PHP Session Flaw Into Code Execution</a></li><li><a href=\"https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/\">SBC Medical Group Data Breach Impacts Over 2 Million</a></li><li><a href=\"https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026\">Security event: Prompt leakage for requests in June and July of 2026</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/24/datasette-charts/\">datasette-charts 0.2a0</a></li><li><a href=\"https://simonwillison.net/2026/Nov/24/datasette-agent/\">datasette-agent 0.7a1</a></li><li><a href=\"https://simonwillison.net/2026/Nov/23/glm-54/\">GLM-5.4: Toward Generalized Coding with Our First Loop Transformer</a></li><li><a href=\"https://simonwillison.net/2026/Nov/23/ladybird/\">Ladybird's first alpha release</a></li><li><a href=\"https://simonwillison.net/2026/Nov/23/datasette-charts/\">datasette-charts 0.1a0</a></li><li><a href=\"https://openai.com/index/introducing-shirudo\">OpenAI and Cisco introduce Shirudo</a></li><li><a href=\"https://openai.com/business/learn/connected-intelligence-for-in-house-legal\">Connected intelligence for in-house legal</a></li><li><a href=\"https://openai.com/business/customer-stories/richpanel-ai-customer-support\">Richpanel helps companies automate 50% of support in 30 days</a></li><li><a href=\"https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/\">[AINews] Jensen Is Back! and OpenAI Shows Its Pretraining Curve, joined by Microsoft</a></li></ul>",
+   "file": "episodes/2026-11-24.mp3",
+   "bytes": 3331392,
+   "seconds": 832,
+   "published": "2026-11-24T06:00:24.201810-06:00",
+   "engine": "google-chirp",
+   "opening": "Good morning, and welcome to AI Morning! It's Tuesday, it's Thanksgiving week, and the news did not take the week off.",
+   "closing": "Talk to you tomorrow on AI Morning.",
+   "picks": {
+    "opening": "Open like a morning radio duo: warm and brisk.",
+    "tone": "conversational, with gentle friendly disagreement between the hosts",
+    "dynamic": "The hosts trade stories, each one reacting briefly to the other's.",
+    "signoff": "End warmly and briefly."
+   }
+  },
+  {
    "date": "2026-11-23",
    "title": "Select Boxes, Perplexity and Poisoned Pages",
    "summary": "Good morning, and welcome to AI Morning. It's Monday, it's dark, and somewhere a calendar invite is already waiting for you. Andrew, you sound like a man who checked his inbox before his coffee. Rookie mistake. I've been punished accordingly. Well, we're glad you're here, listener. Pull up a chair....",
@@ -137,13 +156,14 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-20",
-  "infosec": "2026-11-20"
+  "ai": "2026-11-23",
+  "infosec": "2026-11-23"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
   "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
+  "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
   "https://latent.space/p/ainews-riemann-hypothesis-proved-twice-independently/",
   "https://latent.space/p/bfl/",
@@ -153,8 +173,10 @@
   "https://openai.com/business/customer-stories/hebbia",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
   "https://openai.com/business/customer-stories/revolut",
+  "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
   "https://openai.com/business/customer-stories/sumitomo-life",
   "https://openai.com/business/learn/codex-security-plugin-demo",
+  "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
   "https://openai.com/business/learn/daybreak-blue-onboarding-demo",
   "https://openai.com/business/learn/deploying-daybreak-red",
   "https://openai.com/business/learn/pr-scans-demo",
@@ -169,6 +191,7 @@
   "https://openai.com/index/introducing-gpt-6-2-astra-sol",
   "https://openai.com/index/introducing-medchembench",
   "https://openai.com/index/introducing-openai-for-chile",
+  "https://openai.com/index/introducing-shirudo",
   "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
   "https://openai.com/index/lvmh-media-division-partnership",
   "https://openai.com/index/managing-frontier-ai-risk",
@@ -205,6 +228,11 @@
   "https://simonwillison.net/2026/Nov/20/token-fraud-is-here-and-its-bad/",
   "https://simonwillison.net/2026/Nov/21/muru/",
   "https://simonwillison.net/2026/Nov/22/select-styling/",
+  "https://simonwillison.net/2026/Nov/23/datasette-charts/",
+  "https://simonwillison.net/2026/Nov/23/glm-54/",
+  "https://simonwillison.net/2026/Nov/23/ladybird/",
+  "https://simonwillison.net/2026/Nov/24/datasette-agent/",
+  "https://simonwillison.net/2026/Nov/24/datasette-charts/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",
