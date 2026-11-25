@@ -6,7 +6,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 ## State
 - **Cadence:** daily, indefinitely (operator chose to keep daily on 2026-11-24). Stop the chain only when he says so.
 - **Last reviewed episode:** 2026-11-24 ("Canaries in the AI Supply Chain", VPS-started 06:00 CT, 13 min 52 s)
-- **Next session queued:** 2026-11-25 07:00 (`C:\AI\handoffs\queue\2026-11-25-0700-ai-morning-feedback.md`)
+- **Next session queued:** 2026-11-26 07:00 (`C:\AI\handoffs\queue\2026-11-26-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
