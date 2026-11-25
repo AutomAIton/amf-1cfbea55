@@ -5,7 +5,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 
 ## State
 - **Cadence:** daily, indefinitely (operator chose to keep daily on 2026-11-24). Stop the chain only when he says so.
-- **Last reviewed episode:** 2026-11-24 ("Canaries in the AI Supply Chain", VPS-started 06:00 CT, 13 min 52 s)
+- **Last reviewed episode:** 2026-11-25 ("Eleven Minutes From Flaw to Root", VPS-started 06:00 CT, 11 min 35 s)
 - **Next session queued:** 2026-11-26 07:00 (`C:\AI\handoffs\queue\2026-11-26-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
@@ -47,21 +47,15 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-24 | Keep the podcast daily (no move to weekly); no sources to drop | Cadence above, FEEDS/TLDR_TOPICS (unchanged) |
 | 2026-11-24 | TLDR sources not thin: 11-23 was a one-off weekend gap | FEEDS (unchanged) |
 | 2026-11-22 | No "my turn" handovers; alternate who introduces stories, no long one-host runs | SYSTEM_PROMPT |
+| 2026-11-25 | 11:35 length right, all stories landed | TARGET_MINUTES, FEEDS (unchanged) |
+| 2026-11-25 | Always end on a plain goodbye; any recap comes before it, in complete everyday sentences naming what to do; no slogans | SYSTEM_PROMPT "Sign-off", SIGNOFFS |
+| 2026-11-25 | Dependency roster idea: queue it as its own build, plan first | queue `2026-11-26-0900-ai-morning-dependency-roster.md` |
 
 ## Verify next session (trials)
-- 2026-11-24 follow-ups (his side, not the podcast): VPS patch task queued for 11-25 09:00; gitleaks pre-commit hook now in this repo's .git/hooks (untracked; reinstall on a fresh clone).
-- Andrew voice DECIDED 2026-11-18: keep en-US-AndrewMultilingualNeural (his pick from the samples); plain Andrew is the backup after 3 failed tries.
-  Still stiff, so revisit. FUTURE IDEA (operator, 2026-11-18): if the voices stay stiff, consider a different TTS service for reading the script.
-- Project description approved and set as the LISTENER_CONTEXT repo variable (2026-11-18). Ask if the hosts' references to it feel right.
-- Did the robotic fallback voice disappear after the backup voices? Check `engine` in data/history.json (no "via gtts").
-- Is the new "Try this" ending useful and short? Any strange wording left?
-- Did the VPS catch-up fire if the schedule dropped a run? Check `heartbeat.monitors` row `ai-morning-episode`.
-
-- 2026-11-19 changes, check on the 11-20 episode: weather present? Try this stand-alone and practical? Length at least 10 min? If security was thin, was the evergreen refresher OK?
-- OPEN: TLDR issues seem to publish after 06:00 CT (11-19 issues were live later in the day; the 06:00 build fell back to the used 11-18 issue). Operator approved no start-time change; revisit if security/news stay thin.
-
-- 2026-11-21 change, check on the 11-22 episode: Try this is 2-3 short items, each stand-alone and startable today; one follows the stack if there was stack news; length still under 15 min.
-- OPEN (operator idea, 2026-11-20): a full roster of dependencies and tools per project, checked against the news. Needs a private roster file built from his project manifests; propose it next session.
+- 2026-11-25 change, check on the 11-26 episode: does it end on a plain goodbye, with any recap before it in clear full sentences?
+- OPEN: TLDR issues seem to publish after 06:00 CT (11-19). Operator approved no start-time change; revisit only if security/news stay thin.
+- FUTURE IDEA (operator, 2026-11-18): another TTS service if voices stay stiff (Google Chirp verified good 2026-11-23).
+- Note: the gitleaks pre-commit hook lives in this repo's .git/hooks (untracked; reinstall on a fresh clone).
 
 ## Open questions (not yet asked)
 - Story selection: which stories landed or bored (partly answered: decision models were relevant)
