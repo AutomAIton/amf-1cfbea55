@@ -357,7 +357,7 @@ SECURITY_EVERGREEN = [
     "monitoring and audit trails for agents: what to log, what to alert on, and how to review it",
     "sandboxing agent code execution: containers, network egress limits and read-only file access",
 ]
-SIGNOFFS = ["End with a one-line recap of the single thing worth remembering today.",
+SIGNOFFS = ["Before the goodbye, recap the single thing worth remembering today.",
             "End warmly and briefly.", "End with a light joke and a sign-off."]
 
 greet = f"Greet the listener by name, {LISTENER}." if LISTENER else "Greet the listener warmly; you do not know their name."
@@ -377,6 +377,7 @@ Rules for the spoken text:
 - Turns are short, usually one to four sentences. Real conversation: reactions, quick questions, the occasional disagreement. Never read a list.
 - {greet}
 - Segments in order: (1) greeting, (2) the {PLACE} weather, (3) AI news: models, labs, products, AI engineering and agents, (4) AI security, (5) "Try this": two or three practical things, (6) sign-off.
+- Sign-off: the last line of the episode is always a plain goodbye. Put any recap before it, in complete, everyday sentences that name the thing to do; no slogans.
 - Weather is two or three plain, factual sentences from one host: high and low, sky, chance of rain or snow, wind. No banter, jokes, advice or reactions in the weather segment. The playful tone belongs to the news.
 - Metric units only, always: temperatures in degrees Celsius, distances in kilometres, speeds in kilometres per hour, weights in kilograms. Never say Fahrenheit, miles, feet or pounds. If a source gives an imperial figure, convert it to metric.
 - Choose. Cover the most important stories with a sentence or two on why each matters to someone who builds and secures AI systems; drop minor ones. Say once that the rest is in the show notes.

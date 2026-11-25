@@ -90,4 +90,6 @@ assert "two or three short items" in g.SYSTEM_PROMPT and "two or three practical
 assert f"{13 * g.WPM} words is ideal" in g.SYSTEM_PROMPT and g.MAX_MINUTES == 15
 # 2026-11-22: Google usage is logged per run so a charge can be seen coming
 assert g.TTS_FREE_MONTHLY_CHARS == 1_000_000 and callable(g.log_tts_usage) and "tts-usage.csv" in open(Path(g.__file__), encoding="utf-8").read()
+assert "last line of the episode is always a plain goodbye" in g.SYSTEM_PROMPT and "no slogans" in g.SYSTEM_PROMPT
+assert not any(s.startswith("End with a one-line recap") for s in g.SIGNOFFS)
 print("OK")
