@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-25",
+   "title": "Eleven Minutes From Flaw to Root",
+   "summary": "A set of AI agents went from spotting a flaw to running as root on a university server in 11 minutes, and that's where we're headed today. Good morning, and welcome to AI Morning. It's Wednesday, the day before Thanksgiving, and we're glad you're starting it with us. Good morning. Quick look...",
+   "notes_html": "<p><b>Chicago:</b> high 5\u00b0C, low 1\u00b0C, overcast.</p><h3>TLDR ai (2026-11-24)</h3><ul><li><a href=\"https://www.natural.com/blog/voice\">Introducing Natural Voice</a></li><li><a href=\"https://code.claude.com/docs/en/claude-ship\">Claude Ship</a></li><li><a href=\"https://z.ai/blog/glm-5.4\">GLM-5.4</a></li><li><a href=\"https://research.google/blog/supercharging-transformer-residual-connections/\">Supercharging transformer residual connections</a></li><li><a href=\"https://www.nijho.lt/post/orchestrating-orchestrators/\">I used to orchestrate agents. Now I orchestrate orchestrators</a></li><li><a href=\"https://openai.com/index/introducing-shirudo/\">OpenAI and Cisco introduce Shirudo</a></li><li><a href=\"https://arxiv.org/abs/2611.29513\">Recursive Self-Editing: LLMs Program Their Own Weight Edits for Self-Improvement</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/\">Faster Quantum Algorithms with Agents and Formal Verification</a></li><li><a href=\"https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director\">NVIDIA Board Reinstates Jensen Huang as President, CEO, and Board Director</a></li><li><a href=\"https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/\">Amazon snaps up Decart's AI optimization tech for $7.5B as it prepares to sell Trainium chips</a></li><li><a href=\"https://openai.com/openworks/\">OpenWorks</a></li><li><a href=\"https://www.testingcatalog.com/grok-bot-to-get-local-computer-use-and-dictation-in-any-app/\">Grok Bot to Get Local Computer Use</a></li><li><a href=\"https://microsoft.ai/news/rl-infrastructure-at-microsoft-ai/\">RL infrastructure at Microsoft AI</a></li></ul><h3>TLDR infosec (2026-11-24)</h3><ul><li><a href=\"https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html\">Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser Definitions</a></li><li><a href=\"https://projectzero.google/2026/11/virtualbox-process-hardening.html\">VirtualBox Process Hardening on Windows 2026 Edition: What's a Single Bit Between Friends?</a></li><li><a href=\"https://www.theregister.com/security/2026/11/23/critical-cisco-remote-code-execution-bug-under-attack/5311722\">Critical Cisco remote code execution bug under attack</a></li><li><a href=\"https://engseclabs.com/blog/things-llms-get-wrong-about-aws-iam/\">Things LLMs Get Wrong About AWS IAM</a></li><li><a href=\"https://kudelskisecurity.com/research/sandboxing-coding-agents\">Sandboxing AI Coding Agents: nono vs Docker Sandboxes vs Microsandbox vs OpenShell</a></li><li><a href=\"https://www.wordfence.com/blog/2026/11/supply-chain-compromise-backdoors-six-wp-connect-plugins-blocked-by-wordpress-orgs-release-hold/\">Supply Chain Compromise Backdoors Six WP Connect Plugins, Blocked by WordPress.org's Release Hold</a></li><li><a href=\"https://www.stepsecurity.io/\">StepSecurity (Product Launch)</a></li><li><a href=\"https://github.com/thalium/BinQL\">BinQL</a></li><li><a href=\"https://securitylabs.datadoghq.com/articles/introducing-mitigeddon/\">Introducing Mitigeddon: Real-world exploitation and prevalence data for impactful CVEs</a></li><li><a href=\"https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/\">BadBox 3.0 Ad Fraud Operation Generating 40 Billion Daily Bid Requests Disrupted</a></li><li><a href=\"https://www.darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes\">AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes</a></li><li><a href=\"https://www.crowdstrike.com/en-us/press-releases/crowdstrike-to-acquire-zscaler-bringing-network-security-and-zero-trust-to-the-falcon-platform/\">CrowdStrike to Acquire Zscaler, Bringing Network Security and Zero Trust to the Falcon Platform</a></li><li><a href=\"https://techcrunch.com/2026/11/19/u-k-government-forced-to-disclose-secret-apple-backdoor-order/\">UK government forced to disclose secret Apple backdoor order</a></li><li><a href=\"https://www.theblock.co/news/regulation/2026-11-23-doj-1-17-billion-usdc-binance-hack-circle-replacement-tokens-445398\">DOJ seeks $1.17 billion in USDC tied to Binance hack; Circle could issue replacement tokens</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/24/llm-inflection-points/\">Three LLM inflection points in twelve months</a></li><li><a href=\"https://simonwillison.net/2026/Nov/24/astra-historical-mystery/\">GPT 6.2 Astra Solves a Historical Mystery</a></li><li><a href=\"https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities\">GPT-6 models demonstrate intrinsic protein-design capabilities</a></li><li><a href=\"https://openai.com/index/searching-for-distant-planets-with-astra\">Searching for distant planets with Astra</a></li><li><a href=\"https://openai.com/business/customer-stories/intentful-dots\">How Intentful uses dots to make more time for growth</a></li><li><a href=\"https://openai.com/business/customer-stories/ifood\">How iFood scales coding agents across 15,000 repositories</a></li><li><a href=\"https://openai.com/business/customer-stories/clay-plugins-openai\">Clay helps sales teams win with Codex and ChatGPT</a></li><li><a href=\"https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/\">[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab</a></li></ul>",
+   "file": "episodes/2026-11-25.mp3",
+   "bytes": 2783232,
+   "seconds": 695,
+   "published": "2026-11-25T06:00:22.599321-06:00",
+   "engine": "google-chirp",
+   "opening": "A set of AI agents went from spotting a flaw to running as root on a university server in 11 minutes, and that's where we're headed today.",
+   "closing": "The one thing worth remembering today: attacking agents went from first flaw to root in 11 minutes, so lock down the basics before anything clever.",
+   "picks": {
+    "opening": "Open by teasing the most interesting story in one line, then say good morning properly.",
+    "tone": "calm and focused",
+    "dynamic": "Andrew leads the news and Ava asks the questions a smart listener would ask.",
+    "signoff": "End with a one-line recap of the single thing worth remembering today."
+   }
+  },
+  {
    "date": "2026-11-24",
    "title": "Canaries in the AI Supply Chain",
    "summary": "Good morning, and welcome to AI Morning! It's Tuesday, it's Thanksgiving week, and the news did not take the week off. Not even a little. Morning, everyone. Grab something hot, because today's security segment is a big one. It really is. But first, here's the sky. Chicago today has a high of 3...",
@@ -156,12 +175,13 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-23",
-  "infosec": "2026-11-23"
+  "ai": "2026-11-24",
+  "infosec": "2026-11-24"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
   "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
+  "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
@@ -170,8 +190,11 @@
   "https://latent.space/p/cloudflare/",
   "https://latent.space/p/formal-verification/",
   "https://latent.space/p/linear-scaling/",
+  "https://openai.com/business/customer-stories/clay-plugins-openai",
   "https://openai.com/business/customer-stories/hebbia",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
+  "https://openai.com/business/customer-stories/ifood",
+  "https://openai.com/business/customer-stories/intentful-dots",
   "https://openai.com/business/customer-stories/revolut",
   "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
   "https://openai.com/business/customer-stories/sumitomo-life",
@@ -185,6 +208,7 @@
   "https://openai.com/index/astra-law-6-2",
   "https://openai.com/index/combatting-adversarial-distillation",
   "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+  "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
   "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
   "https://openai.com/index/inside-the-codex-sandbox",
   "https://openai.com/index/introducing-chatgpt-for-sales",
@@ -200,6 +224,7 @@
   "https://openai.com/index/perplexity-and-intelligence",
   "https://openai.com/index/research-acceleration-jagged-frontier",
   "https://openai.com/index/science-at-the-frontier",
+  "https://openai.com/index/searching-for-distant-planets-with-astra",
   "https://openai.com/index/step-toward-defining-the-standard-model",
   "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
   "https://openai.com/index/strengthening-online-child-safety",
@@ -231,8 +256,10 @@
   "https://simonwillison.net/2026/Nov/23/datasette-charts/",
   "https://simonwillison.net/2026/Nov/23/glm-54/",
   "https://simonwillison.net/2026/Nov/23/ladybird/",
+  "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
   "https://simonwillison.net/2026/Nov/24/datasette-agent/",
   "https://simonwillison.net/2026/Nov/24/datasette-charts/",
+  "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",
