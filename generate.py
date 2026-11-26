@@ -47,10 +47,10 @@ HISTORY_FILE = DATA / "history.json"
 TZ = ZoneInfo(env("TIMEZONE", "America/Chicago"))
 LISTENER = env("LISTENER_NAME", "")  # optional first name; the repo is public, so default is none
 PLACE = env("PLACE", "Chicago")
-# What the listener is building, one or two sentences. Private: set as the repo variable LISTENER_CONTEXT
+# What the listener is building, one or two sentences. Private: set as the repo secret LISTENER_CONTEXT
 # (the repo is public, so it must never be committed here). Empty = the hosts do not mention a project.
 LISTENER_CONTEXT = env("LISTENER_CONTEXT", "")
-# Tools, databases and platforms the listener builds on, comma separated. Private: repo variable LISTENER_STACK,
+# Tools, databases and platforms the listener builds on, comma separated. Private: repo secret LISTENER_STACK,
 # never committed (public repo). Empty = no stack-aware Try this.
 LISTENER_STACK = env("LISTENER_STACK", "")
 LAT = float(env("LAT", "41.8781"))

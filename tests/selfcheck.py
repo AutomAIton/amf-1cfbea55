@@ -85,6 +85,9 @@ assert "LISTENER_STACK" in wf and "one Try this item must be about it" in _src a
 _ls = g.LISTENER_STACK; g.LISTENER_STACK = "PostgreSQL, Python packages, Node.js and npm, Docker containers"
 assert g.drop_leaks([("A", "I run PostgreSQL, Python packages, Node.js and npm, Docker containers."), ("B", "PostgreSQL 19 shipped today.")]) == [("B", "PostgreSQL 19 shipped today.")]
 g.LISTENER_STACK = _ls
+# 2026-11-26: repo variables print in clear in the public Actions log, so private values are secrets only
+for _k in ("LISTENER_CONTEXT", "LISTENER_STACK"):
+    assert f"secrets.{_k}" in wf and f"vars.{_k}" not in wf, _k
 # 2026-11-21 feedback: Try this is a block of two or three short items, with more room
 assert "two or three short items" in g.SYSTEM_PROMPT and "two or three practical things" in g.SYSTEM_PROMPT
 assert f"{13 * g.WPM} words is ideal" in g.SYSTEM_PROMPT and g.MAX_MINUTES == 15
