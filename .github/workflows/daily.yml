@@ -59,8 +59,8 @@ jobs:
           GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
           BASE_URL: ${{ vars.BASE_URL }}
           LISTENER_NAME: ${{ vars.LISTENER_NAME }}
-          LISTENER_CONTEXT: ${{ vars.LISTENER_CONTEXT }}
-          LISTENER_STACK: ${{ vars.LISTENER_STACK }}
+          LISTENER_CONTEXT: ${{ secrets.LISTENER_CONTEXT }}
+          LISTENER_STACK: ${{ secrets.LISTENER_STACK }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
           TARGET_MINUTES: ${{ vars.TARGET_MINUTES }}
           TLDR_TOPICS: ${{ vars.TLDR_TOPICS }}
