@@ -96,5 +96,6 @@ assert f"{13 * g.WPM} words is ideal" in g.SYSTEM_PROMPT and g.MAX_MINUTES == 15
 assert g.TTS_FREE_MONTHLY_CHARS == 1_000_000 and callable(g.log_tts_usage) and "tts-usage.csv" in open(Path(g.__file__), encoding="utf-8").read()
 assert "last line of the episode is always a plain goodbye" in g.SYSTEM_PROMPT and "no slogans" in g.SYSTEM_PROMPT
 assert not any(s.startswith("End with a one-line recap") for s in g.SIGNOFFS)
+import builder_check  # noqa: E402,F401  private roster builder (2026-11-26)
 import roster_check  # noqa: E402,F401  private roster: builder, verdicts, public-surface guards (2026-11-26)
 print("OK")
