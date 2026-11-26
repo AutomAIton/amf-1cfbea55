@@ -29,6 +29,8 @@ from zoneinfo import ZoneInfo
 import requests
 from bs4 import BeautifulSoup, NavigableString, Tag
 
+import roster as R
+
 
 def env(name, default):
     value = os.getenv(name)
@@ -53,6 +55,9 @@ LISTENER_CONTEXT = env("LISTENER_CONTEXT", "")
 # Tools, databases and platforms the listener builds on, comma separated. Private: repo secret LISTENER_STACK,
 # never committed (public repo). Empty = no stack-aware Try this.
 LISTENER_STACK = env("LISTENER_STACK", "")
+# Exact installed packages per private project (gzip+base64, secret LISTENER_ROSTER, built on the PC by
+# tools/roster/build_roster.py). Used only to steer Try this and send private verdicts; see roster.py.
+LISTENER_ROSTER = env("LISTENER_ROSTER", "")
 LAT = float(env("LAT", "41.8781"))
 LON = float(env("LON", "-87.6298"))
 TLDR_TOPICS = [t.strip() for t in env("TLDR_TOPICS", "ai,infosec").split(",") if t.strip()]
@@ -403,7 +408,18 @@ def security_is_thin(tldr, blogs):
     return infosec.get("status") != "ok" and not blogs["security"]
 
 
-def build_prompt(now, weather, tldr, blogs, picks, history, drop_security=False):
+def stack_news_rule(names):
+    """Matched roster package names only (they are already in the story text): no versions, projects or verdicts."""
+    if not names:
+        return []
+    return ["", "STACK NEWS TODAY: these packages appear in today's stories and are on the listener's private "
+            f"stack: {', '.join(names)}. Make the first Try this item about the most serious of them: the safe "
+            "version and how to check, phrased as \"if you run X below Y\". Never say whether the listener is "
+            "affected, which of their projects use it, or what version they run. This never changes which stories "
+            "you cover."]
+
+
+def build_prompt(now, weather, tldr, blogs, picks, history, drop_security=False, stack_names=()):
     recent = history.get("episodes", [])[:7]
     security = {"tldr_infosec": {k: v for k, v in tldr.items() if k == "infosec"}, "blogs": blogs["security"]}
     news = {"tldr": {k: v for k, v in tldr.items() if k != "infosec"}, "blogs": blogs["engineering"]}
@@ -415,6 +431,7 @@ def build_prompt(now, weather, tldr, blogs, picks, history, drop_security=False)
         "", "RECENT OPENINGS AND ENDINGS, DO NOT REUSE:",
         *(f"- {e.get('opening', '')}" for e in recent if e.get("opening")),
         *(f"- {e.get('closing', '')}" for e in recent if e.get("closing")),
+        *stack_news_rule(stack_names),
         "", "<source_data>",
         "WEATHER:", json.dumps(weather, indent=1) if weather else "unavailable today",
         "", "AI NEWS:", json.dumps(news, indent=1),
@@ -468,15 +485,16 @@ def _shingles(text, n=4):
     return {" ".join(w[i:i + n]) for i in range(len(w) - n + 1)}
 
 
-def drop_leaks(turns, context=None):
+def drop_leaks(turns, context=None, guard=R.NO_GUARD):
     """The site and repo are public. Drop any turn that repeats four or more words in a row of the private
     LISTENER_CONTEXT, so the description can never be read out loud or published by accident."""
     secret = _shingles(LISTENER_CONTEXT if context is None else context)
     if context is None:
         secret |= _shingles(LISTENER_STACK)  # same rule for the private stack list (4+ words verbatim)
-    if not secret:
+    if not secret and guard is R.NO_GUARD:
         return turns
-    kept = [(w, s) for w, s in turns if not (_shingles(s) & secret)]
+    # also: any turn naming a private project, or saying whether "you" are affected by a matched package
+    kept = [(w, s) for w, s in turns if not (_shingles(s) & secret) and not guard.leaks(s)]
     if len(kept) != len(turns):
         log(f"Dropped {len(turns) - len(kept)} turn(s) that repeated the private listener context.")
     return kept
@@ -644,13 +662,14 @@ def esc(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
-def show_notes(weather, tldr, blogs):
+def show_notes(weather, tldr, blogs, guard=R.NO_GUARD):
     out = []
     if weather:
         out.append(f"<p><b>{esc(PLACE)}:</b> high {weather['high_c']}°C, low {weather['low_c']}°C, "
                    f"{esc(weather['overall'])}.</p>")
 
     def block(heading, items):
+        items = [i for i in items if not guard.leaks(i["title"]) and not guard.leaks(i["url"])]
         if items:
             out.append(f"<h3>{esc(heading)}</h3><ul>")
             out.extend(f'<li><a href="{esc(i["url"])}">{esc(i["title"])}</a></li>' for i in items)
@@ -755,14 +774,18 @@ def main():
              "signoff": pick_fresh(SIGNOFFS, [p.get("signoff") for p in recent])}
     if security_is_thin(tldr, blogs):
         picks["security_topic"] = pick_fresh(SECURITY_EVERGREEN, [p.get("security_topic") for p in recent])
-    result = write_script(build_prompt(now, weather, tldr, blogs, picks, history))
+    stack = R.run(LISTENER_ROSTER, today, tldr, blogs)  # never raises; logs counts only
+    result = write_script(build_prompt(now, weather, tldr, blogs, picks, history, stack_names=stack.names))
     if result is None:
         log("Declined even after fallback; retrying without the security segment.")
-        result = write_script(build_prompt(now, weather, tldr, blogs, picks, history, drop_security=True))
+        result = write_script(build_prompt(now, weather, tldr, blogs, picks, history, drop_security=True,
+                                           stack_names=stack.names))
     if result is None:
         sys.exit("Script generation was declined twice; no episode today.")
     title, body = result
-    turns = drop_leaks(parse_turns(body))
+    turns = drop_leaks(parse_turns(body), guard=stack.guard)
+    if stack.guard.leaks(title):
+        title = "Your AI morning"
     words = sum(len(t[1].split()) for t in turns)
     log(f"Script: {len(turns)} turns, {words} words. Title: {title}")
     if len(turns) < 6:
@@ -773,7 +796,7 @@ def main():
     (DATA / f"script-{today}.txt").write_text(script_text, encoding="utf-8")
     if args.no_audio:
         print(script_text)
-        return
+        return  # no Telegram on a script-only test run
     if not BASE_URL:
         sys.exit("BASE_URL is not set.")
 
@@ -790,7 +813,7 @@ def main():
     history["episodes"].append({
         "date": today, "title": title,
         "summary": squash(" ".join(s for _, s in turns), 300),
-        "notes_html": show_notes(weather, tldr, blogs),
+        "notes_html": show_notes(weather, tldr, blogs, stack.guard),
         "file": f"episodes/{today}.mp3", "bytes": mp3.stat().st_size, "seconds": seconds,
         "published": now.isoformat(), "engine": engine,
         "opening": turns[0][1][:200], "closing": turns[-1][1][:200], "picks": picks})
@@ -802,6 +825,7 @@ def main():
     save_history(history)
     build_feed(history)
     log("Feed updated.")
+    R.send_telegram(stack.message)  # private verdicts; after publishing so a failed run doesn't send twice
 
 
 if __name__ == "__main__":

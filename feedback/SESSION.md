@@ -17,6 +17,8 @@ rather than `started\`, leave it alone.
 ## 1. Load what's settled
 `git pull`, then read LOG.md in full. Never re-ask a Settled item. Ask each "Verify next
 session" item once.
+Never quote the private Telegram stack check, roster contents or project names into this repo:
+it is public. Record only whether the check arrived and was right.
 
 ## 2. Find the unreviewed episodes
 Episodes in `data/history.json` dated after "Last reviewed episode". For each date, run

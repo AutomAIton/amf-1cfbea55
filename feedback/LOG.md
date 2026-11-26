@@ -53,8 +53,10 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-26 | 11-25 sign-off change verified: plain goodbye, clear recap before it | SYSTEM_PROMPT "Sign-off" (unchanged) |
 | 2026-11-26 | 13:14 length fine, all stories landed, nothing wrong, no changes | SYSTEM_PROMPT, TARGET_MINUTES (unchanged) |
 | 2026-11-26 | Feedback sessions move from daily to weekly, Thursdays 07:00 (replaces the daily-feedback part of 11-24); podcast stays daily | Cadence above |
+| 2026-11-26 | Dependency roster built: exact installed packages per private project (secret `LISTENER_ROSTER`, refreshed by the AIOS morning run) matched daily against the stories; per-project verdicts go privately by Telegram; the episode stays generic ("if you run X below Y") and never says whether the listener is affected | `roster.py`, `tools/roster/`, `stack_news_rule`, `tests/roster_check.py` |
 
 ## Verify next session (trials)
+- ROSTER (judge 2026-12-03): did a Telegram stack check arrive on each day a story named a package you use, and none on other days? Were the verdicts right? Any Try this that hinted where something is installed?
 - OPEN: TLDR issues seem to publish after 06:00 CT (11-19). Operator approved no start-time change; revisit only if security/news stay thin.
 - FUTURE IDEA (operator, 2026-11-18): another TTS service if voices stay stiff (Google Chirp verified good 2026-11-23).
 - Note: the gitleaks pre-commit hook lives in this repo's .git/hooks (untracked; reinstall on a fresh clone).
