@@ -4,9 +4,9 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 "Verify next session" are asked once as a quick yes/no check, then moved to Settled.
 
 ## State
-- **Cadence:** daily, indefinitely (operator chose to keep daily on 2026-11-24). Stop the chain only when he says so.
+- **Cadence:** weekly, Thursdays 07:00 (operator switched on 2026-11-26). One session covers every unreviewed episode; the podcast stays daily. Stop the chain only when the operator says so.
 - **Last reviewed episode:** 2026-11-26 ("Swarms, Shields and Agents With Inboxes", VPS-started 06:00 CT, 13 min 14 s)
-- **Next session queued:** 2026-11-27 07:00 (`C:\AI\handoffs\queue\2026-11-27-0700-ai-morning-feedback.md`)
+- **Next session queued:** 2026-12-03 07:00 (`C:\AI\handoffs\queue\2026-12-03-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
@@ -52,6 +52,7 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-25 | Dependency roster idea: queue it as its own build, plan first | queue `2026-11-26-0900-ai-morning-dependency-roster.md` |
 | 2026-11-26 | 11-25 sign-off change verified: plain goodbye, clear recap before it | SYSTEM_PROMPT "Sign-off" (unchanged) |
 | 2026-11-26 | 13:14 length fine, all stories landed, nothing wrong, no changes | SYSTEM_PROMPT, TARGET_MINUTES (unchanged) |
+| 2026-11-26 | Feedback sessions move from daily to weekly, Thursdays 07:00 (replaces the daily-feedback part of 11-24); podcast stays daily | Cadence above |
 
 ## Verify next session (trials)
 - OPEN: TLDR issues seem to publish after 06:00 CT (11-19). Operator approved no start-time change; revisit only if security/news stay thin.
