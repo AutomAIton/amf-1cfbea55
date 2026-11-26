@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-26",
+   "title": "Swarms, Shields and Agents With Inboxes",
+   "summary": "Good morning, and welcome to AI Morning. It's Thursday, which normally means the weekend is almost in sight. Today it's Thanksgiving, so the weekend kind of showed up a day early and brought pie. Happy Thanksgiving to you, wherever you're listening. We'll keep you good company while the oven...",
+   "notes_html": "<p><b>Chicago:</b> high 8\u00b0C, low 4\u00b0C, rain.</p><h3>TLDR ai (2026-11-25)</h3><ul><li><a href=\"https://cognition.com/blog/swe-2-1\">Cognition's SWE-2.1</a></li><li><a href=\"https://prismml.com/news/bonsai-2-5-27b\">Introducing Ternary Bonsai 2.5 27B: Powering Agentic Coding and Private Knowledge Work</a></li><li><a href=\"https://claude.com/resources/articles/install-as-app\">Claude Artifacts Become Mac and Windows Apps</a></li><li><a href=\"https://thezvi.substack.com/p/jensen-huang-reinstated-as-nvidia\">Jensen Huang Reinstated As Nvidia CEO at Behest of President Trump</a></li><li><a href=\"https://www.paradigm3.org/research/swarms\">Swarms do not yet raise the roof</a></li><li><a href=\"https://www.friedgil.com/vpvnp\">What VP \u2260 VNP Means</a></li><li><a href=\"https://vllm.ai/blog/2026-11-24-vllm-gr-announcement\">Announcing vLLM-GR: Efficient Inference for Generative Recommendation</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR\u2019s AI community (2 minute form)</a></li><li><a href=\"https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf\">The matrix multiplication exponent is nine fourths (6 hour read)</a></li><li><a href=\"https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/\">GPT-6 models demonstrate intrinsic protein-design capabilities</a></li><li><a href=\"https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/\">Amazon says hackers' AI agents found and exploited 0-day with little human input</a></li><li><a href=\"https://ianbarber.blog/2026/11/24/ml-compiler-eng-your-job-is-np-hard/\">ML compiler eng, your job is NP-hard</a></li><li><a href=\"https://www.testingcatalog.com/openai-prepares-dedicated-email-inboxes-for-chatgpt-dots/\">OpenAI prepares dedicated email inboxes for ChatGPT Dots</a></li><li><a href=\"https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/\">Meta brings its Muse AI assistant directly into Instagram DMs</a></li><li><a href=\"https://www.harvey.ai/blog/applying-the-harvey-tenet-training-recipe-to-us-open-weight-models\">Pushing the US Open-Weight Frontier</a></li><li><a href=\"https://www.testingcatalog.com/google-adds-task-checklists-to-antigravity-and-carbon-for-pro/\">Google Adds Task Checklists to Antigravity</a></li></ul><h3>TLDR infosec (2026-11-25)</h3><ul><li><a href=\"https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/\">1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCO</a></li><li><a href=\"https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html\">Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE</a></li><li><a href=\"https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/\">Turnitin discloses cyberattack affecting customer-facing systems</a></li><li><a href=\"https://elementdigital.com.au/blog/brake-check-trailer-brakes-over-bluetooth/\">Brake Check: Hijacking Trailer Brakes Over Bluetooth</a></li><li><a href=\"https://cset.georgetown.edu/article/judge-the-cyber-apocalypse-by-the-data-not-the-headlines\">Judge the Cyber Apocalypse by the Data, Not the Headlines</a></li><li><a href=\"https://www.bleepingcomputer.com/news/security/ai-agents-are-creating-a-shared-responsibility-gap/\">AI Agents Are Creating a Shared Responsibility Gap</a></li><li><a href=\"https://www.corma.ai/\">Corma (Product Launch)</a></li><li><a href=\"https://github.com/0sec-labs/0security\">0security</a></li><li><a href=\"https://openai.com/index/introducing-shirudo/\">OpenAI and Cisco introduce Shirudo</a></li><li><a href=\"https://www.troyhunt.com/heres-why-data-breach-disclosure-is-so-hard-lessons-from-hundreds-of-emails-with-hacked-companies/\">Here's Why Data Breach Disclosure is so Hard: Lessons from Hundreds of Emails with Hacked Companies</a></li><li><a href=\"https://www.databricks.com/blog/what-5400-malicious-npm-packages-reveal-about-software-supply-chain-risk-2026\">What 5,400 Malicious npm Packages Reveal about Software Supply Chain Risk in 2026</a></li><li><a href=\"https://www.theregister.com/security/2026/11/23/inception-possibly-a-shinyhunters-reboot-claims-seven-victims-in-a-week/5311768\">Inception - possibly a ShinyHunters reboot - claims seven victims in a week</a></li><li><a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/waf-ai-endpoint-discovery-protection/\">AWS WAF announces automated discovery and protection for LLM, MCP, and A2A endpoints using Amazon Bedrock Guardrails</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/26/sqlite3-rsync/\">sqlite3_rsync: Database Remote-Copy Tool For SQLite</a></li><li><a href=\"https://simonwillison.net/2026/Nov/25/scott-aaronson/\">Quoting Scott Aaronson</a></li><li><a href=\"https://simonwillison.net/2026/Nov/25/datasette-charts/\">datasette-charts 0.3a0</a></li><li><a href=\"https://simonwillison.net/2026/Nov/24/datasette-charts-2/\">datasette-charts 0.2a1</a></li><li><a href=\"https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/\">The Revolution vs The Renaissance \u2014 Thariq Shihipar, OpenAI</a></li><li><a href=\"https://latent.space/p/ainews-math-proofs-are-landing-faster-than-we-can-read-them/\">[AINews] Math Proofs Are Landing Faster Than We Can Read Them</a></li></ul>",
+   "file": "episodes/2026-11-26.mp3",
+   "bytes": 3177312,
+   "seconds": 794,
+   "published": "2026-11-26T06:00:28.899454-06:00",
+   "engine": "google-chirp",
+   "opening": "Good morning, and welcome to AI Morning. It's Thursday, which normally means the weekend is almost in sight. Today it's Thanksgiving, so the weekend kind of showed up a day early and brought pie.",
+   "closing": "Enjoy the turkey, stay dry when the rain rolls in tonight, and happy Thanksgiving. Goodbye.",
+   "picks": {
+    "opening": "Open with a light, wry remark about the day of the week.",
+    "tone": "upbeat and warm",
+    "dynamic": "Group the stories into two or three themes; one host introduces each theme, the other connects it.",
+    "signoff": "Before the goodbye, recap the single thing worth remembering today."
+   }
+  },
+  {
    "date": "2026-11-25",
    "title": "Eleven Minutes From Flaw to Root",
    "summary": "A set of AI agents went from spotting a flaw to running as root on a university server in 11 minutes, and that's where we're headed today. Good morning, and welcome to AI Morning. It's Wednesday, the day before Thanksgiving, and we're glad you're starting it with us. Good morning. Quick look...",
@@ -175,8 +194,8 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-24",
-  "infosec": "2026-11-24"
+  "ai": "2026-11-25",
+  "infosec": "2026-11-25"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
@@ -184,12 +203,14 @@
   "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
   "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
+  "https://latent.space/p/ainews-math-proofs-are-landing-faster-than-we-can-read-them/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
   "https://latent.space/p/ainews-riemann-hypothesis-proved-twice-independently/",
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
   "https://latent.space/p/formal-verification/",
   "https://latent.space/p/linear-scaling/",
+  "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
   "https://openai.com/business/customer-stories/clay-plugins-openai",
   "https://openai.com/business/customer-stories/hebbia",
   "https://openai.com/business/customer-stories/holiday-extras-dots",
@@ -258,8 +279,12 @@
   "https://simonwillison.net/2026/Nov/23/ladybird/",
   "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
   "https://simonwillison.net/2026/Nov/24/datasette-agent/",
+  "https://simonwillison.net/2026/Nov/24/datasette-charts-2/",
   "https://simonwillison.net/2026/Nov/24/datasette-charts/",
   "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+  "https://simonwillison.net/2026/Nov/25/datasette-charts/",
+  "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
+  "https://simonwillison.net/2026/Nov/26/sqlite3-rsync/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",

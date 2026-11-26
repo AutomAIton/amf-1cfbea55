@@ -1,0 +1,84 @@
+Swarms, Shields and Agents With Inboxes
+
+ANDREW: Good morning, and welcome to AI Morning. It's Thursday, which normally means the weekend is almost in sight. Today it's Thanksgiving, so the weekend kind of showed up a day early and brought pie.
+AVA: Happy Thanksgiving to you, wherever you're listening. We'll keep you good company while the oven preheats.
+ANDREW: First, the weather. Chicago stays overcast all day with a high of 8 degrees Celsius and a low of 4, and rain chances climb from near zero this morning to 87 percent by evening. Winds gust up to 36 kilometres per hour.
+AVA: Okay, into the news. We've grouped today into three themes, and the full list of everything else is in the show notes. Andrew, kick us off.
+ANDREW: Theme one is new brains for agents. Cognition released SWE-2.1, its upgraded coding and agent model. It's trained with reinforcement learning on top of Kimi K3, and it roughly doubles the old SWE-2 score on Terminal-Bench 4.1, landing at 50.0.
+AVA: And they say it has stronger security skills too, which is the part I'd watch. A coding agent that's better at security is better at finding holes and better at closing them. Same skill, two directions.
+ANDREW: Right. And the base model choice is interesting. Kimi K3 is open weights, so this is a lab taking someone else's foundation and doing the expensive RL work on top.
+AVA: Which connects nicely to the other model story. Ternary Bonsai 2.5 27B. It keeps the same 5.9 gigabyte footprint as the last release, but it's much stronger at agentic coding, multi-turn tool use and multi-step tasks.
+ANDREW: Five point nine gigabytes. That fits on a laptop with room for your browser tabs.
+AVA: Barely, depending on your tabs. The pitch is agents that work with private files and tools on the device itself. They claim it's by far the strongest model of its memory footprint for agentic workloads.
+ANDREW: That's the story for anyone who can't send certain data to a cloud API. If a small local model can handle tool calls reliably, you can route the sensitive steps of a workflow to it and keep the rest on a frontier model.
+AVA: Okay, here's the one I'm most excited about. A research piece called "Swarms do not yet raise the roof." They compared swarms of coordinated agents against single agents with the same token budget.
+ANDREW: And let me guess, the swarm lost.
+AVA: The swarm was faster but less efficient. And adding more agents made quality worse, with a penalty that grew as the swarm got bigger.
+ANDREW: Huh. So why did people keep seeing a swarm premium before?
+AVA: That's the clever bit. They found the old swarm advantage came from single agents going stale over a long run. Give the single agent fresh context resets, and it beats the swarm.
+ANDREW: So a lot of multi-agent setups were really just a very elaborate way to clear the context window.
+AVA: Pretty much. Their conclusion is that swarms today mostly buy you speed by spending more compute in parallel, not more capability.
+ANDREW: I'll push back a little. Speed matters. If a task finishes in ten minutes instead of an hour, some teams will happily pay the token bill.
+AVA: Totally fair. But then call it what it is. It's a latency trade, not a smarter system. And if you're designing an agent system, context hygiene might be the cheaper win.
+ANDREW: Google seems to agree that structure matters. Its Antigravity coding app now shows live checklists for long tasks, and you can pick separate planner and executor models.
+AVA: Planner and executor split is a nice pattern. Big thoughtful model to plan, cheaper fast model to do the steps. It's a single agent with a good to-do list, not a swarm.
+ANDREW: Two more product notes. Claude artifacts can now be installed as Mac and Windows apps, in beta on all plans. Each one gets its own icon and window, updates when the artifact changes, and can be shared.
+AVA: So that little tool you built in a chat becomes a real app on your dock. That's a fun shortcut for internal dashboards.
+ANDREW: And OpenAI is developing dedicated email addresses for Dots in ChatGPT, so they can send and receive email on their own.
+AVA: An agent with its own inbox. I love it and I'm a little nervous about it, because email is the oldest prompt injection delivery system there is.
+ANDREW: Every newsletter becomes a potential instruction. Hold that thought, we'll come back to it.
+AVA: Theme two is AI doing serious math and science, and this week was wild. An Anthropic proof that VP is not equal to VNP is getting a lot of attention.
+ANDREW: Translate that for the rest of us.
+AVA: In plain terms, you can't compute the permanent of a matrix of zeros and ones with arithmetic circuits of polynomial size. So if P ever equals NP, it would need some Boolean trick that beats plain addition and multiplication.
+ANDREW: And there's a million dollar prize hanging on that bigger question.
+AVA: There is. Meanwhile a preprint posted in OpenAI's math repository claims the exponent of square matrix multiplication is nine fourths over every field.
+ANDREW: That's the kind of thing people have chipped away at for decades.
+AVA: And Scott Aaronson said we're not getting one-off answers anymore, but a whole new continent of mathematical truth. He compared it to Galileo first pointing a telescope at the stars.
+ANDREW: Big words from a careful person. And it's not only math. OpenAI said its GPT-6 models can design new proteins using reasoning and code alone, without calling specialized biology models.
+AVA: With a caveat, right?
+ANDREW: Yes. Lab tests with a research partner confirmed some designs worked, but the work still relied on specialist tools to screen the candidates. So it's general models moving into specialist territory, with the specialists still checking the homework.
+AVA: One more headline outside the lab work. Jensen Huang has been reinstated as Nvidia's CEO at the behest of President Trump. There are ongoing investigations, and analysts expect Nvidia to push chip sales to China again.
+ANDREW: That one will ripple into GPU supply and pricing for a while. Worth keeping an eye on.
+AVA: Okay. Security time.
+ANDREW: Theme three is agents on offense and who owns the mess. Amazon said hackers' AI agents running on Cairn, an open source penetration testing framework, found and exploited a zero-day in a medical imaging AI app on a university server. The only human input was a goal prompt.
+AVA: We touched on that earlier in the week, but there's a new piece. Palo Alto Networks tracked a separate Cairn campaign that ran 25 autonomous operations against at least 19 organizations in semiconductors, defense and civil society.
+ANDREW: And breached at least 10 of them.
+AVA: At least 10. Amazon's message is that agentic offensive operations aren't a forecast. They're happening, and defenders need to plan for that speed and persistence.
+ANDREW: Persistence is the scary word there. A human attacker gets tired at 2 AM. An agent loop does not.
+AVA: Which makes a nice counterpoint piece from Georgetown's CSET. Andrew Lohn looked at the data. Technical indicators favor attackers. Monthly CVEs have tripled since Claude Mythos launched, patching is slower, and exploitation is behind 31 percent of breaches.
+ANDREW: That sounds like the apocalypse headline.
+AVA: But the real-world impact numbers are flat or better. Significant incidents, healthcare breach victims, breach costs and ransomware payouts are all steady or down.
+ANDREW: So why the gap?
+AVA: His argument is that fear of attribution and retaliation, not technical skill, may always have been the real brake on attackers. He wants tougher enforcement, investment in attribution and resilience, and hardened critical systems for a crisis where those brakes fail. He does concede some datasets lag.
+ANDREW: Here's the connecting thread, though. If agents do the attacking, does attribution get harder? That's exactly the brake he's counting on.
+AVA: Good question, and nobody has the answer yet. Which brings us to the defender's side. A piece on the shared responsibility gap for AI agents.
+ANDREW: Like the cloud shared responsibility model?
+AVA: Exactly that idea. Agent harnesses and the MCP spec both put responsibility and audit logging for sensitive actions on the user. Even Microsoft's docs for Entra agent identities hand sensitive actions back to the user.
+ANDREW: So the vendor gives you an identity for your agent and then says, good luck.
+AVA: More or less. The takeaway is that responsibility can't be delegated. Every agent needs a clear owner, least privilege and consistent logging.
+ANDREW: That ties right back to the Dots inbox. If an agent can read and send email, somebody has to own what it sends.
+AVA: And AWS is trying to help on the plumbing side. AWS WAF can now automatically discover LLM, MCP and A2A endpoints behind API Gateway, load balancers and CloudFront, and flag undocumented public MCP servers as shadow APIs.
+ANDREW: Shadow MCP servers. That's going to be a fun audit for a lot of companies.
+AVA: There's also a new AI Security managed rule group. It blocks malformed MCP and A2A messages and uses Bedrock Guardrails to catch prompt injection and sensitive data in responses. Content inspection costs extra, though.
+ANDREW: Of course it does. Now the supply chain side. A review of about 5,400 malicious npm packages from the past year had a really sharp finding.
+AVA: Go on.
+ANDREW: Compromised legitimate packages were only 7 percent of the set, but more than 99 percent of the downloads. The attacker-created fake packages were rarely installed at all.
+AVA: So typosquats get the headlines, but hijacked real packages do the damage.
+ANDREW: Exactly. And after npm revoked long-lived tokens, attackers shifted to compromising CI pipelines and publishing through OIDC trusted publishing.
+AVA: Ouch. The safer publishing path became the target.
+ANDREW: Also, 38 percent hid their command and control traffic in legit services like Cloudflare Workers and Discord webhooks. And the registry took a median of 7 days to remove malicious packages, while attackers often deleted their own within hours.
+AVA: So by the time the registry acts, the evidence is already gone. Last one in this theme. OpenAI and Cisco introduced Shirudo, an open source eBPF runtime for Linux.
+ANDREW: What does it do?
+AVA: It deploys temporary shields that block a vulnerable code path on a running Linux system, with no restart and no patch. In a test, a shield generated by Codex added an input check to Java's Base64 decoder and stopped a Java4Shell exploit against a live Elasticsearch process.
+ANDREW: That's slick. Are shields trustworthy, though? You're letting AI write kernel-level filters.
+AVA: They're cryptographically signed, checked by the eBPF verifier and recorded through TPM attestation. It's a promising stopgap for long patch cycles, but the case for AI-written shields rests on a single controlled demo so far.
+ANDREW: One demo. Noted. Two quick non-AI stories. Turnitin, used by over 16,000 institutions, detected unauthorized activity on customer-facing systems. They haven't said how attackers got in or whether student data was taken.
+AVA: So watch for phishing that uses Turnitin as a lure, and if you manage schools, check your single sign-on and learning platform integration logs.
+ANDREW: And attackers are exploiting a critical flaw in an abandoned ASP.NET library called Idunno.AntiCsrf, CVE-2026-131914, with a score of 9.3. No patch is coming, so the fix is to replace the library.
+AVA: Okay, let's get practical. Try this.
+ANDREW: If you run Node.js with npm packages, open your lockfile and look at which dependencies changed versions in the past month. The research on 5,400 malicious npm packages found that hijacked legitimate packages caused more than 99 percent of malicious downloads, so updates to packages you already trust are the risk. Also check your CI pipeline's npm publish step, because attackers moved to compromising CI and OIDC trusted publishing, and scan for outbound calls to Discord webhooks or Cloudflare Workers you didn't add yourself.
+AVA: Next, pick one agent in your build and write down three things for it. First, who owns it. Second, the exact tools and permissions it has, then cut anything it doesn't need. Third, where its sensitive actions get logged, because agent harnesses, the MCP spec and Entra agent identities all leave that logging to you, not the vendor.
+ANDREW: And if you run any multi-agent swarm, try a quick bake-off. Give a single agent the same token budget as the swarm, but reset its context with a fresh summary every so often, then compare the output quality. New research found that a single agent with fresh context resets beat swarms, and that swarms mostly bought speed rather than better results.
+AVA: That's a nice one for a quiet holiday afternoon.
+ANDREW: So here's the one thing to remember today. Hijacked real packages, not fake ones, caused almost all the malicious npm downloads, so check what changed in the dependencies you already trust.
+AVA: Enjoy the turkey, stay dry when the rain rolls in tonight, and happy Thanksgiving. Goodbye.
