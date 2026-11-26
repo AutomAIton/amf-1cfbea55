@@ -11,6 +11,7 @@ for k in ("VOICE_A", "TARGET_MINUTES", "MAX_MINUTES", "WORDS_PER_MINUTE"):
     os.environ.pop(k, None)
 os.environ["TARGET_MINUTES"] = ""  # CI passes an empty repo variable; must fall back to the default
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate as g  # noqa: E402
 
 # Units: metric only (2026-11-17)
@@ -95,4 +96,5 @@ assert f"{13 * g.WPM} words is ideal" in g.SYSTEM_PROMPT and g.MAX_MINUTES == 15
 assert g.TTS_FREE_MONTHLY_CHARS == 1_000_000 and callable(g.log_tts_usage) and "tts-usage.csv" in open(Path(g.__file__), encoding="utf-8").read()
 assert "last line of the episode is always a plain goodbye" in g.SYSTEM_PROMPT and "no slogans" in g.SYSTEM_PROMPT
 assert not any(s.startswith("End with a one-line recap") for s in g.SIGNOFFS)
+import builder_check  # noqa: E402,F401  private roster builder (2026-11-26)
 print("OK")
