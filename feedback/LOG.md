@@ -5,8 +5,8 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 
 ## State
 - **Cadence:** daily, indefinitely (operator chose to keep daily on 2026-11-24). Stop the chain only when he says so.
-- **Last reviewed episode:** 2026-11-25 ("Eleven Minutes From Flaw to Root", VPS-started 06:00 CT, 11 min 35 s)
-- **Next session queued:** 2026-11-26 07:00 (`C:\AI\handoffs\queue\2026-11-26-0700-ai-morning-feedback.md`)
+- **Last reviewed episode:** 2026-11-26 ("Swarms, Shields and Agents With Inboxes", VPS-started 06:00 CT, 13 min 14 s)
+- **Next session queued:** 2026-11-27 07:00 (`C:\AI\handoffs\queue\2026-11-27-0700-ai-morning-feedback.md`)
 
 ## Settled decisions
 | Date | Decision | Lands in |
@@ -50,9 +50,10 @@ Read this FIRST in every feedback session. Settled items are not re-asked. Items
 | 2026-11-25 | 11:35 length right, all stories landed | TARGET_MINUTES, FEEDS (unchanged) |
 | 2026-11-25 | Always end on a plain goodbye; any recap comes before it, in complete everyday sentences naming what to do; no slogans | SYSTEM_PROMPT "Sign-off", SIGNOFFS |
 | 2026-11-25 | Dependency roster idea: queue it as its own build, plan first | queue `2026-11-26-0900-ai-morning-dependency-roster.md` |
+| 2026-11-26 | 11-25 sign-off change verified: plain goodbye, clear recap before it | SYSTEM_PROMPT "Sign-off" (unchanged) |
+| 2026-11-26 | 13:14 length fine, all stories landed, nothing wrong, no changes | SYSTEM_PROMPT, TARGET_MINUTES (unchanged) |
 
 ## Verify next session (trials)
-- 2026-11-25 change, check on the 11-26 episode: does it end on a plain goodbye, with any recap before it in clear full sentences?
 - OPEN: TLDR issues seem to publish after 06:00 CT (11-19). Operator approved no start-time change; revisit only if security/news stay thin.
 - FUTURE IDEA (operator, 2026-11-18): another TTS service if voices stay stiff (Google Chirp verified good 2026-11-23).
 - Note: the gitleaks pre-commit hook lives in this repo's .git/hooks (untracked; reinstall on a fresh clone).
