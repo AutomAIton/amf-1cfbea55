@@ -61,6 +61,9 @@ jobs:
           LISTENER_NAME: ${{ vars.LISTENER_NAME }}
           LISTENER_CONTEXT: ${{ secrets.LISTENER_CONTEXT }}
           LISTENER_STACK: ${{ secrets.LISTENER_STACK }}
+          LISTENER_ROSTER: ${{ secrets.LISTENER_ROSTER }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
           TARGET_MINUTES: ${{ vars.TARGET_MINUTES }}
           TLDR_TOPICS: ${{ vars.TLDR_TOPICS }}
