@@ -271,3 +271,13 @@ print("roster checks OK")
 assert not R.Guard(["ai-morning-podcast"], []).leaks("Welcome back to the AI Morning podcast.")
 assert R.Guard(["ai-morning-podcast"], []).leaks("see ai_morning_podcast")
 print("roster guard spacing OK")
+# review fixes (2026-11-26)
+assert R.verdicts(no_bp, [{"title": "t", "text": "Reconnect before 3.0 is gone; connect before 3.0 ends."}], EmptyOsv()) == []
+assert R.text_fixes("lib-x before 3.1.0 and lib-x before 2.9.4; 3.x before 3.1") == {"lib-x": None}  # ambiguous: no text verdict
+rel = R.verdicts(rs, [{"title": "t", "text": "binary-parser 3.0 released with a new API"}], EmptyOsv())[0].lines[0]
+assert "PRESENT in zzproj-alpha (2.2.0; no advisory in this story)" in rel and "AFFECTED" not in rel, rel
+adv_only = R.verdicts(rs, [{"title": "t", "text": f"A flaw, {CVE}, in a parser library."}], FakeOsv())[0]
+assert adv_only.names == [] and "AFFECTED in zzproj-alpha" in adv_only.lines[0]  # name not in the story: not spoken
+_, printed = captured(lambda: R.run(B.pack("projects: 0=" + "(" * 3 + "\n"), "d", TLDR, BLOGS, FakeOsv()))
+assert "(((" not in printed
+print("roster review fixes OK")

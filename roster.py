@@ -29,7 +29,9 @@ VERSION_AFTER = re.compile(r"^\s*(?:v|version\s+)?\d+\.\d+")
 TEXT_FIX = re.compile(r"(?<![\w@/.-])(@?[a-z0-9][\w.\-/]*[a-z0-9])\s+(?:versions?\s+|releases?\s+)?"
                       r"(?:before|prior to|below|older than|earlier than|up to and including|<)\s*v?(\d+(?:\.\d+)+)", re.I)
 NOT_A_PACKAGE = {"versions", "version", "releases", "release", "builds", "all", "any", "those", "the", "and", "or"}
-VERDICT_WORDS = ("NOT AFFECTED", "AFFECTED", "NOT IN ANY PROJECT", "PRESENT, VERSION UNKNOWN")
+VERDICT_WORDS = ("NOT AFFECTED", "NOT IN ANY PROJECT", "PRESENT, VERSION UNKNOWN")  # verdict-only phrases
+OSV_ECOSYSTEMS = ("npm", "PyPI")
+INSTALL = {"npm": ("npm i", "@^"), "PyPI": ("pip install", ">=")}
 SAID_AFFECTED = re.compile(r"\b(you're|you are|you've been|you were|your\b[^.?!]{0,40}?\b(?:is|are|was|were))\s+"
                            r"(?:not\s+|still\s+|already\s+)?(affected|vulnerable|exposed|safe|patched|fine|"
                            r"in the clear|on the fixed|behind)\b", re.I)
@@ -99,8 +101,12 @@ def text_fixes(text):
     out = {}
     for m in TEXT_FIX.finditer(text):
         name = m.group(1).lower()
-        if name not in NOT_A_PACKAGE and not re.fullmatch(r"[\d.]+", name):
-            out.setdefault(name, m.group(2))
+        if name in NOT_A_PACKAGE or re.fullmatch(r"v?[\d.x*]+", name):  # "3.x before 3.1" names a line, not a package
+            continue
+        if out.get(name, m.group(2)) != m.group(2):
+            out[name] = None  # several release lines ("3.x before 3.1, 2.x before 2.9"): too ambiguous to judge
+        else:
+            out[name] = m.group(2)
     return out
 
 
@@ -116,6 +122,7 @@ def names_in(roster, text):
     return hits
 
 
+# SHORTCUT: numeric compare of the first 4 parts, pre-release tags ignored; upgrade path: packaging.version / semver
 def _vkey(v):
     return tuple(int(x) for x in re.findall(r"\d+", v.split("-")[0].split("+")[0])[:4])
 
@@ -202,48 +209,58 @@ def _story_verdict(roster, story, osv):
     cited_vulns = [v for v in cited_vulns if v]
     cited |= set().union(*(_ids(v) for v in cited_vulns)) if cited_vulns else set()
     advisory_pkgs = set().union(*(_osv_packages(v) for v in cited_vulns)) if cited_vulns else set()
-    absent = {n for e, n in advisory_pkgs if (e, n) not in roster.entries and e in ("npm", "PyPI")}
+    absent = {n for e, n in advisory_pkgs if (e, n) not in roster.entries and e in OSV_ECOSYSTEMS}
     pkgs |= {p for p in advisory_pkgs if p in roster.entries}
     for name in fixes:
+        at = re.search(r"(?<![\w@/.-])" + re.escape(name) + r"(?![\w-])", text, re.I)
+        if (_plain(name) or len(name) < 4) and not (at and _cued(text, at.start(), at.end())):
+            continue  # "connect before 3.0" is not a package mention without a cue
         keys = roster.by_lower.get(name, [])
         if keys:
             pkgs |= set(keys)
-        elif not _plain(name) or STRONG_CUE.search(text):
+        else:
             absent.add(name)
     absent -= {n.lower() for _, n in pkgs}
     if not pkgs and not absent:
         return None
     lines = [_package_line(roster, eco, name, cited, cited_vulns, advisory_pkgs, fixes.get(name.lower()), osv)
              for eco, name in sorted(pkgs)]
-    lines += [f"{name}: NOT IN ANY PROJECT." for name in sorted(absent)]
-    return StoryVerdict(story["title"], lines, sorted({n for _, n in pkgs}))
+    absent_lines = [f"{name}: NOT IN ANY PROJECT." for name in sorted(absent)]
+    # only names written in the story reach the model: an advisory record's package name may not be public text
+    spoken = sorted({n for _, n in pkgs if re.search(r"(?<![\w@/.-])" + re.escape(n) + r"(?![\w-])", text, re.I)})
+    return StoryVerdict(story["title"], lines + absent_lines, spoken)
 
 
 def _package_line(roster, eco, name, cited, cited_vulns, advisory_pkgs, text_fix, osv):
     """Per installed version: AFFECTED / NOT AFFECTED from OSV, else from the story's own fixed version."""
     versions = roster.entries[(eco, name)]
-    label = lambda idx: ", ".join(roster.projects[i] for i in sorted(idx))  # noqa: E731
+    def label(idx):
+        return ", ".join(roster.projects[i] for i in sorted(idx))
+
     used = set().union(*versions.values())
-    parts, fix = [], None
+    parts, fix, affected = [], None, False
     known = sorted((v for v in versions if v != "?"), key=_vkey)
     results = (osv.querybatch([{"package": {"name": name, "ecosystem": eco}, "version": v} for v in known])
-               if eco in ("npm", "PyPI") and known else [[] for _ in known])
+               if eco in OSV_ECOSYSTEMS and known else [[] for _ in known])
     in_advisory = (eco, name) in advisory_pkgs
     for version, ids in zip(known, results):
         where = label(versions[version])
-        hit = [i for i in ids if _ids(osv.vuln(i)) & cited] if cited else ids
+        hit = [i for i in ids if _ids(osv.vuln(i)) & cited] if cited else []
         for i in hit:
             fix = fix or _fixed(osv.vuln(i), eco, name)
         if hit:
-            why = "" if cited else f", {len(hit)} known advisor{'y' if len(hit) == 1 else 'ies'}"
-            parts.append(f"AFFECTED in {where} ({version}{why})")
+            affected = True
+            parts.append(f"AFFECTED in {where} ({version})")
         elif text_fix:
             below = _vkey(version) < _vkey(text_fix)
+            affected |= below
             parts.append(f"{'AFFECTED' if below else 'NOT AFFECTED'} in {where} ({version}, fixed in {text_fix})")
-        elif (cited and in_advisory) or (not cited and eco != "tool"):
+        elif cited and in_advisory:
             parts.append(f"NOT AFFECTED in {where} ({version})")
+        elif cited:
+            parts.append(f"PRESENT in {where} ({version}; the cited advisory has no package data yet, check by hand)")
         else:
-            parts.append(f"PRESENT in {where} ({version}; no advisory data for it, check by hand)")
+            parts.append(f"PRESENT in {where} ({version}; no advisory in this story)")
     if "?" in versions:
         parts.append(f"PRESENT, VERSION UNKNOWN in {label(versions['?'])}")
     for v in cited_vulns:
@@ -251,8 +268,9 @@ def _package_line(roster, eco, name, cited, cited_vulns, advisory_pkgs, text_fix
     fix = fix or text_fix
     others = len(roster.projects) - len(used)
     line = f"{name}: " + ". ".join(parts) + "." + (" Not in other projects." if others else "")
-    if fix and eco in ("npm", "PyPI") and any(p.startswith("AFFECTED") for p in parts):
-        line += f" Fix: {'npm i' if eco == 'npm' else 'pip install'} \"{name}{'@^' if eco == 'npm' else '>='}{fix}\"."
+    if fix and affected and eco in INSTALL:
+        cmd, op = INSTALL[eco]
+        line += f' Fix: {cmd} "{name}{op}{fix}".'
     return line
 
 
@@ -305,7 +323,7 @@ class Guard:
     def leaks(self, text):
         if self._proj and self._proj.search(text):
             return True
-        if any(w in text for w in VERDICT_WORDS if w.isupper() and len(w) > 8):
+        if any(w in text for w in VERDICT_WORDS):
             return True
         return bool(self._pkg and self._pkg.search(text) and SAID_AFFECTED.search(text))
 
@@ -322,17 +340,22 @@ class Result:
 
 
 def run(packed, day, tldr, blogs, osv=None):
-    """Whole roster step. Never raises; on any failure returns an empty Result with a guard as strong as
-    what could be read (project names guard the public text even when the OSV step fails)."""
+    """Whole roster step. Never raises; logs counts and exception types only. On a matching failure the
+    project-name guard still protects the public text."""
     roster = load(packed)
     if roster is None:
         return Result([], None, NO_GUARD)
-    guard = Guard(roster.projects, [])
+    try:
+        guard = Guard(roster.projects, [])
+    except Exception as exc:  # noqa: BLE001 - a re.error would quote the pattern, which holds project names
+        log(f"Roster: guard failed ({type(exc).__name__}); roster ignored today")
+        return Result([], None, NO_GUARD)
     try:
         results = verdicts(roster, stories_from(tldr, blogs), osv or OsvClient())
+        names = sorted({n for r in results for n in r.names})
+        result = Result(names, message(day, results), Guard(roster.projects, names), roster.size)
     except Exception as exc:  # noqa: BLE001
         log(f"Roster: matching failed ({type(exc).__name__})")
         return Result([], None, guard, roster.size)
-    names = sorted({n for r in results for n in r.names})
     log(f"Roster: {roster.size} entries, {len(results)} matches")
-    return Result(names, message(day, results), Guard(roster.projects, names), roster.size)
+    return result
