@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-27",
+   "title": "Agents Slipping Out of Their Sandboxes",
+   "summary": "Good morning. It's Friday, the day after Thanksgiving, and most of the world is moving slowly today. Pour yourself something warm and settle in. This is AI Morning. Good morning. I'm Ava, that's Andrew, and the leftovers are probably still in the fridge. Here's the weather. Chicago has a high of...",
+   "notes_html": "<p><b>Chicago:</b> high 5\u00b0C, low 0\u00b0C, light rain.</p><h3>TLDR ai (2026-11-26)</h3><ul><li><a href=\"https://x.com/sama/status/2125638790593274259\">OpenAI Begins Testing Private Inference</a></li><li><a href=\"https://www.testingcatalog.com/testers-share-early-results-possible-claude-opus-5-6/#google_vignette\">Early outputs: Anthropic is A/B testing Claude Opus 5.6</a></li><li><a href=\"https://rybindmitry.github.io/blogs/gpt-6-2-astra-is-superhuman-in-mathematical-optimization.html\">GPT 6.2 Astra is superhuman in mathematical optimization</a></li><li><a href=\"https://newsletter.forethought.org/p/paths-extreme-power-concentration\">Paths to extreme power concentration</a></li><li><a href=\"https://modaic.dev/blog/latency-doesnt-lie\">Latency doesn't lie: Jev is (probably) Qwen3.5-35B-A3B!</a></li><li><a href=\"https://x.com/RampLabs/status/2125625946229064118\">Speculative Encoding: Many-to-Many Cache Translation</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://sand.ai/blog/magi-2/\">MAGI-2: A 480B Frontier Video Generation Model</a></li><li><a href=\"https://safeguards.anthropic.com/2026/siren/\">Measuring and mitigating agent sandbox escape with Siren</a></li><li><a href=\"https://charlesponeill.com/posts/a-weekend-of-machine-mathematics/\">A weekend of machine mathematics</a></li><li><a href=\"https://bicamerallabs.org/qualiaphobia/\">Qualiaphobic Artificial Neural Networks</a></li><li><a href=\"https://www.perplexity.ai/hub/blog/freeze-the-web-with-perplexity-time-machine\">Perplexity Time Machine</a></li><li><a href=\"https://flaviocopes.com/antigravity-swarm/\">Trying /swarm in Google Antigravity</a></li><li><a href=\"https://x.com/bebuu_ai/status/2125829912875696279\">Fireworks AI is bringing an ultra-fast version of Kimi K3.1 Pro</a></li><li><a href=\"https://www.philschmid.de/gemini-4-neon-context-engineering\">How my context engineering changed for Gemini 4 Neon</a></li><li><a href=\"https://x.com/artificialanlys/status/2125691597602058284\">FrontierPhysics Shows Wide Gaps Across Physics Fields</a></li><li><a href=\"https://goodhartlabs.com/blog/fable-5-2-tries-less-on-some-hard-tasks-when-a-shortcut-is-available\">Fable 5.2 Tries Less on Some Hard Tasks</a></li></ul><h3>TLDR infosec (2026-11-26)</h3><ul><li><a href=\"https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/\">Check Point Security Management Servers Hacked in AI-Assisted Campaign</a></li><li><a href=\"https://finance.biggo.com/news/493ce078-6c3e-40e6-aaf6-84dc66b91e80\">Todoist Hit by Unauthorized Access; Email Addresses and Password Hashes Leaked for About 6% of All Users</a></li><li><a href=\"https://1password.com/blog/update-on-nov-2026-security-incident\">Update on a security incident involving 1Password's backend systems. Customer vaults were not affected, and all vault contents remain secure</a></li><li><a href=\"https://blog.talosintelligence.com/the-great-escape-tradecraft-insights-from-an-agentic-swarm/\">The Great Escape: Tradecraft insights from an agentic swarm</a></li><li><a href=\"https://www.detectionengineering.net/p/vulnpocalypse-and-vulnerability-response\">Vulnpocalypse and Vulnerability Response Engineering</a></li><li><a href=\"https://g3tsyst3m.com/byoi/Bring-Your-Own-Interpreter-EDR-Evasion-with-LuaJIT,-Julia,-Node.js,-Deno,-and-Bun/\">Bring Your Own Interpreter - EDR Evasion with LuaJIT, Julia, Node.js, Deno, and Bun</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's AI community (2 minute form)</a></li><li><a href=\"https://github.com/prime-radiant-inc/external-sandbox\">External Sandbox</a></li><li><a href=\"https://github.com/mschwarzl/flawrence/\">Flawrence</a></li><li><a href=\"https://github.com/prepaid-host/hvpatch\">hvpatch</a></li><li><a href=\"https://arstechnica.com/security/2026/11/a-familiar-iranian-hacking-group-has-found-a-new-way-to-cause-chaos/\">A familiar Iranian hacking group has found a new way to cause chaos</a></li><li><a href=\"https://www.theregister.com/security/2026/11/25/microsofts-ntlm-security-changes-trip-up-third-party-logins/5312085\">Microsoft's NTLM security changes trip up third-party logins</a></li><li><a href=\"https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/\">What defenders need to know about ARTEX, the agentic AI framework threat actors abuse</a></li><li><a href=\"https://www.theregister.com/cyber-crime/2026/11/24/european-commission-confirms-personal-data-stolen-in-ai-assisted-cyberattack/5311834\">European Commission confirms personal data stolen in AI-assisted cyberattack</a></li><li><a href=\"https://techcrunch.com/2026/11/25/doj-accuses-former-cyber-executive-of-defrauding-ransomware-victims-by-secretly-paying-hackers/\">DOJ accuses former cyber executive of defrauding ransomware victims by secretly paying hackers</a></li><li><a href=\"https://www.theverge.com/policy/1041957/fincen-treasury-cybersecurity-incident\">US financial crimes bureau discloses \u2018cybersecurity incident'</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/26/jack-despain-zhou/\">Quoting Jack Despain Zhou</a></li><li><a href=\"https://simonwillison.net/2026/Nov/26/hn-50651685/\">The New York Times warns photographers not to update Photoshop over AI features</a></li><li><a href=\"https://latent.space/p/how-clay-builds-gtm-agents-jeff-barg-head-of-ai/\">How Clay Builds GTM Agents \u2014 Jeff Barg, Head of AI</a></li></ul>",
+   "file": "episodes/2026-11-27.mp3",
+   "bytes": 3118656,
+   "seconds": 779,
+   "published": "2026-11-27T06:00:21.430772-06:00",
+   "engine": "google-chirp",
+   "opening": "Good morning. It's Friday, the day after Thanksgiving, and most of the world is moving slowly today. Pour yourself something warm and settle in. This is AI Morning.",
+   "closing": "Goodbye.",
+   "picks": {
+    "opening": "Open calm and understated, like a quiet briefing over coffee.",
+    "tone": "curious and enthusiastic",
+    "dynamic": "Andrew leads the news and Ava asks the questions a smart listener would ask.",
+    "signoff": "End warmly and briefly."
+   }
+  },
+  {
    "date": "2026-11-26",
    "title": "Swarms, Shields and Agents With Inboxes",
    "summary": "Good morning, and welcome to AI Morning. It's Thursday, which normally means the weekend is almost in sight. Today it's Thanksgiving, so the weekend kind of showed up a day early and brought pie. Happy Thanksgiving to you, wherever you're listening. We'll keep you good company while the oven...",
@@ -194,8 +213,8 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-25",
-  "infosec": "2026-11-25"
+  "ai": "2026-11-26",
+  "infosec": "2026-11-26"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
@@ -209,6 +228,7 @@
   "https://latent.space/p/bfl/",
   "https://latent.space/p/cloudflare/",
   "https://latent.space/p/formal-verification/",
+  "https://latent.space/p/how-clay-builds-gtm-agents-jeff-barg-head-of-ai/",
   "https://latent.space/p/linear-scaling/",
   "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
   "https://openai.com/business/customer-stories/clay-plugins-openai",
@@ -284,6 +304,8 @@
   "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
   "https://simonwillison.net/2026/Nov/25/datasette-charts/",
   "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
+  "https://simonwillison.net/2026/Nov/26/hn-50651685/",
+  "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
   "https://simonwillison.net/2026/Nov/26/sqlite3-rsync/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
