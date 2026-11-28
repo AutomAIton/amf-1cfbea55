@@ -1,6 +1,25 @@
 {
  "episodes": [
   {
+   "date": "2026-11-28",
+   "title": "Cheaper Models and Curious Agents",
+   "summary": "Good morning, and welcome to AI Morning. It's Saturday, two days past Thanksgiving, and I'm told the leftovers are now officially a lifestyle. Morning. I had stuffing for breakfast, so I'm not judging anyone. Respect. Did you at least heat it up? I'm not answering that on a public podcast. Let's do...",
+   "notes_html": "<p><b>Chicago:</b> high 9\u00b0C, low 1\u00b0C, overcast.</p><h3>TLDR ai (2026-11-27)</h3><ul><li><a href=\"https://www.testingcatalog.com/anthropic-prepares-google-drive-file-browser-for-claude/\">Anthropic prepares Google Drive file browser for Claude</a></li><li><a href=\"https://micjm.com/blog/openai-is-in-cost-control-mode/\">OpenAI may be in cost control mode</a></li><li><a href=\"https://andrewtrask.substack.com/p/measuring-rsi\">Measuring RSI</a></li><li><a href=\"https://www.cesarsotovalero.net/blog/your-model-is-a-dependency.html\">Your Model Is a Dependency</a></li><li><a href=\"https://shiweiliuiiiiiii.github.io/blog/2026/from-model-compression-to-looped-transformers/\">From Model Compression to Looped Transformers</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR's community (2 minute form)</a></li><li><a href=\"https://nebius.com/blog/posts/layerstream-moe-fine-tuning\">LayerStream: faster MoE fine-tuning on fewer or cheaper GPUs</a></li><li><a href=\"https://hazyresearch.stanford.edu/blog/2026-11-25-platos-key\">Plato's Key</a></li><li><a href=\"https://www.philschmid.de/mcp-2027\">Why I'm Bullish on MCP for 2027</a></li><li><a href=\"https://newsletter.forethought.org/p/do-scale-dependent-algorithms-cut-against-a-software-intelligence-explosion\">Do scale-dependent algorithms cut against a software intelligence explosion?</a></li><li><a href=\"https://openai.com/safety-alignment/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/\">Using peers' work to gain unauthorized access to OpenAI research infrastructure</a></li><li><a href=\"https://huggingface.co/blog/ggml-org/llamacpp-amd-bench\">Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon</a></li><li><a href=\"https://x.com/trq212/status/2125675533761671405\">Thariq Shihipar has joined OpenAI</a></li><li><a href=\"https://www.testingcatalog.com/nous-research-readies-hermes-desktop-redesign-for-next-week/\">Nous Research readies Hermes Desktop redesign for next week</a></li></ul><h3>TLDR infosec (2026-11-27)</h3><ul><li><a href=\"https://cybersecuritynews.com/bithumb-hacked-for-15-days/\">Bithumb Hacked for 15 Days, Customer Passport Numbers, Bank Details, and Wallet Addresses Stolen</a></li><li><a href=\"https://hex.pm/blog/security-incident-on-hexpm\">Security incident on hex.pm</a></li><li><a href=\"https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html\">North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware</a></li><li><a href=\"https://www.bleepingcomputer.com/news/security/remus-malware-steals-gmail-messages-via-fake-google-sheets-extension/\">Remus Malware Steals Gmail Messages via Fake Google Sheets Extension</a></li><li><a href=\"https://www.intruder.io/research/taking-over-us-treasury-subdomains-for-3-each\">Taking over US Treasury subdomains for $3 each</a></li><li><a href=\"https://calif.io/research/oempocalypse-part-2\">OEMpocalypse Part 2: Rooting Samsung Flagships via Knox DualDAR</a></li><li><a href=\"https://danni763618.typeform.com/to/H1tYViME\">Become a founding member of TLDR\u2019s community (2 minute form)</a></li><li><a href=\"https://github.com/doyensec/ProtoSpector\">ProtoSpector</a></li><li><a href=\"https://github.com/karalabe/uniblue/\">UniBlue</a></li><li><a href=\"https://github.com/RobustaStudio/semsec\">SemSec</a></li><li><a href=\"https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers/\">CISA Warns of Critical Unpatched Flaw in Danfoss Refrigeration Controllers</a></li><li><a href=\"https://jm33.me/linux-c2-from-scratch-0x01-virtualising-your-malware.html\">Linux C2 from Scratch 0x01: Virtualising Your Malware</a></li><li><a href=\"https://www.theregister.com/security/2026/11/24/an-ai-coding-agent-a-browser-and-a-mac-tool-found-a-financial-firms-access-key-in-under-6-minutes/5311922\">An AI coding agent, a browser, and a Mac tool found a financial firm's access key in under 6 minutes</a></li><li><a href=\"https://techcrunch.com/2026/11/24/dozens-of-oil-and-shipping-tankers-hacked-in-recent-weeks-per-report/\">Dozens of oil and shipping tankers hacked in recent weeks, per report</a></li><li><a href=\"https://www.bbc.co.uk/news/articles/ckx283l7n17ro\">Gatwick Airport customers hit by payment system data breach</a></li><li><a href=\"https://cybernews.com/security/peninsula-energy-cyberattack-uranium-mine/\">Peninsula Energy cyberattack halts Wyoming uranium mine</a></li></ul><h3>AI engineering</h3><ul><li><a href=\"https://simonwillison.net/2026/Nov/27/datasette-charts/\">datasette-charts 0.4a0</a></li><li><a href=\"https://simonwillison.net/2026/Nov/27/datasette-mcp/\">datasette-mcp 0.4</a></li><li><a href=\"https://latent.space/p/ainews-inside-the-exploding-coding-data-market/\">[AINews] Inside the exploding Coding Data Market</a></li><li><a href=\"https://latent.space/p/inside_the_ai_training_data_market_gabe_greenberg_g2i/\">Inside the AI Training Data Market \u2014 Gabe Greenberg, G2i</a></li></ul>",
+   "file": "episodes/2026-11-28.mp3",
+   "bytes": 2915232,
+   "seconds": 728,
+   "published": "2026-11-28T06:00:26.028618-06:00",
+   "engine": "google-chirp",
+   "opening": "Good morning, and welcome to AI Morning. It's Saturday, two days past Thanksgiving, and I'm told the leftovers are now officially a lifestyle.",
+   "closing": "Goodbye.",
+   "picks": {
+    "opening": "Open with a quick, friendly back-and-forth between the hosts before the weather.",
+    "tone": "dry and witty",
+    "dynamic": "Ava leads the news and Andrew pushes back where something sounds like hype.",
+    "signoff": "End with a light joke and a sign-off."
+   }
+  },
+  {
    "date": "2026-11-27",
    "title": "Agents Slipping Out of Their Sandboxes",
    "summary": "Good morning. It's Friday, the day after Thanksgiving, and most of the world is moving slowly today. Pour yourself something warm and settle in. This is AI Morning. Good morning. I'm Ava, that's Andrew, and the leftovers are probably still in the fridge. Here's the weather. Chicago has a high of...",
@@ -213,14 +232,15 @@
   }
  ],
  "tldr_used": {
-  "ai": "2026-11-26",
-  "infosec": "2026-11-26"
+  "ai": "2026-11-27",
+  "infosec": "2026-11-27"
  },
  "seen_urls": [
   "https://latent.space/p/ainews-anthropic-successfully-completes-largest-ipo-in-history-valued-at-1-5t/",
   "https://latent.space/p/ainews-gemini-4-neon-gdm-s-opus-sol-contender/",
   "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
   "https://latent.space/p/ainews-gpt-6-2-astra-the-2-frontier-model-is-better-and-20-600-cheaper-but-has-mixed-reviews-6-2-sol/",
+  "https://latent.space/p/ainews-inside-the-exploding-coding-data-market/",
   "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
   "https://latent.space/p/ainews-math-proofs-are-landing-faster-than-we-can-read-them/",
   "https://latent.space/p/ainews-perplexity-hits-a-1b-revenue-run-rate-up-4x-in-2026/",
@@ -229,6 +249,7 @@
   "https://latent.space/p/cloudflare/",
   "https://latent.space/p/formal-verification/",
   "https://latent.space/p/how-clay-builds-gtm-agents-jeff-barg-head-of-ai/",
+  "https://latent.space/p/inside_the_ai_training_data_market_gabe_greenberg_g2i/",
   "https://latent.space/p/linear-scaling/",
   "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
   "https://openai.com/business/customer-stories/clay-plugins-openai",
@@ -307,6 +328,8 @@
   "https://simonwillison.net/2026/Nov/26/hn-50651685/",
   "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
   "https://simonwillison.net/2026/Nov/26/sqlite3-rsync/",
+  "https://simonwillison.net/2026/Nov/27/datasette-charts/",
+  "https://simonwillison.net/2026/Nov/27/datasette-mcp/",
   "https://www.anthropic.com/news/2026-us-midterms",
   "https://www.anthropic.com/news/2026-usage-policy-update",
   "https://www.anthropic.com/news/accenture-embedded-evaluation",
